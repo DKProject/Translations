@@ -33,6 +33,7 @@ messages:
   dkbans.player.notOnline: '{prefix} &cThe player &e{player.displayName} &cis not online'
   dkbans.player.notSelf: '{prefix} &cYou can''t interact with your self'
   dkbans.player.hasBypass: '{prefix} &cYou are not allowed to punish this player'
+  dkbans.player.hasBypass.notification: '{prefix} &c{sender.displayName} &ctried to punish &{target.displayName}'
 
   dkbans.player.staff.status.now: '{prefix} &7You are {statusFormatted}'
   dkbans.player.staff.status.already: '{prefix} &7You are already {statusFormatted}'
@@ -53,7 +54,7 @@ messages:
 
   dkbans.chat.filter.toFast: '${dkbans.prefix.chat} &cYou are chatting to fast.'
   dkbans.chat.filter.repeat: '${dkbans.prefix.chat} &cYou are repeating yourself.'
-
+  dkbans.chat.filter.capslock: '${dkbans.prefix.chat} &cPlease do not use CAPSLOCK.'
 
   dkbans.filter.blocked.command: '${dkbans.prefix.chat} &fUnknown command. Type "/help" for help.'
   dkbans.filter.blocked.insulting: '${dkbans.prefix.chat} &cPlease pay attention to your choice of words.'
@@ -73,15 +74,17 @@ messages:
 
   dkbans.punish.message.ban.permanently: '&e&lexample.net
   &e
-  &cYou are &4&lpermanently banned &cfrom this network
+  &cYou are &4&lpermanently banned &cfrom this server
   &3Reason&8: &4&l{ban.reason}
+  &3Scope&8: &4&l{ban.scope.name}
   &3BanID&8: &7{ban.id}
   &e
   &aYou can make a unban request at &eforum.example.net.'
   dkbans.punish.message.ban.temporary: '&e&lexample.net&r
   &e
-  &cYou are &e&l{ban.durationFormatted} &cbanned from this network
+  &cYou are &e&l{ban.durationFormatted} &cbanned from this server
   &3Reason&8: &4&l{ban.reason}
+  &3Scope&8: &4&l{ban.scope.name}
   &3BanID&8: &7{ban.id}
   &e
   &3Remaining time&8: &e{ban.remainingFormatted}
@@ -91,11 +94,13 @@ messages:
   dkbans.punish.message.mute.permanently: '&5
   ${dkbans.prefix} &cYou are &4&lPermanently &cbanned from the chat
   &8» &3Reason&8: &4&l{mute.reason}
+  &8» &3Scope&8: &4&l{mute.scope.name}
   &8» &3BanID&8: &7{mute.id}
   &7'
   dkbans.punish.message.mute.temporary: '&5
   ${dkbans.prefix} &cYou are &e&l{mute.durationFormatted} &cbanned from the chat
   &8» &3Reason&8: &4&l{mute.reason}
+  &8» &3Scope&8: &4&l{mute.scope.name}
   &8» &3BanID&8: &7{mute.id}
   &e
   &8» &3Remaining time&8: &e{mute.remainingFormatted}
@@ -103,7 +108,7 @@ messages:
 
   dkbans.punish.message.kick: '&e&lexample.net&r
   &e
-  &cYou were kicked from the network
+  &cYou were kicked from the server
   &3Reason&8: &4&l{kick.reason}'
 
   dkbans.punish.message.warn.chat: '&5
@@ -204,6 +209,7 @@ messages:
   &8» &7Created&8: &e{entry.createdFormatted}
   &8» &7Active&8: &e@if({entry.active},"&cYes","&aNo &8(&7{entry.revokeReason}&8)")
   &8» &7Staff&8: &e{entry.staff.displayName}
+  &8» &7Scope&8: &e{entry.scope.name}
   &8» &7Reason&8: &e{entry.reason}
   &8» &7Duration&8: &e{entry.durationFormatted}
   &8» &7Remaining&8: &e{entry.remainingFormatted}
@@ -218,6 +224,7 @@ messages:
   &8» &7History&8: &e{snapshot.historyType.name}
   &8» &7Active&8: &e@if({entry.active},"&cYes","&aNo &8(&7{entry.revokeReason}&8)")
   &8» &7Staff&8: &e{snapshot.staff.displayName}
+  &8» &7Scope&8: &e{snapshot.scope.name}
   &8» &7Reason&8: &e{snapshot.reason}
   &8» &7Duration&8: &e{snapshot.durationFormatted}
   &8» &7Remaining&8: &e{snapshot.remainingFormatted}
@@ -235,6 +242,9 @@ messages:
   &7/resethistory by <staff>'
   dkbans.command.resetHistory.many: '${dkbans.prefix} &7The history from &8{player.displayName} &7was reset'
   dkbans.command.resetHistory.one: '${dkbans.prefix} &7The history entry &c{id} from {player.displayName} &7was reset'
+
+  dkbans.command.myHistoryPoints: '${dkbans.prefix} &7Your history points&8: @for("entry" in {points}, ${dkbans.command.myHistoryPoints.loop},"\n") '
+  dkbans.command.myHistoryPoints.loop: '&8» &e{entry.type}&8: &7{entry.points}'
 
   dkbans.teamchat.messageFormat: '${dkbans.prefix.teamchat} &e{sender.displayName} &8» &7{message}'
 
@@ -263,6 +273,7 @@ messages:
 
   dkbans.command.filter.help: '${dkbans.prefix.chat} &7Filter help
   &7/filter list [area]
+  &7/filter reload
   &7/filter add <area> <value> <operation>
   &7/filter remove <id>
   &7
@@ -280,6 +291,7 @@ messages:
    &8- &eENDS_WITH
    &8- &eREGEX
   '
+  dkbans.command.filter.reloaded: '${dkbans.prefix.chat} &cFilters reloaded'
   dkbans.command.filter.affiliationArea.notFound: '${dkbans.prefix.chat} &cThe affiliation area &c{area} &cwas not found'
   dkbans.command.filter.operation.notFound: '${dkbans.prefix.chat} &cThe filter operation &c{operation} &cwas not found'
   dkbans.command.filter.notFound: '${dkbans.prefix.chat} &cThe filter &c{id} &cwas not found'
@@ -290,7 +302,6 @@ messages:
 
   dkbans.command.teamChat.help: '${dkbans.prefix.teamchat} &cUsage&8: &7/teamchat <login/logout/toggle/message>'
   dkbans.command.notify.help: '${dkbans.prefix.network} &cUsage&8: &7/notify <login/logout/toggle>'
-  dkbans.command.kick.help: '${dkbans.prefix.dkbans} &cUsage&8: &7/kick <player> <reason>'
   dkbans.command.jumpto.help: '${dkbans.prefix.network} &cUsage&8: &7/jumpto <player>'
 
   dkbans.command.help: '${dkbans.prefix.network} &7Information
@@ -344,6 +355,7 @@ messages:
   &7{note.message}'
   dkbans.command.playerNotes.added: '&8» &a+ &e{note.timeFormatted} &8- {note.creator.displayName}&8:
   &8> &7{note.message}'
+  dkbans.command.playerNotes.cleared: '${dkbans.prefix} &7Notes of &e{player.displayName} &7have been cleared'
   dkbans.command.chatlog.usage: '${dkbans.prefix.chat} &cInvalid usage of chatLog command&8:
   &7/chatlog player <name> [page]
   &7/chatlog server <name, id> [page]'
@@ -425,18 +437,20 @@ messages:
   dkbans.command.broadcast.group.notFound: '${dkbans.prefix} &cNo broadcast group found for &e{group}'
 
   dkbans.command.broadcast.group.help: '${dkbans.prefix} &cInvalid usage of &ebroadcast group &ccommand&8:
+  &7/broadcastgroup list
   &7/broadcastgroup <name> create <interval>
-  &7/broadcastgroup <name> assignment
-  &7/broadcastgroup <name> edit
-  &7/broadcastgroup list'
+  &7/broadcastgroup <name> assignment <name> add
+  &7/broadcastgroup <name> assignment <name> remove
+  &7/broadcastgroup <name> assignment <name> list
+  &7/broadcastgroup <name> assignment <name> [info]
+  &7/broadcastgroup <name> edit <setting> <value>'
   dkbans.command.broadcast.group.create.help: '${dkbans.prefix} &cUsage&8: &7/broadcastgroup <name> create <interval>'
   dkbans.command.broadcast.group.created: '${dkbans.prefix} &7You have successfully created the broadcast group &e{group.name}'
 
   dkbans.command.broadcast.group.alreadyExists: '${dkbans.prefix} &cA broadcast group with the name &e{name} already exists'
   dkbans.command.broadcast.alreadyExists: '${dkbans.prefix} &cA broadcast with the name &e{name} already exists'
 
-  dkbans.command.broadcast.group.list: '${dkbans.prefix} &7Broadcast groups&8:
-  @for("group" in {groups},${dkbans.command.broadcast.group.list.loop},"\n","\n")'
+  dkbans.command.broadcast.group.list: '${dkbans.prefix} &7Broadcast groups&8: @for("group" in {groups},${dkbans.command.broadcast.group.list.loop},"\n","\n")'
   dkbans.command.broadcast.group.list.loop: '&8» &7Id&8: &e{group.id} &7Name&8: &e{group.name}'
 
   dkbans.command.broadcast.group.info: '${dkbans.prefix} &7Group info
@@ -446,7 +460,7 @@ messages:
   &8» &7Permission&8: &e{group.permission}
   &8» &7Order&8: &e{group.order}
   &8» &7Interval&8: &e{group.intervalFormatted}
-  &8» &7Scope&8: &e{group.scopeFormatted}'
+  &8» &7Scope&8: &e{group.scope.name}'
 
   dkbans.command.broadcast.group.assignment.help: '${dkbans.prefix} &cInvalid usage of &eassignment &ccommand&8:
   &7/broadcastgroup <name> assignment <name>
@@ -465,7 +479,7 @@ messages:
   &8» &7Position&8: &e{assignment.position}'
 
   dkbans.command.broadcast.group.assignment.remove: '${dkbans.prefix} &7You have removed the assignment with id &e{assignment.id} &7from the group'
-  dkbans.command.broadcast.group.assignment.add: '${dkbans.prefix} &7You have added the broadcast with id &e{assignment.id} &to the group'
+  dkbans.command.broadcast.group.assignment.add: '${dkbans.prefix} &7You have added the broadcast with id &e{assignment.id} &eto the group'
 
   dkbans.command.broadcast.create.help: '${dkbans.prefix} &cUsage&8: &7/broadcast <name> create <visibility> <text>'
   dkbans.command.broadcast.visibility.notExists: '${dkbans.prefix} &cThe broadcast visibility &e{name} &cdoes not exists'
@@ -479,12 +493,11 @@ messages:
     &8- &7permission <permission>
     &8- &7order <order>
     &8- &7interval <interval>
-    &8- &7scope <type:name:[id]>'
+    &8- &7scope <type> <name>'
   dkbans.command.broadcast.group.edit.edited: '${dkbans.prefix} &7You have edited the property &e{property} &7to &e{value}'
   dkbans.command.broadcast.edit.edited: '${dkbans.prefix} &7You have edited the property &e{property} &7to &e{value}'
 
-  dkbans.command.broadcast.list: '${dkbans.prefix} &7Broadcasts&8:
-  @for("broadcast" in {broadcasts}, ${dkbans.command.broadcast.list.loop},"\n","\n")'
+  dkbans.command.broadcast.list: '${dkbans.prefix} &7Broadcasts&8: @for("broadcast" in {broadcasts}, ${dkbans.command.broadcast.list.loop},"\n","\n")'
   dkbans.command.broadcast.list.loop: '  &8- &e{broadcast.id} &8| &e{broadcast.visibility} &8| &e{broadcast.name}'
 
   dkbans.command.broadcast.direct: '${dkbans.prefix} &7You have successfully broadcast the message'
@@ -498,6 +511,7 @@ messages:
   ${dkbans.prefix.broadcast} {message}
   &a'
   dkbans.broadcast.actionbar: '{message}'
+  dkbans.broadcast.bossbar: '{message}'
   dkbans.broadcast.title: '{title}'
   dkbans.broadcast.title.sub: '{subTitle}'
 
@@ -515,13 +529,13 @@ messages:
 
   &7Default properties&8:
     &8- &7text
-    &8- &7stay (actionbar, title)
+    &8- &7stay (actionbar, title, bossbar)
     &8- &7subtitle (title)
     &8- &7fade-in (title)
-    &8- &7fade-out (title)'
+    &8- &7fade-out (title)
+    &8- &7bar-color (bossbar)'
 
-  dkbans.command.broadcast.edit.property.list: '${dkbans.prefix} &7Properties&8:
-  @for("property" in {properties}, ${dkbans.command.broadcast.edit.property.list.loop},"\n","\n")'
+  dkbans.command.broadcast.edit.property.list: '${dkbans.prefix} &7Properties&8: @for("property" in {properties}, ${dkbans.command.broadcast.edit.property.list.loop},"\n","\n")'
   dkbans.command.broadcast.edit.property.list.loop: '&8» &e{property.key}&8:&e{property.value}'
 
   dkbans.command.broadcast.edit.property.add: '${dkbans.prefix} &7You have added the property &e{key} &7with the value &e{value}'
