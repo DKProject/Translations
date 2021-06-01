@@ -224,6 +224,7 @@ messages:
   dkbans.command.myHistoryPoints.loop: '&8» &e{entry.type}&8: &7{entry.points}'
 
   dkbans.teamchat.messageFormat: '${dkbans.prefix.teamchat} &e{sender.displayName} &8» &7{message}'
+
   dkbans.command.report.help: '${dkbans.prefix} &cNutze&8: &7/report <player> <Reason>'
   dkbans.command.report.template.notExist: '${dkbans.prefix.report} &cDer Reportgrund &e{name} &cexistiert nicht.'
   dkbans.command.report.already.reported: '${dkbans.prefix.report} &cDu hast &e{player.displayName} &cbereits gemeldet'
@@ -240,8 +241,13 @@ messages:
   dkbans.command.report.decline: '${dkbans.prefix.report} &7Du hast die Meldung über &e{target.displayName} &7abgelehnt'
   dkbans.command.report.accept: '${dkbans.prefix.report} &7Du hast die Meldung über &e{target.displayName} &7angenommen'
   dkbans.command.report.notWatching: '${dkbans.prefix.report} &7Du bearbeitest keine Meldung'
+
   dkbans.command.report.list: '${dkbans.prefix.report} &7Offene Meldungen&8: @for("report" in {reports}, ${dkbans.command.report.list.loop},"\n","\n")'
-  dkbans.command.report.list.loop: ' !["&8- &e{report.player.displayName} &7Anzahl&8: &e{report.count}"]("run:///report take {report.player.name}")'
+  dkbans.command.report.list.loop: ' ![${dkbans.command.report.list.details}]("run:///report take {report.player.name}")'
+  dkbans.command.report.list.details: '&8- &e{report.player.displayName} &8[@for("reason" in {report.reasons}, ${dkbans.command.report.list.details.loop},"&8, ")&8]'
+  dkbans.command.report.list.details.loop: '&e{reason}'
+
+
   dkbans.command.filter.help: '${dkbans.prefix.chat} &6Filter help
   &7/filter list [area]
   &7/filter reload
@@ -269,9 +275,13 @@ messages:
   dkbans.command.filter.list.loop: ' &8- &7{filter.affiliationArea} &8| &7{filter.id} &8- &7{filter.value} &8(&7{filter.operationName}&8)'
   dkbans.command.filter.created: '${dkbans.prefix.chat} &7Der Filter &e{filter.id} &8- &e{filter.value} &7for &e{filter.affiliationArea} &7wurde erstellt'
   dkbans.command.filter.deleted: '${dkbans.prefix.chat} &7Der Filter &e{filter.id} &8- &e{filter.value} &7for &e{filter.affiliationArea} &7wúrde gelöscht'
+
   dkbans.command.teamChat.help: '${dkbans.prefix.teamchat} &cVerwende&8: &7/teamchat <login/logout/toggle/message>'
   dkbans.command.notify.help: '${dkbans.prefix.network} &cVerwende&8: &7/notify <login/logout/toggle>'
   dkbans.command.jumpto.help: '${dkbans.prefix.network} &cVerwende&8: &7/jumpto <player>'
+  dkbans.command.alert.help: '${dkbans.prefix.network} &cVerwende&8: &7/alert <message>'
+
+
   dkbans.command.help: '${dkbans.prefix.network} &6Information
   &8» &e/hub &8| &7Verbinde zum Lobby-Server
   &8» &e/report &8| &7Melde einen Spieler
@@ -288,7 +298,7 @@ messages:
 
   &8» &7Erster Login&8: &e{player.firstLoginFormatted}
   &8» &7Server&8: &e{player.server}
-  &8» &7Onlinezeit&8: &e{player.onlineTime}
+  &8» &7Onlinezeit&8: &e{player.onlineTimeFormatted}
 
   &8» &7Ip&8: &e{player.activeSession.hostName}
   &8» &7Land&8: &e{player.activeSession.country}
