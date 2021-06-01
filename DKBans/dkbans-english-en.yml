@@ -269,7 +269,9 @@ messages:
   dkbans.command.report.notWatching: '${dkbans.prefix.report} &7You are not watching a report'
 
   dkbans.command.report.list: '${dkbans.prefix.report} &7Open reports&8: @for("report" in {reports}, ${dkbans.command.report.list.loop},"\n","\n")'
-  dkbans.command.report.list.loop: ' !["&8- &e{report.player.displayName} &7Count&8: &e{report.count}"]("run:///report take {report.player.name}")'
+  dkbans.command.report.list.loop: ' ![${dkbans.command.report.list.details}]("run:///report take {report.player.name}")'
+  dkbans.command.report.list.details: '&8- &e{report.player.displayName} &8[@for("reason" in {report.reasons}, ${dkbans.command.report.list.details.loop},"&8, ")&8]'
+  dkbans.command.report.list.details.loop: '&e{reason}'
 
   dkbans.command.filter.help: '${dkbans.prefix.chat} &7Filter help
   &7/filter list [area]
@@ -303,6 +305,7 @@ messages:
   dkbans.command.teamChat.help: '${dkbans.prefix.teamchat} &cUsage&8: &7/teamchat <login/logout/toggle/message>'
   dkbans.command.notify.help: '${dkbans.prefix.network} &cUsage&8: &7/notify <login/logout/toggle>'
   dkbans.command.jumpto.help: '${dkbans.prefix.network} &cUsage&8: &7/jumpto <player>'
+  dkbans.command.alert.help: '${dkbans.prefix.network} &cUsage&8: &7/alert <message>'
 
   dkbans.command.help: '${dkbans.prefix.network} &7Information
   &8» &e/hub &8| &7Connect to the Hub-Server
@@ -441,7 +444,7 @@ messages:
   &7/broadcastgroup <name> create <interval>
   &7/broadcastgroup <name> assignment <name> add
   &7/broadcastgroup <name> assignment <name> remove
-  &7/broadcastgroup <name> assignment <name> list
+  &7/broadcastgroup <name> assignment list
   &7/broadcastgroup <name> assignment <name> [info]
   &7/broadcastgroup <name> edit <setting> <value>'
   dkbans.command.broadcast.group.create.help: '${dkbans.prefix} &cUsage&8: &7/broadcastgroup <name> create <interval>'
