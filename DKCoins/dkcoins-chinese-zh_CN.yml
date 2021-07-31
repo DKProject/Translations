@@ -1,0 +1,227 @@
+# 翻译贡献者:MODcraft
+# Translated by MODcraft
+meta:
+  name: 'DKCoins 中文'
+  module: 'DKCoins'
+  enabled: true
+  language:
+    name: 'Chinese'
+    localizedName: '简体中文'
+    code: 'zh_CN'
+messages:
+  dkcoins.prefix: '&8» &6DKCoins &8|&f'
+  dkcoins.error.notFromConsole: '${dkcoins.prefix} &c这个指令必须由玩家执行'
+  dkcoins.error.onlyFromConsole: '${dkcoins.prefix} &c这个指令必须由控制台(CONSOLE)执行'
+  dkcoins.error.notPermission: '${dkcoins.prefix} &c你没有权限执行此指令'
+  dkcoins.error.account.alreadyExists: '${dkcoins.prefix} &c名为 &e{account.name} &c的货币已存在'
+  dkcoins.error.currency.alreadyExists: '${dkcoins.prefix} &c当前货币的名称 &e{currency.name} &c已存在'
+  dkcoins.error.currency.notExists: '${dkcoins.prefix} &c货币 &e{name} &c不存在'
+  dkcoins.error.account.type.notExists: '${dkcoins.prefix} &c账号类型 &e{name} &c不存在
+  &7
+  &8» &7类型&8:
+   &8- &eBank (银行)'
+  dkcoins.error.notNumber: '${dkcoins.prefix} &e{value} &c不是一个有效的数字'
+  dkcoins.error.notBoolean: '${dkcoins.prefix} &e{value} &c不是一个有效的布尔值'
+  dkcoins.error.account.notExists: '${dkcoins.prefix} &c账号 &e{name} &c不存在'
+  dkcoins.error.account.member.notExists: '${dkcoins.prefix} &e{name} &c不是那个账号的一员'
+  dkcoins.error.account.memberRole.notExists: '${dkcoins.prefix} &c角色 &e{name} &c不存在
+  &7
+  &8» &7角色&8:
+   &8- &eGUEST &7(访客)
+   &8- &eUSER &7(用户)
+   &8- &eMANAGER &7(管理者)
+   &8- &eADMIN &7(管理员)
+   &8- &eOWNER &7(拥有者)'
+  dkcoins.error.account.member.notEnoughAccessRights: '${dkcoins.prefix} &c你没有权限执行此操作'
+  dkcoins.error.memberRole.lower: '${dkcoins.prefix} &c你无法与角色 &e{targetRole.name} &c交互'
+  dkcoins.error.account.user.deleteNotPossible: '${dkcoins.prefix} &c此账户不能被删除'
+  dkcoins.error.account.member.yourself: '${dkcoins.prefix} &c不能撤销自己的访问权'
+  dkcoins.error.account.noAccess: '${dkcoins.prefix} &c你无法访问这个账户'
+  dkcoins.error.user.notExists: '${dkcoins.prefix} &c账户 &e{name} &c不存在'
+  dkcoins.error.member.already: '${dkcoins.prefix} &e{member.displayName} &c已经是这个账户的成员'
+  dkcoins.error.account.user.notPossible: '${dkcoins.prefix} &c用户账户无法执行此操作'
+  dkcoins.error.account.payment.user.too.little: '${dkcoins.prefix} &c付款金额过低'
+  dkcoins.error.account.payment.all.too.little: '${dkcoins.prefix} &c付款金额过低'
+
+  dkcoins.command.bank.create.help: '${dkcoins.prefix} &c创建银行命令的用法错误&8:
+  &8» &7/bank <名称> create <类型>'
+  dkcoins.command.bank.create.done: '${dkcoins.prefix} &e{account.name} &7银行已创建'
+  dkcoins.command.bank.delete.done: '${dkcoins.prefix} &e{name} &c银行已删除'
+
+  dkcoins.command.bank.help: '${dkcoins.prefix} &c无效的&e银行&c指令&8:
+  &7/bank [list]
+  &7/bank <名称> create <类型>
+  &7/bank <名称> delete
+  &7/bank <名称> settings <选项> <值>
+  &7/bank <名称> transfer <接收者> <金额> [货币]
+  &7/bank <名称> exchange <原货币> <新货币> <金额>
+  &7/bank <名称> member
+  &7/bank <名称> limit
+  &7/bank <名称> statement'
+
+  dkcoins.command.bank.list: '${dkcoins.prefix} &7你的账户&8:
+  @for("member" in {members}, ${dkcoins.command.bank.list.loop},"\n")'
+  dkcoins.command.bank.list.loop: ' &8- &e{member.account.name} &7角色&8: &e{member.role.name}'
+
+  dkcoins.command.bank.credits: '${dkcoins.prefix} &7您的积分&8:
+  @for("credit" in {credits}, ${dkcoins.command.bank.credits.loop},"\n")'
+  dkcoins.command.bank.credits.loop: ' &8- &e{credit.formattedAmount}&8{credit.currency.symbol}'
+
+  dkcoins.command.bank.exchange.help: '${dkcoins.prefix} &c无效的&e兑换&c指令&8:
+  &8» /bank <名称> exchange <来源> <目标> <金额>'
+  dkcoins.command.bank.exchange.success: '${dkcoins.prefix} &7成功将 &e{sourceAmount}{sourceCurrency.symbol} &7兑换为 &e{targetAmount}{targetCurrency.symbol}'
+  dkcoins.command.bank.exchange.failure.notEnoughAmount: '${dkcoins.prefix} &c账号没有足够的货币数量'
+  dkcoins.command.bank.exchange.failure.masterAccountNotEnoughAmount: '${dkcoins.prefix} &c主账户没有足够的货币数量'
+  dkcoins.command.bank.exchange.failure.limit: '${dkcoins.prefix} &c你已达到你的兑换上线'
+  dkcoins.command.bank.exchange.failure.notEnoughAccessRights: '${dkcoins.prefix} &c你无法执行此操作'
+  dkcoins.command.bank.exchange.failure.disabled: '${dkcoins.prefix} &c目前货币兑换已关闭'
+
+  dkcoins.command.bank.transfer.help: '${dkcoins.prefix} &c无效的&e转账&c指令&8:
+  &8» &7/bank <名称> transfer <接收者> <金额> [货币]'
+  dkcoins.command.bank.transfer.success: '${dkcoins.prefix} &7你已转账 &e{transaction.formattedAmount}{transaction.currency.symbol} &7到 &e{transaction.receiver.name}'
+  dkcoins.command.bank.transfer.success.receiver: '${dkcoins.prefix} &7你收到了 &e{transaction.formattedAmount}{transaction.currency.symbol} &7来自 &e{transaction.sender.name}'
+  dkcoins.command.bank.transfer.failure.notEnoughAmount: '${dkcoins.prefix} &c没有足够的货币数量'
+  dkcoins.command.bank.transfer.failure.masterAccountNotEnoughAmount: '${dkcoins.prefix} &c主账户没有足够的货币数量'
+  dkcoins.command.bank.transfer.failure.limit: '${dkcoins.prefix} &c你已达到你的转账上限'
+  dkcoins.command.bank.transfer.failure.notEnoughAccessRights: '${dkcoins.prefix} &c你无法执行此操作'
+  dkcoins.command.bank.transfer.failure.disabled: '${dkcoins.prefix} &c目前货币转账已关闭'
+
+  dkcoins.command.bank.member.list: '${dkcoins.prefix} &7账户成员&8:
+  @for("member" in {members}, ${dkcoins.command.bank.member.list.loop},"\n")'
+  dkcoins.command.bank.member.list.loop: ' &8- &7{member.displayName} &e{member.role.name}'
+
+  dkcoins.command.bank.member.info: '${dkcoins.prefix} &7成员&8: &e{member.displayName} &7角色&8: &e{member.role.name}'
+
+  dkcoins.command.bank.info.limitation: '${dkcoins.prefix} &7限制&8: @for("limitation" in {limitations}, ${dkcoins.command.bank.info.limitation.loop},"\n", "\n")'
+  dkcoins.command.bank.info.limitation.loop: ' &8- &e{limitation.formattedAmount}{limitation.comparativeCurrency.name} &7在 &e{limitation.interval} 内 &7类型&8: &e{limitation.calculationType}'
+  dkcoins.command.bank.info.noLimitation: '${dkcoins.prefix} &7无限制'
+
+  dkcoins.command.bank.member.help: '${dkcoins.prefix} &c无效的&e成员&c指令&8:
+  &7/bank <名称> member
+   &8- list
+   &8- <名称> add
+   &8- <名称> remove
+   &8- <名称> role <角色>
+   &8- <名称> help
+   &8- <名称> limit'
+
+  dkcoins.command.bank.member.add: '${dkcoins.prefix} &e{member.displayName} &7已被添加到该银行'
+  dkcoins.command.bank.member.role: '${dkcoins.prefix} &7你为 &e{member.displayName} &7设置了 &e{member.role.name} &7角色'
+  dkcoins.command.bank.member.remove: '${dkcoins.prefix} &e{user.displayName} &c已从银行账户删除'
+
+  dkcoins.command.bank.member.limit.help: '${dkcoins.prefix} &c无效的&e限制&c指令&8:
+  &7/bank <名称> member <成员> limit
+   &8- &7list
+   &8- &7set <时间间隔> <金额> <计算类型> <货币>
+   &8- &7remove <时间间隔> <金额> <计算类型> <货币>'
+  dkcoins.command.bank.limit.help: '${dkcoins.prefix} &c无效的&e限制&c指令&8:
+  &7/bank <名称> limit
+   &8- &7list
+   &8- &7set <时间间隔> <金额> <计算类型> <货币>
+   &8- &7remove <时间间隔> <金额> <计算类型> <货币>'
+  dkcoins.command.bank.limit.set: '${dkcoins.prefix} &7你设置了限制 &e{limitation.amount}{limitation.comparativeCurrency.name} &7每 &e{limitation.interval} &7类型 &e{limitation.calculationType}'
+  dkcoins.command.bank.limit.remove: '${dkcoins.prefix} &c移除了限制 &e{limitation.amount}{limitation.comparativeCurrency.name} &c每 &e{limitation.interval} &7类型&8: &e{limitation.calculationType}'
+  dkcoins.command.bank.limit.remove.failure: '${dkcoins.prefix} &c移除限制失败'
+  dkcoins.command.bank.member.role.help: '${dkcoins.prefix} &c无效的&e角色&c指令&8:
+  &8» &7/bank <名称> member <名称> role <角色>'
+  dkcoins.command.bank.role.limit.help: '${dkcoins.prefix} &c无效的&e限制&c指令&8:
+  &7/bank <名称> role <名称> limit
+   &8- &7list
+   &8- &7set <时间间隔> <金额> <计算类型> <货币>
+   &8- &7remove <时间间隔> <金额> <计算类型> <货币>'
+
+  dkcoins.command.bank.admin.add: '${dkcoins.prefix} &7你添加了 &e{transaction.amount}{transaction.currency.symbol} &7到银行 &e{transaction.receiver.account.name}'
+  dkcoins.command.bank.admin.remove: '${dkcoins.prefix} &7你移除了 &e{transaction.amount}{transaction.currency.symbol} &7从银行 &e{transaction.receiver.account.name}'
+  dkcoins.command.bank.admin.set: '${dkcoins.prefix} &7你将银行 &e{transaction.receiver.account.name} &7设置为 &e{transaction.amount}{transaction.currency.symbol}'
+
+  dkcoins.command.bank.bankStatement.filterOption.wrong: '${dkcoins.prefix} &e{filterOption} &c是一个错误的选项 &8» &c使用 选项=值'
+  dkcoins.command.bank.bankStatement.filterOption.notFound: '${dkcoins.prefix} &e{filterOption} &c是一个无效的过滤器选项'
+
+  dkcoins.command.bank.bankStatement: '${dkcoins.prefix} &7银行账单&8: @for("transaction" in {transactions}, ${dkcoins.command.bank.bankStatement.loop},"\n","\n")'
+  dkcoins.command.bank.bankStatement.loop: ' &8- &e{transaction.sender.name} &8> &e{transaction.receiver.account.name}&8| &6{transaction.formattedAmount}{transaction.currency.symbol} &e-{transaction.formattedTime}'
+
+  dkcoins.command.currency.help: '${dkcoins.prefix} &c无效的&e货币&c指令&8:
+  &7/currency [list]
+  &7/currency <名称> [信息]
+  &7/currency <名称> create <货币符号>
+  &7/currency <名称> delete
+  &7/currency <名称> edit name <名称>
+  &7/currency <名称> edit symbol <货币符号>
+  &7/currency <名称> edit exchangeRate <目标货币> <金额>
+  &7/currency <名称> edit exchangeRate <目标货币> disable'
+
+  dkcoins.command.currency.create.help: '${dkcoins.prefix} &c无效的&e货币创建&c指令&8:
+  &8» &7/currency <名称> create <货币符号>'
+  dkcoins.command.currency.create.done: '${dkcoins.prefix} &7已创建货币 &e{currency.name}'
+
+  dkcoins.command.currency.delete.done: '${dkcoins.prefix} &c已删除货币 &e{currency.name}'
+
+  dkcoins.command.currency.list: '${dkcoins.prefix} &7货币&8:
+  @for("currency" in {currencies}, ${dkcoins.command.currency.list.loop},"\n")'
+  dkcoins.command.currency.list.loop: ' &8- &e{currency.name} &7货币符号&8: &e{currency.symbol}'
+
+  dkcoins.command.currency.info: '${dkcoins.prefix} &7货币&8: &e{currency.name}
+  &8» &7货币符号&8: &e{currency.symbol}
+  &8» &7兑率&8: @for("exchangeRate" in {exchangeRates}, ${dkcoins.command.currency.info.exchangeRate.loop},"\n", "\n")'
+  dkcoins.command.currency.info.exchangeRate.loop: ' &8- &7目标货币&8: &e{exchangeRate.targetCurrency.name} &7兑换数量&8: &e{exchangeRate.formattedExchangeAmount}'
+
+  dkcoins.command.currency.edit.help: '${dkcoins.prefix} &c无效的&e货币编辑&c指令&8:
+  &7/currency <名称> edit name <名称>
+  &7/currency <名称> edit symbol <货币符号>
+  &7/currency <名称> edit exchangeRate <目标货币> <金额>
+  &7/currency <名称> edit exchangeRate <目标货币> disable'
+  dkcoins.command.currency.edit.done.name: '${dkcoins.prefix} &7你将 &e{oldName} &7的名称修改为 &e{currency.name}'
+  dkcoins.command.currency.edit.done.symbol: '${dkcoins.prefix} &7你将货币符号 &e{oldSymbol} &7修改为 &e{currency.symbol}'
+  dkcoins.command.currency.edit.done.exchangeRate: '${dkcoins.prefix} &7你已修改兑换到 &e{exchangeRate.targetCurrency} &7的兑率为 &e{exchangeRate.formattedExchangeAmount}'
+  dkcoins.command.currency.edit.disable.exchangeRate: '${dkcoins.prefix} &c你关闭了 &e{currency.name} &c到 &e{targetCurrency.name} &c的兑换'
+  dkcoins.command.currency.edit.exchangeRate.amountNotValid: '${dkcoins.prefix} &e{value} &c不是一个有效的兑率'
+
+  dkcoins.command.userBank.amount: '${dkcoins.prefix} &7你的账户余额为 &e{credit.formattedAmount}&8{credit.currency.symbol}'
+  dkcoins.command.userBank.amount.other: '${dkcoins.prefix} &e{other.name} &7的账户余额为 &e{credit.formattedAmount}{credit.currency.symbol}'
+  dkcoins.command.userBank.help: '${dkcoins.prefix} &c无效的 &e{currency.name} &7指令&8:
+  &7/{currency.name}
+  &7/{currency.name} transfer <接收者> <金额>
+  &7/{currency.name} top <数量>'
+  dkcoins.command.userBank.world.disabled: '${dkcoins.prefix} &c此货币在 &e{world} &c世界被禁用'
+
+  dkcoins.command.userBank.transfer.help: '${dkcoins.prefix} &c无效的&e转账&c指令&8:
+  &8» &7/transfer <接收者> <金额> [货币]'
+
+  dkcoins.top: '${dkcoins.prefix} &7财富榜 {start}-{end}&8:
+  @for("rank" in {ranks}, ${dkcoins.top.loop},"\n")'
+  dkcoins.top.loop: '&8#{rank.position} &7{rank.credit.name} &e{rank.credit.formattedAmount}{rank.credit.currency.symbol}'
+  dkcoins.top.pageNoEntries: '${dkcoins.prefix} &c此页不存在'
+
+  dkcoins.bank.settings.help: '${dkcoins.prefix} &c无效的&e银行设置&c指令&8:
+  &8» &7/bank <名称> settings <选项> <值>
+
+  &7选项&8:
+   &8- &ereceiveNotifications&b=&etrue/false &7(货币到账提醒)'
+  dkcoins.bank.settings.receiveNotifications.on: '${dkcoins.prefix} &7你&a开启&7了到账提醒'
+  dkcoins.bank.settings.receiveNotifications.off: '${dkcoins.prefix} &7你&c关闭&7了到账提醒'
+  dkcoins.bank.settings.notValid: '${dkcoins.prefix} &e{value} &c不是一个有效的设置'
+
+  dkcoins.command.dkcoins.help: '${dkcoins.prefix} &c无效的&eDKcoins&c指令&8:
+  &7/dkcoins info
+  &7/dkcoins migrate <名称> [货币]
+  &7/dkcoins admin <银行> set <金额> [货币]
+  &7/dkcoins admin <银行> add <金额> [货币]
+  &7/dkcoins admin <银行> remove <金额> [货币]'
+
+  dkcoins.error.account.limitation.interval.notValid: '${dkcoins.prefix} &c时间间隔 &e{value} &c不存在
+  &7
+  &8» &7时间间隔&8:
+   &8- &eDAILY &7(每日)
+   &8- &eWEEKLY &7(每周)
+   &8- &eMONTHLY &7(每月)'
+  dkcoins.error.account.limitation.calculationType.notValid: '${dkcoins.prefix} &c计算类型 &e{value} &c不存在
+  &7
+  &8» &7计算类型&8:
+   &8- &eGLOBAL &7(全服)
+   &8- &eUSER_BASED &7(个人)'
+
+  dkcoins.command.bank.role.help: '${dkcoins.prefix} &c无效的&e角色&c指令&8:
+  &7/bank <名称> role <名称> limit
+   &8- &7[list]
+   &8- &7set <时间间隔> <金额> <计算类型> <货币>
+   &8- &7remove <时间间隔> <金额> <计算类型> <货币>'
