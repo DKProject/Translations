@@ -1,0 +1,553 @@
+meta:
+  name: 'DKBans English'
+  module: 'DKBans'
+  language:
+    name: 'English'
+    localizedName: 'English'
+    code: 'en'
+messages:
+  dkbans.prefix: '&8» &4DKBans &8|&f'
+  dkbans.prefix.network: '&8» &4DKNetwork &8|&f'
+  dkbans.prefix.report: '&8» &6DKReport &8|&f'
+  dkbans.prefix.teamchat: '&8» &eDKTeamChat &8|&f'
+  dkbans.prefix.chat: '&8» &eDKChat &8|&f'
+  dkbans.prefix.broadcast: '&8» &aDKBroadcast &8|&f'
+
+  dkbans.error.internal: '{prefix} &cAn internal server error occurred, please contact a network administrator"'
+  dkbans.error.invalid.DurationFormat: '{prefix} &e{input} &cis not a valid duration. Use for example 10m'
+  dkbans.error.invalid.number: '{prefix} &e{number} &cis not a valid number'
+  dkbans.error.invalid.boolean: '{prefix} &e{value} &cis not a valid boolean'
+  dkbans.error.onlyPlayer: '{prefix} &cThis command can only be executed as a player'
+  dkbans.error.onlyConsole: '{prefix} &cThis command can only be executed from console'
+  dkbans.error.noPermissions: '{prefix} &cYou are not allowed to execute this command'
+  dkbans.error.invalidIpAddress: '{prefix} &e{address} &cis not an ip address'
+  dkbans.error.invalid.templateSpecifierFormat: '{prefix} &cWrong template specifier format. Use &etemplate@group'
+  dkbans.error.invalidBroadcastOrder: '{prefix} &e{value} &cis not a valid broadcast order'
+  dkbans.error.invalidScope: '{prefix} &e{value} &cis not a valid scope. Use &e <type:name:[id]>'
+  dkbans.error.templateGroup.notExists: '{prefix} &e{templateGroup} &ctemplate group does not exist'
+  dkbans.error.template.notExists: '{prefix} &e{template} &ctemplate does not exist'
+  dkbans.error.ipBlock.notExists: '{prefix} &cAn ip block for address &e{address} &cdoes not exist'
+  dkbans.error.punishment.toLong: '{prefix} &cYou can not longer &e{type} &ca player than &e{duration}'
+
+  dkbans.player.notFound: '{prefix} &cThe player &e{name} &cwas not found'
+  dkbans.player.notOnline: '{prefix} &cThe player &e{player.displayName} &cis not online'
+  dkbans.player.notSelf: '{prefix} &cYou can''t interact with your self'
+  dkbans.player.hasBypass: '{prefix} &cYou are not allowed to punish this player'
+  dkbans.player.hasBypass.notification: '{prefix} &c{sender.displayName} &ctried to punish &{target.displayName}'
+
+  dkbans.player.staff.status.now: '{prefix} &7You are {statusFormatted}'
+  dkbans.player.staff.status.already: '{prefix} &7You are already {statusFormatted}'
+  dkbans.player.staff.status.change: '{prefix} &7You have {statusFormatted}'
+  dkbans.player.staff.status.not: '{prefix} &7You are not {statusFormatted}'
+  dkbans.player.staff.status.login: '&alogged in'
+  dkbans.player.staff.status.logout: '&clogged out'
+
+  dkbans.server.notFound: '${dkbans.prefix.network} &cThe server &e{name} &c was not found'
+  dkbans.server.alreadyConnected: '${dkbans.prefix.network} &cYou are already connected to this server'
+  dkbans.server.connecting: '${dkbans.prefix.network} &7Connecting to {server.name}...'
+
+  dkbans.ping.self: '${dkbans.prefix.network} &7Your ping is &e{ping}&7ms'
+  dkbans.ping.other: '${dkbans.prefix.network} &7The ping of &e{player.displayName} &7is &e{ping}&7ms'
+
+  dkbans.onlineTime.self: '${dkbans.prefix.network} &7Your online time is &e{online-time-formatted-short}'
+  dkbans.onlineTime.other: '${dkbans.prefix.network} &7The online time of &e{player.displayName} &7is &e{online-time-formatted-short}'
+
+  dkbans.chat.filter.toFast: '${dkbans.prefix.chat} &cYou are chatting to fast.'
+  dkbans.chat.filter.repeat: '${dkbans.prefix.chat} &cYou are repeating yourself.'
+  dkbans.chat.filter.capslock: '${dkbans.prefix.chat} &cPlease do not use CAPSLOCK.'
+
+  dkbans.filter.blocked.command: '${dkbans.prefix.chat} &fUnknown command. Type "/help" for help.'
+  dkbans.filter.blocked.insulting: '${dkbans.prefix.chat} &cPlease pay attention to your choice of words.'
+  dkbans.filter.blocked.advertising: '${dkbans.prefix.chat} &cPlease do not advertise'
+  dkbans.filter.blocked.name: '&e&lexample.net
+  &7
+  &cYour nickname is not allowed on this server
+  &7
+  &aIf you change you name, you can join :D'
+  dkbans.filter.blocked.notification: '${dkbans.prefix.chat} Blocked chat message from {player.displayName}
+  &7{message}'
+
+  dkbans.punish.template.noPermission: '{prefix} &cYou are not allowed to use this reason'
+  dkbans.punish.template.list: '{prefix} &7Available reasons&8:
+  @for("template" in {templates},${dkbans.punish.template.list.loop},"\n")'
+  dkbans.punish.template.list.loop: '![" &8- &c{template.inGroupId} &8| &c{template.displayName} &8» &4&l{template.firstType.name}"]("run:///{command} {selectedPlayer} {template.inGroupId}")'
+
+  dkbans.punish.message.ban.permanently: '&e&lexample.net
+  &e
+  &cYou are &4&lpermanently banned &cfrom this server
+  &3Reason&8: &4&l{ban.reason}
+  &3Scope&8: &4&l{ban.scope.name}
+  &3BanID&8: &7{ban.id}
+  &e
+  &aYou can make a unban request at &eforum.example.net.'
+  dkbans.punish.message.ban.temporary: '&e&lexample.net&r
+  &e
+  &cYou are &e&l{ban.durationFormatted} &cbanned from this server
+  &3Reason&8: &4&l{ban.reason}
+  &3Scope&8: &4&l{ban.scope.name}
+  &3BanID&8: &7{ban.id}
+  &e
+  &3Remaining time&8: &e{ban.remainingFormatted}
+  &e
+  &aYou can make a unban request at &eforum.example.net'
+
+  dkbans.punish.message.mute.permanently: '&5
+  ${dkbans.prefix} &cYou are &4&lPermanently &cbanned from the chat
+  &8» &3Reason&8: &4&l{mute.reason}
+  &8» &3Scope&8: &4&l{mute.scope.name}
+  &8» &3BanID&8: &7{mute.id}
+  &7'
+  dkbans.punish.message.mute.temporary: '&5
+  ${dkbans.prefix} &cYou are &e&l{mute.durationFormatted} &cbanned from the chat
+  &8» &3Reason&8: &4&l{mute.reason}
+  &8» &3Scope&8: &4&l{mute.scope.name}
+  &8» &3BanID&8: &7{mute.id}
+  &e
+  &8» &3Remaining time&8: &e{mute.remainingFormatted}
+  &7'
+
+  dkbans.punish.message.kick: '&e&lexample.net&r
+  &e
+  &cYou were kicked from the server
+  &3Reason&8: &4&l{kick.reason}'
+
+  dkbans.punish.message.warn.chat: '&5
+  ${dkbans.prefix} &cYou have been warned
+  &8» &3Reason&8: &4&l{warn.reason}
+  &8» &3WarnID&8: &7{warn.id}
+  &7'
+
+  dkbans.punish.notify.ban: '${dkbans.prefix} &e{player.displayName} &7has been &cbanned &7by &8{ban.staff.displayName} &7for &4{ban.reason}&7'
+  dkbans.punish.notify.mute: '${dkbans.prefix} &e{player.displayName} &7has been &9muted &7by &8{mute.staff.displayName} &7for &4{mute.reason}&7'
+  dkbans.punish.notify.kick: '${dkbans.prefix} &e{player.displayName} &7has been &ekicked &7by &8{kick.staff.displayName} &7for &4{kick.reason}&7'
+  dkbans.punish.notify.warn: '${dkbans.prefix} &e{player.displayName} &7has been &6warned &7by &8{warn.staff.displayName} &7for &4{warn.reason}&7'
+  dkbans.punish.notify.edit: '${dkbans.prefix} &7Punish &e{entry.id} &8(&e{newSnapshot.punishmentType.color}{newSnapshot.punishmentType.name}&8) &7of &e{player.displayName} &7has been changed by &8{newSnapshot.modifiedBy.displayName}'
+
+  dkbans.punish.success.ban: '${dkbans.prefix} &e{player.displayName} &7was banned'
+  dkbans.punish.success.mute: '${dkbans.prefix} &e{player.displayName} &7was muted'
+  dkbans.punish.success.kick: '${dkbans.prefix} &e{player.displayName} &7was kicked'
+  dkbans.punish.success.warn: '${dkbans.prefix} &e{player.displayName} &7was warned'
+
+  dkbans.report.countInfo: '${dkbans.prefix.report} !["&7Open reports&8: &e{openReports}"]("run:///report list")'
+  dkbans.report.notFound: '${dkbans.prefix.report} &cA report for &e{player.name} &cwas not found'
+
+  dkbans.report.accepted: '${dkbans.prefix.report} &aThe report about &e{report.player.displayName} &awas accepted'
+  dkbans.report.declined: '${dkbans.prefix.report} &cThe report about &e{report.player.displayName} &cwas declined'
+
+  dkbans.report.notify: '![${dkbans.report.notify.text};${dkbans.report.notify.hover}]("run:///report take {player.name}")'
+  dkbans.report.notify.text: '${dkbans.prefix.report} &e{player.displayName} &8&l>> &e{report.reason} &8[&7Click&8]'
+  dkbans.report.notify.hover: '&8» &7Player&8: &c{player.displayName}
+  &8» &7Reporter&8: &c{report.reporter.displayName}
+  &8» &7Reason&8: &c{report.reason}
+  &8» &7Server&8: &c{report.serverName}'
+
+  dkbans.punish.list.ban: '${dkbans.prefix} &6Banned players &8| &7{page} @for("punish" in {punishments},${dkbans.punish.list.loop},"\n","\n")'
+  dkbans.punish.list.mute: '${dkbans.prefix} &6Muted players &8| &7{page} @for("punish" in {punishments},${dkbans.punish.list.loop},"\n","\n")'
+  dkbans.punish.list.loop: ' &8- &e{punish.history.player.displayName} &8- &7{punish.reason}'
+
+  dkbans.punish.already.banned: '${dkbans.prefix} &e{player.displayName} &cis already banned'
+  dkbans.punish.already.muted: '${dkbans.prefix} &e{player.displayName} &cis already muted'
+  dkbans.punish.override: '${dkbans.prefix} &7Do you want override it? !["&8[&7Click&8]"]("run://{command}")'
+
+
+  dkbans.punish.not.banned: '${dkbans.prefix} &e{player.displayName} &cis not banned'
+  dkbans.punish.not.muted: '${dkbans.prefix} &e{player.displayName} &cis not muted'
+
+  dkbans.punish.notFound: '${dkbans.prefix} &cPunish entry {id} &cnot found'
+  dkbans.punish.empty: '${dkbans.prefix} &cNo active punishments for &e{player.displayName} &cfound'
+
+  dkbans.punish.addressBlock: '&e&lexample.net&r
+  &e
+  &cYou''re ip address is blocked from this network
+  &3Reason&8: &4&l{block.reason}
+  &3ID&8: &7{block.id}
+
+  &aYou can make a unban request at &eforum.example.net'
+
+  dkbans.unpunish.success.ban: '${dkbans.prefix} &e{player.displayName} &7was unbanned'
+  dkbans.unpunish.success.mute: '${dkbans.prefix} &e{player.displayName} &7was unmuted'
+
+  dkbans.command.unpunish.help: '${dkbans.prefix} &cUsage&8: &7/{command} <player> [Reason]'
+
+  dkbans.command.punish.help.temporary: '${dkbans.prefix} &7/{command} <player> <duration> <reason>'
+  dkbans.command.punish.help.permanently: '${dkbans.prefix} &7/{command} <player> <reason>'
+  dkbans.command.punish.help.oneTime: '${dkbans.prefix} &7/{command} <player> <reason>'
+
+  dkbans.command.punishinfo.help: '${dkbans.prefix} &cUsage&8: &7/punishinfo <player/id>'
+  dkbans.command.punishinfo.multiple: '${dkbans.prefix} &e{player.displayName} &7has multiple active punishments: @for("entry" in {entries}",${dkbans.command.punishinfo.multiple.loop},"\n","\n")'
+  dkbans.command.punishinfo.multiple.loop: '![" &8- &a{entry.punishmentType.color}{entry.punishmentType.name} &8| &7{entry.createdFormatted} - &7{entry.reason}"]("run:///punishinfo {entry.id}")'
+
+  dkbans.command.punishedit.help: '${dkbans.prefix.chat} &cInvalid usage of chatLog command&8:
+  &7/punishedit <player/id> setType <ban/mute>
+  &7/punishedit <player/id> setHistory <type>
+  &7/punishedit <player/id> setReason <reason>
+  &7/punishedit <player/id> setDuration <duration>
+  &7/punishedit <player/id> addDuration <duration>
+  &7/punishedit <player/id> removeDuration <duration>
+  &7/punishedit <player/id> setStuff <stuff>'
+
+  dkbans.command.punishedit.multiple: '${dkbans.prefix} &e{player.displayName} &7has multiple active punishments: @for("entry" in {entries}",${dkbans.command.punishinfo.multiple.loop},"\n","\n")'
+  dkbans.command.punishedit.multiple.loop: '![" &8- &a{entry.punishmentType.color}{entry.punishmentType.name} &8| &7{entry.createdFormatted} - &7{entry.reason}"]("run://{command}")'
+  dkbans.command.punishedit.done: '${dkbans.prefix} &7Punish of &e{player.displayName} &7 was changed to&8:
+  &8» &7Id&8: &e{entry.id} &8| &eV{snapshot.id}
+  &8» &7Type&8: &e{snapshot.punishmentType.color}{snapshot.punishmentType.name}
+  &8» &7History&8: &e{snapshot.punishmentType.color}
+  &8» &7Active&8: &e@if({entry.active},"&cYes","&aNo &8(&7{entry.revokeReason}&8)")
+  &8» &7Staff&8: &e{snapshot.staff.displayName}
+  &8» &7Reason&8: &e{snapshot.reason}
+  &8» &7Duration&8: &e{snapshot.durationFormatted}
+  &8» &7Remaining&8: &e{snapshot.remainingFormatted}
+  &8» &7Timeout&8: &e{snapshot.timeoutFormatted}'
+
+  dkbans.command.history.help: '${dkbans.prefix} &cUsage&8: &7/history <player>'
+  dkbans.command.history.list: '${dkbans.prefix} &7History of &8{player.displayName} @for("entry" in {entries}",${dkbans.command.history.list.loop},"\n","\n")'
+  dkbans.command.history.list.loop: '![" &8- &a{entry.punishmentType.color}{entry.punishmentType.name} &8| &7{entry.createdFormatted} - &7{entry.reason} @if({entry.revoked},"&8(&aUnbanned&8)")"]("run:///history {player.name} {entry.id}")'
+  dkbans.command.history.info: '${dkbans.prefix} &7History Entry of &e{player.displayName}
+  &8» &7Id&8: &e{entry.id}
+  &8» &7Type&8: &e{entry.punishmentType.color}{entry.punishmentType.name}
+  &8» &7History&8: &e{entry.historyType.name}
+  &8» &7Created&8: &e{entry.createdFormatted}
+  &8» &7Active&8: &e@if({entry.active},"&cYes","&aNo &8(&7{entry.revokeReason}&8)")
+  &8» &7Staff&8: &e{entry.staff.displayName}
+  &8» &7Scope&8: &e{entry.scope.name}
+  &8» &7Reason&8: &e{entry.reason}
+  &8» &7Duration&8: &e{entry.durationFormatted}
+  &8» &7Remaining&8: &e{entry.remainingFormatted}
+  &8» &7Timeout&8: &e{entry.timeoutFormatted}
+
+  &8» !["&8[&eChanges&8]"]("run:///history {player.name} {entry.id} changes")'
+  dkbans.command.history.version.list: '${dkbans.prefix} &7Versions of &e{player.displayName} &8| &e{entry.id} @for("snapshot" in {snapshots}",${dkbans.command.history.version.list.loop},"\n","\n")'
+  dkbans.command.history.version.list.loop: '![" &8- &e{snapshot.modifiedTimeFormatted} &8| &e{snapshot.modifiedBy.displayName}"]("run:///history {player.name} {entry.id} {snapshot.id}")'
+  dkbans.command.history.version.info: '${dkbans.prefix} &7History Entry of &e{player.displayName}
+  &8» &7Id&8: &e{entry.id} &8| &eV{snapshot.id}
+  &8» &7Type&8: &e{snapshot.punishmentType.color}{snapshot.punishmentType.name}
+  &8» &7History&8: &e{snapshot.historyType.name}
+  &8» &7Active&8: &e@if({entry.active},"&cYes","&aNo &8(&7{entry.revokeReason}&8)")
+  &8» &7Staff&8: &e{snapshot.staff.displayName}
+  &8» &7Scope&8: &e{snapshot.scope.name}
+  &8» &7Reason&8: &e{snapshot.reason}
+  &8» &7Duration&8: &e{snapshot.durationFormatted}
+  &8» &7Remaining&8: &e{snapshot.remainingFormatted}
+  &8» &7Timeout&8: &e{snapshot.timeoutFormatted}
+
+  &8» &7Modified Time&8: &e{snapshot.modifiedTimeFormatted}
+  &8» &7Modified By&8: &e{snapshot.modifiedBy.displayName}'
+  dkbans.command.history.notFound: '${dkbans.prefix} &cThe history entry does not exist'
+
+  dkbans.command.resetHistory.help: '${dkbans.prefix} &7Reset history help
+  &7/resethistory <player>
+  &7/resethistory <player> <id>
+  &7/resethistory last <amount>
+  &7/resethistory last <duration>
+  &7/resethistory by <staff>'
+  dkbans.command.resetHistory.many: '${dkbans.prefix} &7The history from &8{player.displayName} &7was reset'
+  dkbans.command.resetHistory.one: '${dkbans.prefix} &7The history entry &c{id} from {player.displayName} &7was reset'
+
+  dkbans.command.myHistoryPoints: '${dkbans.prefix} &7Your history points&8: @for("entry" in {points}, ${dkbans.command.myHistoryPoints.loop},"\n") '
+  dkbans.command.myHistoryPoints.loop: '&8» &e{entry.type.name}&8: &7{entry.points}'
+
+  dkbans.teamchat.messageFormat: '${dkbans.prefix.teamchat} &e{sender.displayName} &8» &7{message}'
+
+  dkbans.command.report.help: '${dkbans.prefix} &cUsage&8: &7/report <player> <Reason>'
+  dkbans.command.report.template.notExist: '${dkbans.prefix.report} &cThe report template &e{name} &cdoes not exist'
+  dkbans.command.report.already.reported: '${dkbans.prefix.report} &cYou have &e{player.displayName} &calready reported'
+  dkbans.command.report.reported: '${dkbans.prefix.report} &7You have reported &e{player.displayName} &7for &e{reason}'
+  dkbans.command.report.listTemplates: '${dkbans.prefix.report} &7Available report templates
+  @for("template" in {templates}, ${dkbans.command.report.listTemplates.loop},"\n")'
+  dkbans.command.report.listTemplates.loop: '![" &8- &c{template.inGroupId} &8| &c{template.displayName}"]("run:///{command} {selectedPlayer} {template.inGroupId}")'
+
+  dkbans.command.report.take.usage: '${dkbans.prefix.report} &cUsage&8: &7/report take <name>'
+  dkbans.command.report.take: '${dkbans.prefix.report} &7You have taken the report of &e{target.displayName}
+  ${dkbans.prefix.report} &7Action&8: !["&8[&aACCEPT&8]"]("run:///ban {target.name}") !["&8[&cDECLINE&8]"]("run:///report decline")'
+  dkbans.command.report.take.notReported: '${dkbans.prefix.report} &cThe player &e{target.displayName} &cis not reported'
+  dkbans.command.report.take.already: '${dkbans.prefix.report} &cThe report of &e{target.displayName} &chas already been taken'
+  dkbans.command.report.take.noPermission: '${dkbans.prefix.report} &cYou are not allowed to watch this report'
+
+  dkbans.command.report.decline: '${dkbans.prefix.report} &7You have declined the report about &e{report.player.displayName}'
+  dkbans.command.report.accept: '${dkbans.prefix.report} &7You have accepted the report about &e{report.player.displayName}'
+
+  dkbans.command.report.notWatching: '${dkbans.prefix.report} &7You are not watching a report'
+
+  dkbans.command.report.list: '${dkbans.prefix.report} &7Open reports&8: @for("report" in {reports}, ${dkbans.command.report.list.loop},"\n","\n")'
+  dkbans.command.report.list.loop: ' ![${dkbans.command.report.list.details}]("run:///report take {report.player.name}")'
+  dkbans.command.report.list.details: '&8- &e{report.player.displayName} &8[@for("reason" in {report.reasons}, ${dkbans.command.report.list.details.loop},"&8, ")&8]'
+  dkbans.command.report.list.details.loop: '&e{reason}'
+
+  dkbans.command.filter.help: '${dkbans.prefix.chat} &7Filter help
+  &7/filter list [area]
+  &7/filter reload
+  &7/filter add <area> <value> <operation>
+  &7/filter remove <id>
+  &7
+  &8» &7Areas&8:
+   &8- &eCHAT_ADVERTISING
+   &8- &eCHAT_INSULT
+   &8- &eCOMMAND
+   &8- &eCOMMAND_MUTE
+   &8- &ePLAYER_NAME
+
+  &8» &7Operations&8:
+   &8- &eEQUALS
+   &8- &eCONTAINS
+   &8- &eSTARTS_WITH
+   &8- &eENDS_WITH
+   &8- &eREGEX
+  '
+  dkbans.command.filter.reloaded: '${dkbans.prefix.chat} &cFilters reloaded'
+  dkbans.command.filter.affiliationArea.notFound: '${dkbans.prefix.chat} &cThe affiliation area &c{area} &cwas not found'
+  dkbans.command.filter.operation.notFound: '${dkbans.prefix.chat} &cThe filter operation &c{operation} &cwas not found'
+  dkbans.command.filter.notFound: '${dkbans.prefix.chat} &cThe filter &c{id} &cwas not found'
+  dkbans.command.filter.list: '${dkbans.prefix.chat} &7Available filters&8: @for("filter" in {filters},${dkbans.command.filter.list.loop},"\n","\n")'
+  dkbans.command.filter.list.loop: ' &8- &7{filter.affiliationArea} &8| &7{filter.id} &8- &7{filter.value} &8(&7{filter.operationName}&8)'
+  dkbans.command.filter.created: '${dkbans.prefix.chat} &7The filter &e{filter.id} &8- &e{filter.value} &7for &e{filter.affiliationArea} &7was created'
+  dkbans.command.filter.deleted: '${dkbans.prefix.chat} &7The filter &e{filter.id} &8- &e{filter.value} &7for &e{filter.affiliationArea} &7was deleted'
+
+  dkbans.command.teamChat.help: '${dkbans.prefix.teamchat} &cUsage&8: &7/teamchat <login/logout/toggle/message>'
+  dkbans.command.notify.help: '${dkbans.prefix.network} &cUsage&8: &7/notify <login/logout/toggle>'
+  dkbans.command.jumpto.help: '${dkbans.prefix.network} &cUsage&8: &7/jumpto <player>'
+  dkbans.command.alert.help: '${dkbans.prefix.network} &cUsage&8: &7/alert <message>'
+
+  dkbans.command.help: '${dkbans.prefix.network} &7Information
+  &8» &e/hub &8| &7Connect to the Hub-Server
+  &8» &e/report &8| &7Report a player
+  &8» &e/friends &8| &7Manage your friends
+  &7&8
+  &8» &eDiscord&8: &bdiscord.example.net
+  &8» &eTeamSpeak&8: &bts.example.net
+  &8» &eForum&8: &bforum.example.net
+  &8» &eShop&8: &bshop.example.net'
+
+  dkbans.command.playerInfo.help: '${dkbans.prefix} &cUsage&8: &7/playerinfo <player>'
+  dkbans.command.playerInfo.online: '${dkbans.prefix} &7Player Info
+  &8» &7Name&8: &e{player.displayName} &8(&aOnline&8)
+  &8» &7UniqueId&8: &e{player.uniqueId}
+
+  &8» &7FirstLogin&8: &e{player.firstLoginFormatted}
+  &8» &7Server&8: &e{player.server}
+  &8» &7OnlineTime&8: &e{player.onlineTimeFormatted}
+
+  &8» &7Ip&8: &e{player.activeSession.hostName}
+  &8» &7Country&8: &e{player.activeSession.country}
+  &8» &7Region&8: &e{player.activeSession.region}
+
+  &8» !["&8[&bHistory&8]"]("run:///history {player.name}") !["&8[&9Notes&8]"]("run:///playernotes {player.name}") !["&8[&aSessions&8]"]("run:///playersessions {player.name}") !["&8[&eIps&8]"]("run:///ipinfo {player.name}") !["&8[&5Jump&8]"]("run:///jumpto {player.name}")'
+
+  dkbans.command.playerInfo.offline: '${dkbans.prefix} &7Player Info
+  &8» &7Name&8: &e{player.displayName} &8(&cOffline&8)
+  &8» &7UniqueId&8: &e{player.uniqueId}
+
+  &8» &7FirstLogin&8: &e{player.firstLoginFormatted}
+  &8» &7LastLogin&8: &e{player.lastLoginFormatted}
+  &8» &7OnlineTime&8: &e{player.onlineTimeFormatted}
+
+  &8» &7Ip&8: &e{player.lastSession.hostName}
+  &8» &7Country&8: &e{player.lastSession.country}
+  &8» &7Region&8: &e{player.lastSession.region}
+
+  &8» !["&8[&bHistory&8]"]("run:///history {player.name}") !["&8[&eNotes&8]"]("run:///playernotes {player.name}") !["&8[&aSessions&8]"]("run:///playersessions {player.name}") !["&8[&eIps&8]"]("run:///ipinfo {player.name}")'
+
+  dkbans.command.playerSessions.help: '${dkbans.prefix} &cUsage&8: &7/psessions <player>'
+  dkbans.command.playerSessions.info: '${dkbans.prefix} &7Sessions of &e{player.displayName} &8| &7Page&8: {page} @for("session" in {sessions},${dkbans.command.playerSessions.info.loop},"\n","\n")'
+  dkbans.command.playerSessions.info.loop: ' &8- &e{session.connectedFormatted} &8- &e{session.disconnectedFormatted} &8| &c{session.durationFormatted}'
+
+  dkbans.command.playerNotes.help: '${dkbans.prefix} &cInvalid usage of dkbans command&8:
+  &7/pnotes <player> [list]
+  &7/pnotes <player> add <message>'
+  dkbans.command.playerNotes.list: '${dkbans.prefix} &7Notes of &e{player.displayName} &8| &7Page&8: &7{page} @for("note" in {notes},${dkbans.command.playerNotes.list.loop},"\n","\n")'
+  dkbans.command.playerNotes.list.loop: '&8» &e{note.timeFormatted} &8- {note.creator.displayName}
+  &7{note.message}'
+  dkbans.command.playerNotes.added: '&8» &a+ &e{note.timeFormatted} &8- {note.creator.displayName}&8:
+  &8> &7{note.message}'
+  dkbans.command.playerNotes.cleared: '${dkbans.prefix} &7Notes of &e{player.displayName} &7have been cleared'
+  dkbans.command.chatlog.usage: '${dkbans.prefix.chat} &cInvalid usage of chatLog command&8:
+  &7/chatlog player <name> [page]
+  &7/chatlog server <name, id> [page]'
+
+  dkbans.command.chatlog.player.list: '${dkbans.prefix.chat} &7Chatlog of player {player.displayName} &8| &7Page&8: {page}
+  @for("entry" in {entries}, ${dkbans.command.chatLog.player.list.loop},"\n")'
+  dkbans.command.chatlog.player.list.loop: '&8» {entry.serverName} &7on &e{entry.timeFormatted}&8:
+  &7{entry.message}'
+
+  dkbans.command.chatlog.server.list: '${dkbans.prefix.chat} &7Chatlog of server {serverName} &8| &7Page&8: {page}
+  @for("entry" in {entries}, ${dkbans.command.chatLog.server.list.loop},"\n")'
+  dkbans.command.chatlog.server.list.loop: '&8» {entry.player.displayName} &7on &e{entry.timeFormatted}&8:
+  &7{entry.message}'
+
+  dkbans.command.dkbans.help: '${dkbans.prefix} &cInvalid usage of dkbans command&8:
+  &7/dkbans info
+  &7/dkbans migrate <plugin>
+  &7/dkbans template import'
+  dkbans.command.dkbans.template.import: '${dkbans.prefix} &7You have imported &e{count} &7template groups with an amount of &e{templateCount} &7templates'
+  dkbans.command.joinme.notEnoughAmount: '${dkbans.prefix} &cYou can not send a joinme'
+  dkbans.command.joinme.usage: '${dkbans.prefix} &cUsage&8: &7/joinme [playerId]'
+  dkbans.command.joinme.notExists: '${dkbans.prefix} &cThis joinme does not exist'
+  dkbans.command.joinme.line1: '&6'
+  dkbans.command.joinme.line2: '&6'
+  dkbans.command.joinme.line3: '&6'
+  dkbans.command.joinme.line4: '&6'
+  dkbans.command.joinme.line5: '  &e{player.displayName} &7is playing on &e{server}'
+  dkbans.command.joinme.line6: '           &7Click to join'
+  dkbans.command.joinme.line7: '&6'
+  dkbans.command.joinme.line8: '&6'
+  dkbans.command.joinme.line9: '&6'
+  dkbans.command.joinme.line10: '&6'
+
+  dkbans.command.ip.info.help: '${dkbans.prefix} &cUsage&8: &7/ipinfo <player/address>'
+  dkbans.command.ip.info.address: '${dkbans.prefix} &7Address information of &e{address}
+  &8» &7Blocked: &e@if({info.blocked},"&aYes","&cNo") !["&8[&7Details&8]"]("run:///ipinfo {address} details")
+  &8» &7Country: &e{info.country}
+  &8» &7Region: &e{info.region}
+  @for("player" in {players},${dkbans.command.ip.info.address.loop},"\n","\n")'
+  dkbans.command.ip.info.address.loop: '![" &8- &e{player.displayName}"]("run:///playerinfo {player.name}")'
+  dkbans.command.ip.info.address.details: '${dkbans.prefix} &7Ip info of address &e{block.address}
+  &8» &7Type&8: &e{block.type}
+  &8» &7Staff&8 &e{block.staff.displayName}
+  &8» &7Reason&8: &e{block.reason}
+  &8» &7Timeout&8: &e{block.timeout}
+
+  &8» &7For reason&8: &e{block.forReason}
+  &8» &7For timeout&8: &e{block.forTimeout}'
+
+  dkbans.command.ip.info.player: '${dkbans.prefix} &7Address information of player &e{player.displayName} @for("address" in {addresses},${dkbans.command.ip.info.player.loop},"\n","\n")'
+  dkbans.command.ip.info.player.loop: '![" &8- &e{address.address} &8(&7Country&8: &e{address.country} &7Blocked&8: &e@if({address.blocked},"&cYes","&aNo")"]("run:///ipinfo {address.address}")'
+
+  dkbans.command.ip.info.blocked: '${dkbans.prefix} &7Ip info of address &e{block.address}
+  &8» &7Type&8: &e{block.type}
+  &8» &7Staff&8 &e{block.staff.displayName}
+  &8» &7Reason&8: &e{block.reason}
+  &8» &7Timeout&8: &e{block.timeout}
+
+  &8» &7For reason&8: &e{block.forReason}
+  &8» &7For timeout&8: &e{block.forTimeout}'
+  dkbans.command.ip.info.notBlocked: '${dkbans.prefix} &7Ip &e{address} &7is not blocked'
+
+  dkbans.command.ip.block.help: '${dkbans.prefix} &cInvalid usage of ipblock command&8:
+  &8»&7/ipblock <address> <reason> <duration>
+   &8- &7template <template>
+   &8- &7temporary <duration> <reason>
+   &8- &7permanently <reason>'
+
+  dkbans.command.ip.block.invalid.type: '${dkbans.prefix} &e{type} &cis an invalid block type'
+  dkbans.command.ip.block: '${dkbans.prefix} &7You have blocked the ip address 6{block.address}'
+  dkbans.command.ip.unblock.help: '${dkbans.prefix} &cUsage&8: &7/ipunblock <address>'
+  dkbans.command.ip.unblock: '${dkbans.prefix} &7You have unblocked the address &e{block.address}'
+
+  dkbans.command.chatClear.help: '${dkbans.prefix.network} &cUsage&8: &7/chatclear [local/global]'
+  dkbans.command.chatClear.my: '${dkbans.prefix.network} &7Your chat has been cleared'
+  dkbans.command.chatClear.all: '${dkbans.prefix.network} &7The chat has been cleared'
+
+  dkbans.command.broadcast.notFound: '${dkbans.prefix} &cNo broadcast found for &e{broadcast}'
+  dkbans.command.broadcast.group.notFound: '${dkbans.prefix} &cNo broadcast group found for &e{group}'
+
+  dkbans.command.broadcast.group.help: '${dkbans.prefix} &cInvalid usage of &ebroadcast group &ccommand&8:
+  &7/broadcastgroup list
+  &7/broadcastgroup <name> create <interval>
+  &7/broadcastgroup <name> assignment <name> add
+  &7/broadcastgroup <name> assignment <name> remove
+  &7/broadcastgroup <name> assignment list
+  &7/broadcastgroup <name> assignment <name> [info]
+  &7/broadcastgroup <name> edit <setting> <value>'
+  dkbans.command.broadcast.group.create.help: '${dkbans.prefix} &cUsage&8: &7/broadcastgroup <name> create <interval>'
+  dkbans.command.broadcast.group.created: '${dkbans.prefix} &7You have successfully created the broadcast group &e{group.name}'
+
+  dkbans.command.broadcast.group.alreadyExists: '${dkbans.prefix} &cA broadcast group with the name &e{name} already exists'
+  dkbans.command.broadcast.alreadyExists: '${dkbans.prefix} &cA broadcast with the name &e{name} already exists'
+
+  dkbans.command.broadcast.group.list: '${dkbans.prefix} &7Broadcast groups&8: @for("group" in {groups},${dkbans.command.broadcast.group.list.loop},"\n","\n")'
+  dkbans.command.broadcast.group.list.loop: '&8» &7Id&8: &e{group.id} &7Name&8: &e{group.name}'
+
+  dkbans.command.broadcast.group.info: '${dkbans.prefix} &7Group info
+  &8» &7Id&8: &e{group.id}
+  &8» &7Name&8: &e{group.name}
+  &8» &7Enabled&8: &e{group.enabled}
+  &8» &7Permission&8: &e{group.permission}
+  &8» &7Order&8: &e{group.order}
+  &8» &7Interval&8: &e{group.intervalFormatted}
+  &8» &7Scope&8: &e{group.scope.name}'
+
+  dkbans.command.broadcast.group.assignment.help: '${dkbans.prefix} &cInvalid usage of &eassignment &ccommand&8:
+  &7/broadcastgroup <name> assignment <name>
+     &8- &7list
+     &8- &7add
+     &8- &7remove
+     &8- &7[info]'
+  dkbans.command.broadcast.group.assignment.list: '${dkbans.prefix} &7Assignments&8:
+  @for("assignment" in {assignments},${dkbans.command.broadcast.group.assignment.list.loop},"\n","\n")'
+  dkbans.command.broadcast.group.assignment.list.loop: '&8» &7Id&8: &e{assignment.id} &7Name&8: &e{assignment.broadcast.name} &7Position&8: &e {assignment.position}'
+
+  dkbans.command.broadcast.group.assignment.notFound: '${dkbans.prefix} &cNo assignment found for &e{assignment}'
+  dkbans.command.broadcast.group.assignment.info: '${dkbans.prefix} &7Assignment info
+  &8» &7Id&8: &e{assignment.id}
+  &8» &7Name&8: &e{assignment.broadcast.name}
+  &8» &7Position&8: &e{assignment.position}'
+
+  dkbans.command.broadcast.group.assignment.remove: '${dkbans.prefix} &7You have removed the assignment with id &e{assignment.id} &7from the group'
+  dkbans.command.broadcast.group.assignment.add: '${dkbans.prefix} &7You have added the broadcast with id &e{assignment.id} &eto the group'
+
+  dkbans.command.broadcast.create.help: '${dkbans.prefix} &cUsage&8: &7/broadcast <name> create <visibility> <text>'
+  dkbans.command.broadcast.visibility.notExists: '${dkbans.prefix} &cThe broadcast visibility &e{name} &cdoes not exists'
+  dkbans.command.broadcast.created: '${dkbans.prefix} &7You have successfully created the broadcast &e{broadcast.name}'
+  dkbans.command.broadcast.deleted: '${dkbans.prefix} &7You have successfully deleted the broadcast &e{broadcast.name}'
+
+  dkbans.command.broadcast.group.edit.help: '${dkbans.prefix} &cInvalid usage of &eedit &ccommand&8:
+  &7/broadcastgroup <name> edit
+    &8- &7name <name>
+    &8- &7enabled <true, false>
+    &8- &7permission <permission>
+    &8- &7order <order>
+    &8- &7interval <interval>
+    &8- &7scope <type> <name>'
+  dkbans.command.broadcast.group.edit.edited: '${dkbans.prefix} &7You have edited the property &e{property} &7to &e{value}'
+  dkbans.command.broadcast.edit.edited: '${dkbans.prefix} &7You have edited the property &e{property} &7to &e{value}'
+
+  dkbans.command.broadcast.list: '${dkbans.prefix} &7Broadcasts&8: @for("broadcast" in {broadcasts}, ${dkbans.command.broadcast.list.loop},"\n","\n")'
+  dkbans.command.broadcast.list.loop: '  &8- &e{broadcast.id} &8| &e{broadcast.visibility} &8| &e{broadcast.name}'
+
+  dkbans.command.broadcast.direct: '${dkbans.prefix} &7You have successfully broadcast the message'
+  dkbans.command.broadcast.help: '${dkbans.prefix} &cInvalid usage of &ebroadcast &ccommand&8:
+  &7/broadcast <name> create <visibility> <text>
+  &7/broadcast <name> delete
+  &7/broadcast <name> edit
+  &7/broadcast <name> direct'
+
+  dkbans.broadcast.chat: '&9
+  ${dkbans.prefix.broadcast} {message}
+  &a'
+  dkbans.broadcast.actionbar: '{message}'
+  dkbans.broadcast.bossbar: '{message}'
+  dkbans.broadcast.title: '{title}'
+  dkbans.broadcast.title.sub: '{subTitle}'
+
+  dkbans.command.broadcast.edit.help: '${dkbans.prefix} &cInvalid usage of &eedit &ccommand&8:
+  &7/broadcast <name> edit
+    &8- &7name <name>
+    &8- &7visibility <visibility>
+    &8- &7property'
+
+  dkbans.command.broadcast.edit.property.help: '${dkbans.prefix} &cInvalid usage of &eproperty &ccommand&8:
+  &7/broadcast <name> edit property
+    &8- &7[list]
+    &8- &7add <key> <value>
+    &8- &7remove <key>
+
+  &7Default properties&8:
+    &8- &7text
+    &8- &7stay (actionbar, title, bossbar)
+    &8- &7subtitle (title)
+    &8- &7fade-in (title)
+    &8- &7fade-out (title)
+    &8- &7bar-color (bossbar)'
+
+  dkbans.command.broadcast.edit.property.list: '${dkbans.prefix} &7Properties&8: @for("property" in {properties}, ${dkbans.command.broadcast.edit.property.list.loop},"\n","\n")'
+  dkbans.command.broadcast.edit.property.list.loop: '&8» &e{property.key}&8:&e{property.value}'
+
+  dkbans.command.broadcast.edit.property.add: '${dkbans.prefix} &7You have added the property &e{key} &7with the value &e{value}'
+  dkbans.command.broadcast.edit.property.remove: '${dkbans.prefix} &7You have removed the property &e{key}'
+  dkbans.command.broadcast.edit.property.notExists: '${dkbans.prefix} &cThe property &e{key} &7does not exists'
+
+  dkbans.command.broadcast.info: '${dkbans.prefix} &7Broadcast info
+  &8» &7Id&8: &e{broadcast.id}
+  &8» &7Name&8: &e{broadcast.name}
+  &8» &7Visibility&8: &e{broadcast.visibility}
+
+  &7Properties&8: @for("property" in {properties}, ${dkbans.command.broadcast.edit.property.list.loop},"\n","\n")'
