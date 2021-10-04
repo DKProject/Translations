@@ -1,10 +1,10 @@
 meta:
-  name: 'DKBans English'
+  name: 'DKBans Spanish'
   module: 'DKBans'
   language:
-    name: 'English'
-    localizedName: 'English'
-    code: 'en'
+    name: 'Spanish'
+    localizedName: 'Spanish'
+    code: 'es'
 messages:
   dkbans.prefix: '&8» &4DKBans &8|&f'
   dkbans.prefix.network: '&8» &4DKNetwork &8|&f'
@@ -13,110 +13,110 @@ messages:
   dkbans.prefix.chat: '&8» &eDKChat &8|&f'
   dkbans.prefix.broadcast: '&8» &aDKBroadcast &8|&f'
 
-  dkbans.error.internal: '{prefix} &cAn internal server error occurred, please contact a network administrator"'
-  dkbans.error.invalid.DurationFormat: '{prefix} &e{input} &cis not a valid duration. Use for example 10m'
-  dkbans.error.invalid.number: '{prefix} &e{number} &cis not a valid number'
-  dkbans.error.invalid.boolean: '{prefix} &e{value} &cis not a valid boolean'
-  dkbans.error.onlyPlayer: '{prefix} &cThis command can only be executed as a player'
-  dkbans.error.onlyConsole: '{prefix} &cThis command can only be executed from console'
-  dkbans.error.noPermissions: '{prefix} &cYou are not allowed to execute this command'
-  dkbans.error.invalidIpAddress: '{prefix} &e{address} &cis not an ip address'
-  dkbans.error.invalid.templateSpecifierFormat: '{prefix} &cWrong template specifier format. Use &etemplate@group'
-  dkbans.error.invalidBroadcastOrder: '{prefix} &e{value} &cis not a valid broadcast order'
-  dkbans.error.invalidScope: '{prefix} &e{value} &cis not a valid scope. Use &e <type:name:[id]>'
-  dkbans.error.templateGroup.notExists: '{prefix} &e{templateGroup} &ctemplate group does not exist'
-  dkbans.error.template.notExists: '{prefix} &e{template} &ctemplate does not exist'
-  dkbans.error.ipBlock.notExists: '{prefix} &cAn ip block for address &e{address} &cdoes not exist'
-  dkbans.error.punishment.toLong: '{prefix} &cYou can not longer &e{type} &ca player than &e{duration}'
+  dkbans.error.internal: '{prefix} &cSe produjo un error interno del servidor, comuníquese con un administrador de la network"'
+  dkbans.error.invalid.DurationFormat: '{prefix} &e{input} &cno es una duración válida. Utilice, por ejemplo, 10m'
+  dkbans.error.invalid.number: '{prefix} &e{number} &cno es un número válido'
+  dkbans.error.invalid.boolean: '{prefix} &e{value} &cno es un booleano válido'
+  dkbans.error.onlyPlayer: '{prefix} &cEste comando solo se puede ejecutar como jugador.'
+  dkbans.error.onlyConsole: '{prefix} &cEste comando solo se puede ejecutar desde la consola'
+  dkbans.error.noPermissions: '{prefix} &cNo se le permite ejecutar este comando'
+  dkbans.error.invalidIpAddress: '{prefix} &e{address} &cno es una dirección IP'
+  dkbans.error.invalid.templateSpecifierFormat: '{prefix} &cFormato de especificador de plantilla incorrecto. Usar &etemplate@group'
+  dkbans.error.invalidBroadcastOrder: '{prefix} &e{value} &cno es una orden de transmisión válida'
+  dkbans.error.invalidScope: '{prefix} &e{value} &cno es un campo válido. Usar &e <type:name:[id]>'
+  dkbans.error.templateGroup.notExists: '{prefix} &cEl grupo de plantillas &e{templateGroup} &cno existe'
+  dkbans.error.template.notExists: '{prefix} &cLa plantilla &e{template} &cno existe'
+  dkbans.error.ipBlock.notExists: '{prefix} &cNo existe un bloqueo de ip para la dirección &e{address}'
+  dkbans.error.punishment.toLong: '{prefix} &cYa no puedes &e{type} &ca un jugador de &e{duration}'
 
-  dkbans.player.notFound: '{prefix} &cThe player &e{name} &cwas not found'
-  dkbans.player.notOnline: '{prefix} &cThe player &e{player.displayName} &cis not online'
-  dkbans.player.notSelf: '{prefix} &cYou can''t interact with your self'
-  dkbans.player.hasBypass: '{prefix} &cYou are not allowed to punish this player'
-  dkbans.player.hasBypass.notification: '{prefix} &c{sender.displayName} &ctried to punish &{target.displayName}'
+  dkbans.player.notFound: '{prefix} &cEl jugador &e{name} &cno fue encontrado'
+  dkbans.player.notOnline: '{prefix} &cEl jugador &e{player.displayName} &cno está en línea'
+  dkbans.player.notSelf: '{prefix} &cNo puedes interactuar contigo mismo'
+  dkbans.player.hasBypass: '{prefix} &cNo puedes castigar a este jugador.'
+  dkbans.player.hasBypass.notification: '{prefix} &c{sender.displayName} &ctrató de castigar a &{target.displayName}'
 
-  dkbans.player.staff.status.now: '{prefix} &7You are {statusFormatted}'
-  dkbans.player.staff.status.already: '{prefix} &7You are already {statusFormatted}'
-  dkbans.player.staff.status.change: '{prefix} &7You have {statusFormatted}'
-  dkbans.player.staff.status.not: '{prefix} &7You are not {statusFormatted}'
-  dkbans.player.staff.status.login: '&alogged in'
-  dkbans.player.staff.status.logout: '&clogged out'
+  dkbans.player.staff.status.now: '{prefix} &7Estás {statusFormatted}'
+  dkbans.player.staff.status.already: '{prefix} &7Ya estás {statusFormatted}'
+  dkbans.player.staff.status.change: '{prefix} &7Te has {statusFormatted}'
+  dkbans.player.staff.status.not: '{prefix} &7No estás {statusFormatted}'
+  dkbans.player.staff.status.login: '&aconectado'
+  dkbans.player.staff.status.logout: '&cdesconectado'
 
-  dkbans.server.notFound: '${dkbans.prefix.network} &cThe server &e{name} &c was not found'
-  dkbans.server.alreadyConnected: '${dkbans.prefix.network} &cYou are already connected to this server'
-  dkbans.server.connecting: '${dkbans.prefix.network} &7Connecting to {server.name}...'
+  dkbans.server.notFound: '${dkbans.prefix.network} &cNo se encontró el servidor &e{name}'
+  dkbans.server.alreadyConnected: '${dkbans.prefix.network} &cYa está conectado en el servidor'
+  dkbans.server.connecting: '${dkbans.prefix.network} &7Conectando con {server.name}...'
 
-  dkbans.ping.self: '${dkbans.prefix.network} &7Your ping is &e{ping}&7ms'
-  dkbans.ping.other: '${dkbans.prefix.network} &7The ping of &e{player.displayName} &7is &e{ping}&7ms'
+  dkbans.ping.self: '${dkbans.prefix.network} &7Su ping es &e{ping}&7ms'
+  dkbans.ping.other: '${dkbans.prefix.network} &7El ping de &e{player.displayName} &7es &e{ping}&7ms'
 
-  dkbans.onlineTime.self: '${dkbans.prefix.network} &7Your online time is &e{online-time-formatted-short}'
-  dkbans.onlineTime.other: '${dkbans.prefix.network} &7The online time of &e{player.displayName} &7is &e{online-time-formatted-short}'
-  dkbans.onlineTime.top: '${dkbans.prefix.network} &7Top online time &8| &e{page} @for("time" in {onlineTimes},${dkbans.onlineTime.top.loop},"\n","\n")'
+  dkbans.onlineTime.self: '${dkbans.prefix.network} &7Tu tiempo en línea es &e{online-time-formatted-short}'
+  dkbans.onlineTime.other: '${dkbans.prefix.network} &7El tiempo en línea de &e{player.displayName} &7es &e{online-time-formatted-short}'
+  dkbans.onlineTime.top: '${dkbans.prefix.network} &7Mejor tiempo en línea &8| &e{page} @for("time" in {onlineTimes},${dkbans.onlineTime.top.loop},"\n","\n")'
   dkbans.onlineTime.top.loop: ' &8{time.position} &e{time.player.displayName}&8: &7{time.formattedShort}'
 
-  dkbans.chat.filter.toFast: '${dkbans.prefix.chat} &cYou are chatting to fast.'
-  dkbans.chat.filter.repeat: '${dkbans.prefix.chat} &cYou are repeating yourself.'
-  dkbans.chat.filter.capslock: '${dkbans.prefix.chat} &cPlease do not use CAPSLOCK.'
+  dkbans.chat.filter.toFast: '${dkbans.prefix.chat} &cEstás chateando demasiado rápido.'
+  dkbans.chat.filter.repeat: '${dkbans.prefix.chat} &cTe estás repitiendo.'
+  dkbans.chat.filter.capslock: '${dkbans.prefix.chat} &cNo utilice CAPSLOCK.'
 
-  dkbans.filter.blocked.command: '${dkbans.prefix.chat} &fUnknown command. Type "/help" for help.'
-  dkbans.filter.blocked.insulting: '${dkbans.prefix.chat} &cPlease pay attention to your choice of words.'
-  dkbans.filter.blocked.advertising: '${dkbans.prefix.chat} &cPlease do not advertise'
-  dkbans.filter.blocked.name: '&e&lexample.net
+  dkbans.filter.blocked.command: '${dkbans.prefix.chat} &fComando desconocido. Escriba "/help" para obtener ayuda.'
+  dkbans.filter.blocked.insulting: '${dkbans.prefix.chat} &cPreste atención a su elección de palabras.'
+  dkbans.filter.blocked.advertising: '${dkbans.prefix.chat} &cPor favor, no haga publicidad'
+  dkbans.filter.blocked.name: '&e&lejemplo.net
   &7
-  &cYour nickname is not allowed on this server
+  &cSu apodo no está permitido en este servidor
   &7
-  &aIf you change you name, you can join :D'
-  dkbans.filter.blocked.notification: '${dkbans.prefix.chat} Blocked chat message from {player.displayName}
+  &aSi cambia su apodo, puede unirse: D'
+  dkbans.filter.blocked.notification: '${dkbans.prefix.chat} Mensaje de chat bloqueado de {player.displayName}
   &7{message}'
 
-  dkbans.punish.template.noPermission: '{prefix} &cYou are not allowed to use this reason'
-  dkbans.punish.template.list: '{prefix} &7Available reasons&8:
+  dkbans.punish.template.noPermission: '{prefix} &cNo se le permite utilizar este motivo'
+  dkbans.punish.template.list: '{prefix} &7Razones disponibles&8:
   @for("template" in {templates},${dkbans.punish.template.list.loop},"\n")'
   dkbans.punish.template.list.loop: '![" &8- &c{template.inGroupId} &8| &c{template.displayName} &8» &4&l{template.firstType.name}"]("run:///{command} {selectedPlayer} {template.inGroupId}")'
 
-  dkbans.punish.message.ban.permanently: '&e&lexample.net
+  dkbans.punish.message.ban.permanently: '&e&lejemplo.net
   &e
-  &cYou are &4&lpermanently banned &cfrom this server
-  &3Reason&8: &4&l{ban.reason}
-  &3Scope&8: &4&l{ban.scope.name}
+  &cEstás &4&lprohibido permanentemente &cen este servidor
+  &3Razón&8: &4&l{ban.reason}
+  &3Campo&8: &4&l{ban.scope.name}
   &3BanID&8: &7{ban.id}
   &e
-  &aYou can make a unban request at &eforum.example.net.'
-  dkbans.punish.message.ban.temporary: '&e&lexample.net&r
+  &aPuede realizar una solicitud de anulación de la prohibición en &eforo.ejemplo.net'
+  dkbans.punish.message.ban.temporary: '&e&lejemplo.net&r
   &e
-  &cYou are &e&l{ban.durationFormatted} &cbanned from this server
-  &3Reason&8: &4&l{ban.reason}
-  &3Scope&8: &4&l{ban.scope.name}
+  &cEstas prohibido durante &e&l{ban.durationFormatted} &cen este servidor
+  &3Razón&8: &4&l{ban.reason}
+  &3Campo&8: &4&l{ban.scope.name}
   &3BanID&8: &7{ban.id}
   &e
-  &3Remaining time&8: &e{ban.remainingFormatted}
+  &3Tiempo restante&8: &e{ban.remainingFormatted}
   &e
-  &aYou can make a unban request at &eforum.example.net'
+  &aPuede realizar una solicitud de anulación de la prohibición en &eforo.ejemplo.net'
 
   dkbans.punish.message.mute.permanently: '&5
-  ${dkbans.prefix} &cYou are &4&lPermanently &cbanned from the chat
-  &8» &3Reason&8: &4&l{mute.reason}
-  &8» &3Scope&8: &4&l{mute.scope.name}
+  ${dkbans.prefix} &cEstás prohibido &4&lpermanentemente &cen el chat
+  &8» &3Razón&8: &4&l{mute.reason}
+  &8» &3Campo&8: &4&l{mute.scope.name}
   &8» &3BanID&8: &7{mute.id}
   &7'
   dkbans.punish.message.mute.temporary: '&5
-  ${dkbans.prefix} &cYou are &e&l{mute.durationFormatted} &cbanned from the chat
-  &8» &3Reason&8: &4&l{mute.reason}
-  &8» &3Scope&8: &4&l{mute.scope.name}
+  ${dkbans.prefix} &cEstás prohibido durante &e&l{mute.durationFormatted} &cen el chat
+  &8» &3Razón&8: &4&l{mute.reason}
+  &8» &3Campo&8: &4&l{mute.scope.name}
   &8» &3BanID&8: &7{mute.id}
   &e
-  &8» &3Remaining time&8: &e{mute.remainingFormatted}
+  &8» &3Tiempo restante&8: &e{mute.remainingFormatted}
   &7'
 
-  dkbans.punish.message.kick: '&e&lexample.net&r
+  dkbans.punish.message.kick: '&e&lejemplo.net&r
   &e
-  &cYou were kicked from the server
-  &3Reason&8: &4&l{kick.reason}'
+  &cFuiste expulsado del servidor
+  &3Razón&8: &4&l{kick.reason}'
 
   dkbans.punish.message.warn.chat: '&5
-  ${dkbans.prefix} &cYou have been warned
-  &8» &3Reason&8: &4&l{warn.reason}
-  &8» &3WarnID&8: &7{warn.id}
+  ${dkbans.prefix} &cUsted ha sido advertido
+  &8» &3Razón&8: &4&l{warn.reason}
+  &8» &3ID de advertencia&8: &7{warn.id}
   &7'
 
   dkbans.punish.notify.ban: '${dkbans.prefix} &e{player.displayName} &7has been &cbanned &7by &8{ban.staff.displayName} &7for &4{ban.reason}&7'
