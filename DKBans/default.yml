@@ -408,7 +408,6 @@ messages:
   dkbans.command.joinme.line9: '&6'
   dkbans.command.joinme.line10: '&6'
 
-
   dkbans.command.ip.info.help: '${dkbans.prefix} &cUsage&8: &7/ipinfo <player/address>'
   dkbans.command.ip.info.address: '${dkbans.prefix} &7Address information of &e{address}
   &8» &7Blocked: &e@if({info.blocked},"&aYes","&cNo") !["&8[&7Details&8]"]("run:///ipinfo {address} details")
