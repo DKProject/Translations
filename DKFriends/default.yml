@@ -66,7 +66,7 @@ messages:
   &7/party invite <player> &8- &7Invite a player
   &7/party join <player> &8- &7Join a public party
   &7/party accept <player> &8- &7Accept a party invitation
-  &7/party deny <player> &8- &7Accept a party invitation
+  &7/party deny <player> &8- &7Deny a party invitation
   &7/party leave &8- &7Leave the party
   &7/party kick <player> &8- &7Kick a player from the party
   &7/party promote <player> &8- &7Promote a player to the next rank
