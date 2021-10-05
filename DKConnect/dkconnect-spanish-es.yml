@@ -1,11 +1,11 @@
-meta: 
+meta:
   name: 'DKConnect Spanish'
   module: 'DKConnect'
-  language: 
+  language:
     code: 'es'
     name: 'Spanish'
-    localizedName: 'Spanish'
-messages: 
+    localizedName: 'Español'
+messages:
   dkconnect.prefix: '&8» &eDKConnect &8|&f'
 
   dkconnect.error.onlyPlayer: '${dkconnect.prefix} &cEste comando solo se puede ejecutar como jugador.'
@@ -41,5 +41,5 @@ messages:
 
   dkconnect.voiceadapter.discord.notification.join.body: '{event.player.name} se ha unido al servidor'
   dkconnect.voiceadapter.discord.notification.leave.body: '{event.player.name} se ha ido del servidor'
-  
+
   kconnect.chatSync.message: '<{player.name}> {message}'

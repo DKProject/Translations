@@ -3,7 +3,7 @@ meta:
   module: 'DKSupport'
   language:
     name: 'Spanish'
-    localizedName: 'Spanish'
+    localizedName: 'Español'
     code: 'es'
 messages:
   dksupport.prefix: '&8» &eDKSupport &8|&f'
