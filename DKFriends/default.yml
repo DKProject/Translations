@@ -50,6 +50,7 @@ messages:
   dkfriends.command.friend.message.notAllowed: '${dkfriends.prefix.friend} &cNo puedes enviar un mensaje a este jugador.'
   dkfriends.command.friend.list: '${dkfriends.prefix.friend} &7Tus amigos &8| &7Página&8: &e{page} @for("friend" in {friends},${dkfriends.command.friend.list.loop},"\n","\n")'
   dkfriends.command.friend.list.loop: '@if({friend.isOnline},${dkfriends.command.friend.list.loop.online},${dkfriends.command.friend.list.loop.offline})'
+
   dkfriends.command.friend.list.loop.online: ' @if({friend.isFavorite},"&6✦","&8-") &e{friend.displayName}&8: &aEn línea &8(&e{friend.server}&8)'
   dkfriends.command.friend.list.loop.offline: ' @if({friend.isFavorite},"&6✦","&8-") &e{friend.displayName}&8: &cFuera de línea &8(&7Ultima conexión &e{friend.lastLogin} &8)'
   dkfriends.command.friend.requests: '${dkfriends.prefix.friend} &7Solicitudes de amistad &8| &7Página&8: &e{page} @for("request" in {requests},${dkfriends.command.friend.requests.loop},"\n","\n")'
@@ -78,6 +79,7 @@ messages:
   ${dkfriends.prefix.party} !["&8[&aInvita a tus amigos&8]"]("run:///friend party") !["&8[&cHacer público&8]"]("run:///party public")'
   dkfriends.command.party.invite.notAllowed: '${dkfriends.prefix.party} &cNo tienes permitido invitar a este jugador a tu party.'
   dkfriends.command.party.invite.success: '${dkfriends.prefix.party} &e{player.displayName} &7fue invitado a tu party'
+
   dkfriends.command.party.info: '${dkfriends.prefix.party}
   &8» &7Public: &e{party.public}
   &8» &7Category: &e{party.category}

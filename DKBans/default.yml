@@ -51,6 +51,8 @@ messages:
 
   dkbans.onlineTime.self: '${dkbans.prefix.network} &7Your online time is &e{online-time-formatted-short}'
   dkbans.onlineTime.other: '${dkbans.prefix.network} &7The online time of &e{player.displayName} &7is &e{online-time-formatted-short}'
+  dkbans.onlineTime.top: '${dkbans.prefix.network} &7Top online time &8| &e{page} @for("time" in {onlineTimes},${dkbans.onlineTime.top.loop},"\n","\n")'
+  dkbans.onlineTime.top.loop: ' &8{time.position} &e{time.player.displayName}&8: &7{time.formattedShort}'
 
   dkbans.chat.filter.toFast: '${dkbans.prefix.chat} &cYou are chatting to fast.'
   dkbans.chat.filter.repeat: '${dkbans.prefix.chat} &cYou are repeating yourself.'
@@ -199,6 +201,16 @@ messages:
   &8» &7Remaining&8: &e{snapshot.remainingFormatted}
   &8» &7Timeout&8: &e{snapshot.timeoutFormatted}'
 
+  dkbans.command.punishNotes.help: '${dkbans.prefix} &cInvalid usage of notes command&8:
+  &7/punishnotes <player> [list]
+  &7/punishnotes <player> add <message>'
+  dkbans.command.punishNotes.list: '${dkbans.prefix} &7Notes of &e{player.displayName} &8- &e{entry.id} &8| &7Page&8: &7{page} @for("note" in {notes},${dkbans.command.punishNotes.list.loop},"\n","\n")'
+  dkbans.command.punishNotes.list.loop: '&8» &e{note.timeFormatted} &8- {note.creator.displayName}
+  &7{note.message}'
+  dkbans.command.punishNotes.added: '&8» &a+ &e{note.timeFormatted} &8- {note.creator.displayName}&8:
+  &8> &7{note.message}'
+  dkbans.command.punishNotes.cleared: '${dkbans.prefix} &7Notes of &e{player.displayName} &8 - &e{entry.id} &7have been cleared'
+
   dkbans.command.history.help: '${dkbans.prefix} &cUsage&8: &7/history <player>'
   dkbans.command.history.list: '${dkbans.prefix} &7History of &8{player.displayName} @for("entry" in {entries}",${dkbans.command.history.list.loop},"\n","\n")'
   dkbans.command.history.list.loop: '![" &8- &a{entry.punishmentType.color}{entry.punishmentType.name} &8| &7{entry.createdFormatted} - &7{entry.reason} @if({entry.revoked},"&8(&aUnbanned&8)")"]("run:///history {player.name} {entry.id}")'
@@ -215,7 +227,7 @@ messages:
   &8» &7Remaining&8: &e{entry.remainingFormatted}
   &8» &7Timeout&8: &e{entry.timeoutFormatted}
 
-  &8» !["&8[&eChanges&8]"]("run:///history {player.name} {entry.id} changes")'
+  &8» !["&8[&eChanges&8]"]("run:///history {player.name} {entry.id} changes") !["&8[&eNotes&8]"]("run:///punishNotes {entry.id}")'
   dkbans.command.history.version.list: '${dkbans.prefix} &7Versions of &e{player.displayName} &8| &e{entry.id} @for("snapshot" in {snapshots}",${dkbans.command.history.version.list.loop},"\n","\n")'
   dkbans.command.history.version.list.loop: '![" &8- &e{snapshot.modifiedTimeFormatted} &8| &e{snapshot.modifiedBy.displayName}"]("run:///history {player.name} {entry.id} {snapshot.id}")'
   dkbans.command.history.version.info: '${dkbans.prefix} &7History Entry of &e{player.displayName}
@@ -243,10 +255,12 @@ messages:
   dkbans.command.resetHistory.many: '${dkbans.prefix} &7The history from &8{player.displayName} &7was reset'
   dkbans.command.resetHistory.one: '${dkbans.prefix} &7The history entry &c{id} from {player.displayName} &7was reset'
 
-  dkbans.command.myHistoryPoints: '${dkbans.prefix} &7Your history points&8: @for("entry" in {points}, ${dkbans.command.myHistoryPoints.loop},"\n") '
-  dkbans.command.myHistoryPoints.loop: '&8» &e{entry.type.name}&8: &7{entry.points}'
+  dkbans.command.myHistoryPoints: '${dkbans.prefix} &7Your history points&8: @for("entry" in {points}, ${dkbans.command.myHistoryPoints.loop},"\n","\n") '
+  dkbans.command.myHistoryPoints.loop: ' &8- &e{entry.type.name}&8: &7{entry.points}'
 
   dkbans.teamchat.messageFormat: '${dkbans.prefix.teamchat} &e{sender.displayName} &8» &7{message}'
+  dkbans.teamchat.list: '${dkbans.prefix.teamchat} &7Logged in team members&8: @for("player" in {players}, ${dkbans.teamchat.list.loop},"\n","\n")'
+  dkbans.teamchat.list.loop: ' &8- &e{player.displayName} &8(&e{player.server.name}&8)'
 
   dkbans.command.report.help: '${dkbans.prefix} &cUsage&8: &7/report <player> <Reason>'
   dkbans.command.report.template.notExist: '${dkbans.prefix.report} &cThe report template &e{name} &cdoes not exist'
@@ -378,7 +392,9 @@ messages:
   &7/dkbans migrate <plugin>
   &7/dkbans template import'
   dkbans.command.dkbans.template.import: '${dkbans.prefix} &7You have imported &e{count} &7template groups with an amount of &e{templateCount} &7templates'
+  dkbans.command.dkbans.template.export: '${dkbans.prefix} &7You have exported &e{count} &7template groups with an amount of &e{templateCount} &7templates to the location &e{location}'
   dkbans.command.joinme.notEnoughAmount: '${dkbans.prefix} &cYou can not send a joinme'
+  dkbans.command.joinme.disabled: '${dkbans.prefix} &cJoinmes are disabled on &e{server}'
   dkbans.command.joinme.usage: '${dkbans.prefix} &cUsage&8: &7/joinme [playerId]'
   dkbans.command.joinme.notExists: '${dkbans.prefix} &cThis joinme does not exist'
   dkbans.command.joinme.line1: '&6'
@@ -391,6 +407,7 @@ messages:
   dkbans.command.joinme.line8: '&6'
   dkbans.command.joinme.line9: '&6'
   dkbans.command.joinme.line10: '&6'
+
 
   dkbans.command.ip.info.help: '${dkbans.prefix} &cUsage&8: &7/ipinfo <player/address>'
   dkbans.command.ip.info.address: '${dkbans.prefix} &7Address information of &e{address}

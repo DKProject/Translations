@@ -1,0 +1,45 @@
+meta: 
+  name: 'DKConnect Spanish'
+  module: 'DKConnect'
+  language: 
+    code: 'es'
+    name: 'Spanish'
+    localizedName: 'Spanish'
+messages: 
+  dkconnect.prefix: '&8» &eDKConnect &8|&f'
+
+  dkconnect.error.onlyPlayer: '${dkconnect.prefix} &cEste comando solo se puede ejecutar como jugador.'
+  dkconnect.error.player.alreadyVerified: '${dkconnect.prefix} &cYa estás verificado con el usuario &{verification.username}'
+  dkconnect.error.player.openPendingVerification: '${dkconnect.prefix} &7Ya tienes una verificación pendiente abierta. &7Su código de verificación personal es &e{pendingVerification.code}. &7Ejecuta el comando &e!verify {pendingVerification.code} en &ePretronicBot'
+  dkconnect.error.player.notVerified: '${dkconnect.prefix} &cNo estás verificado'
+  dkconnect.error.player.notFound: '${dkconnect.prefix} &cNo se encuentra al jugador &e{name}'
+
+  dkconnect.command.verify: '${dkconnect.prefix} &7Su código de verificación personal es &e{pendingVerification.code}. &7Ejecuta el comando &e!verify {pendingVerification.code} en &ePretronicBot'
+  dkconnect.command.unverify: '${dkconnect.prefix} &7Ahora no estás verificado'
+  dkconnect.command.verifyInfo: '${dkconnect.prefix} &7Verificaciones de &e{player.displayName}
+  @for("verification" in {player.verifications},${dkconnect.command.verifyInfo.loop},"\n")'
+  dkconnect.command.verifyInfo.loop: ' &8- &e{verification.username} &8(&e{verification.userId}&8)'
+
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.name: 'Uso incorrecto'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.url: 'https://www.paypal.com/pools/c/8aWrUZXUi6'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.iconUrl: 'https://i.imgur.com/yqKqqTX.png'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.color: 'RANDOM_BRIGHT'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.description: 'Descripción de prueba'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.thumbnail: 'https://i.imgur.com/mvuOqlq.png'
+
+  dkconnect.voiceadapter.discord.command.unverify.completed: 'Has anulado la verificación de tu cuenta de Minecraft con el nombre {verification.player.name}'
+  dkconnect.voiceadapter.discord.command.unverify.notVerified: 'No estás verificado'
+  dkconnect.voiceadapter.discord.command.verify.completed: 'Has completado tu verificación para el jugador de minecraft {verification.player.name}'
+  dkconnect.voiceadapter.discord.command.verify.noPendingVerification: 'No hay ninguna verificación pendiente para {code}'
+  dkconnect.voiceadapter.discord.command.verify.usage: 'Uso: {commandPrefix}verify <code>'
+
+  dkconnect.voiceadapter.discord.notification.ban.title: 'Nuevo {event.snapshot.punishmentType.name}'
+  dkconnect.voiceadapter.discord.notification.ban.fields.banId.name: '{event.snapshot.punishmentType.name} ID'
+  dkconnect.voiceadapter.discord.notification.ban.fields.staff.name: 'Staff'
+  dkconnect.voiceadapter.discord.notification.ban.fields.reason.name: 'Razón'
+  dkconnect.voiceadapter.discord.notification.ban.fields.duration.name: 'Duración'
+
+  dkconnect.voiceadapter.discord.notification.join.body: '{event.player.name} se ha unido al servidor'
+  dkconnect.voiceadapter.discord.notification.leave.body: '{event.player.name} se ha ido del servidor'
+  
+  kconnect.chatSync.message: '<{player.name}> {message}'
