@@ -1,0 +1,214 @@
+meta: 
+  name: 'DKCoins Magyar'
+  module: 'DKCoins'
+  enabled: false
+  language: 
+    code: 'hu'
+    name: 'Magyar'
+    localizedName: 'Magyar'
+messages: 
+  dkcoins.prefix: '&8» &6DKÉrme &8|&f'
+  dkcoins.error.notFromConsole: '${dkcoins.prefix} &cEzt a parancsot csak játékos használhatja'
+  dkcoins.error.onlyFromConsole: '${dkcoins.prefix} &cEzt a parancsot csak konzolból lehet használni'
+  dkcoins.error.notPermission: '${dkcoins.prefix} &cNincs jogosultságod hogy használd ezt a parancsot'
+  dkcoins.error.account.alreadyExists: '${dkcoins.prefix} &cA(z) &e{account.name} &cfiók már létezik'
+  dkcoins.error.currency.alreadyExists: '${dkcoins.prefix} &cA(z) &e{currency.name} &cpénznem már létezik'
+  dkcoins.error.currency.notExists: '${dkcoins.prefix} &cA(z) &e{name} &cpénznem nem'
+  dkcoins.error.account.type.notExists: '${dkcoins.prefix} &cA(z) &e{name} &cfióktípus nem létezik
+  &7
+  &8» &7Típusok&8:
+   &8- &eBank'
+  dkcoins.error.notNumber: '${dkcoins.prefix} &cA(z) &e{value} &cnem egy szám'
+  dkcoins.error.notBoolean: '${dkcoins.prefix} &cA(z) &e{value} &cnem egy boolean'
+  dkcoins.error.account.notExists: '${dkcoins.prefix} &cA(z) &e{name} &cfiók nem létezik'
+  dkcoins.error.account.member.notExists: '${dkcoins.prefix} &e{name} &cnem tagja ennek a fióknak'
+  dkcoins.error.account.memberRole.notExists: '${dkcoins.prefix} &cA(z) &e{name} &crang nem létezik
+  &7
+  &8» &7Rangok&8:
+   &8- &eGUEST
+   &8- &eUSER
+   &8- &eMANAGER
+   &8- &eADMIN
+   &8- &eOWNER'
+  dkcoins.error.account.member.notEnoughAccessRights: '${dkcoins.prefix} &cEzt a műveletet nem végezheted el'
+  dkcoins.error.memberRole.lower: '${dkcoins.prefix} &cNincs jogosultságod interakcióba lépni a(z) &e{targetRole.name} &cranggal'
+  dkcoins.error.account.user.deleteNotPossible: '${dkcoins.prefix} &cA felhasználói fiókok törlése nem lehetséges'
+  dkcoins.error.account.member.yourself: '${dkcoins.prefix} &cNem vonhatod vissza a saját hozzáférésed'
+  dkcoins.error.account.noAccess: '${dkcoins.prefix} &cNincs hozzáférésed ehhez a fiókhoz'
+  dkcoins.error.user.notExists: '${dkcoins.prefix} &e{name} &cfelhasználó nem létezik'
+  dkcoins.error.member.already: '${dkcoins.prefix} &e{member.displayName} &cmár tagja ennek a fióknak'
+  dkcoins.error.account.user.notPossible: '${dkcoins.prefix} &cEzt a műveletet nem teheted meg felhasználói fiókban'
+  dkcoins.error.account.payment.user.too.little: '${dkcoins.prefix} &cA fizetési összeg túl alacsony'
+  dkcoins.error.account.payment.all.too.little: '${dkcoins.prefix} &cA fizetési összeg túl alacsony'
+  dkcoins.command.bank.create.help: '${dkcoins.prefix} &cÉrvénytelen bank létrehozási parancs&8:
+  &8» &7/bank <név> create <típus>'
+  dkcoins.command.bank.create.done: '${dkcoins.prefix} &7A(z) &e{account.name} &7fiók sikeresen létrehozva'
+  dkcoins.command.bank.delete.done: '${dkcoins.prefix} &cA(z) &e{name} &cfiók sikeresen törölve'
+  dkcoins.command.bank.help: '${dkcoins.prefix} &cÉrvénytelen bank parancs&8:
+  &7/bank [list]
+  &7/bank <név> create <fiókTípus>
+  &7/bank <név> delete
+  &7/bank <név> settings <beállítás> <érték>
+  &7/bank <név> transfer <receiver> <mennyiség> [pénznem]
+  &7/bank <név> exchange <forrás> <pénznem> <mennyiség>
+  &7/bank <név> member
+  &7/bank <név> limit
+  
+  &7/bank <név> statement'
+  dkcoins.command.bank.list: '${dkcoins.prefix} &7Fiókjaid&8:
+  @for("member" in {members}, ${dkcoins.command.bank.list.loop},"\n")'
+  dkcoins.command.bank.list.loop: ' &8- &e{member.account.name} &7Rang&8: &e{member.role.name}'
+  dkcoins.command.bank.credits: '${dkcoins.prefix} &7Egyenleged&8:
+  @for("credit" in {credits}, ${dkcoins.command.bank.credits.loop},"\n")'
+  dkcoins.command.bank.credits.loop: ' &8- &e{credit.formattedAmount}&8{credit.currency.symbol}'
+  dkcoins.command.bank.exchange.help: '${dkcoins.prefix} &cÉrvénytelen &eátváltó &cparancs&8:
+  &8» &7/bank <név> exchange <forrás> <pénznem> <mennyiség>'
+  dkcoins.command.bank.exchange.success: '${dkcoins.prefix} &7Sikeresen átváltottál &e{sourceAmount}{sourceCurrency.symbol}-t &6{targetAmount}{targetCurrency.symbol}-ra/re'
+  dkcoins.command.bank.exchange.failure.notEnoughAmount: '${dkcoins.prefix} &cA fiókon nincs elég pénz'
+  dkcoins.command.bank.exchange.failure.masterAccountNotEnoughAmount: '${dkcoins.prefix} &cA fő fiókon nincs elég pénz'
+  dkcoins.command.bank.exchange.failure.limit: '${dkcoins.prefix} &cElérted a pénz átváltás korlátot'
+  dkcoins.command.bank.exchange.failure.notEnoughAccessRights: '${dkcoins.prefix} &cEzt a műveletet nem végezheted el'
+  dkcoins.command.bank.exchange.failure.disabled: '${dkcoins.prefix} &cAz átváltás le van tiltva ennél a pénznemnél'
+  dkcoins.command.bank.transfer.failure.sameAccount: '${dkcoins.prefix} &cNem lehet utalni ugyanarra a fiókra'
+  dkcoins.command.bank.transfer.help: '${dkcoins.prefix} &cÉrvénytelen átviteli parancs&8:
+  &8» &7/bank <név> transfer <vevő> <mennyiség> [pénznem]'
+  dkcoins.command.bank.transfer.success: '${dkcoins.prefix} &7Átutaltál &e{transaction.formattedAmount}{transaction.currency.symbol}-t &6{transaction.receiver.name} &7fiókjára'
+  dkcoins.command.bank.transfer.success.receiver: '${dkcoins.prefix} &7Kaptál &e{transaction.formattedAmount}{transaction.currency.symbol}-t &6{transaction.sender.name} &7játékostól'
+  dkcoins.command.bank.transfer.failure.notEnoughAmount: '${dkcoins.prefix} &cA fiókon nincs elég pénz'
+  dkcoins.command.bank.transfer.failure.masterAccountNotEnoughAmount: '${dkcoins.prefix} &cA fő fiókon nincs elég pénz'
+  dkcoins.command.bank.transfer.failure.limit: '${dkcoins.prefix} &cElérted az utalási korlátot'
+  dkcoins.command.bank.transfer.failure.notEnoughAccessRights: '${dkcoins.prefix} &cEzt a műveletet nem végezheted el'
+  dkcoins.command.bank.transfer.failure.disabled: '${dkcoins.prefix} &cAz utalás le van tiltva ennél a pénznemnél'
+  dkcoins.command.bank.member.list: '${dkcoins.prefix} &7Fiókok&8:
+  @for("member" in {members}, ${dkcoins.command.bank.member.list.loop},"\n")'
+  dkcoins.command.bank.member.list.loop: ' &8- &7{member.displayName} &e{member.role.name}'
+  dkcoins.command.bank.member.info: '${dkcoins.prefix} &7Tag&8: &e{member.displayName} &7Rang&8: &e{member.role.name}'
+  dkcoins.command.bank.info.limitation: '${dkcoins.prefix} &7Korlátozások&8: @for("limitation" in {limitations}, ${dkcoins.command.bank.info.limitation.loop},"\n", "\n")'
+  dkcoins.command.bank.info.limitation.loop: ' &8- &e{limitation.formattedAmount}{limitation.comparativeCurrency.name} &7in an interval of &e{limitation.interval} &7Típus&8: &e{limitation.calculationType}'
+  dkcoins.command.bank.info.noLimitation: '${dkcoins.prefix} &7Nincs korlátozás'
+  dkcoins.command.bank.member.help: '${dkcoins.prefix} &cÉrvénytelen felhasználói parancs&8:
+  &7/bank <név> member
+   &8- &7list
+   &8- &7<név> add
+   &8- &7<név> remove
+   &8- &7<név> role <rang>
+   &8- &7<név> help
+   &8- &7<név> limit'
+  dkcoins.command.bank.member.add: '${dkcoins.prefix} &e{member.displayName} &7hozzá lett adva ehhez a fiókhoz'
+  dkcoins.command.bank.member.role: '${dkcoins.prefix} &7Beállítottad a(z) &e{member.role.name} &7rangot &e{member.displayName} &7felhasználónak'
+  dkcoins.command.bank.member.remove: '${dkcoins.prefix} &e{user.displayName} &ctörölve lett a fiókból'
+  dkcoins.command.bank.member.limit.help: '${dkcoins.prefix} &cÉrvénytelen korlátozási parancs&8:
+  &7/bank <név> member <fióktag> limit
+   &8- &7list
+   &8- &7set <időköz> <mennyiség> <számításTípus> <pénznem>
+   &8- &7remove <időköz> <mennyiség> <számításTípus> <pénznem>'
+  dkcoins.command.bank.limit.help: '${dkcoins.prefix} &cÉrvénytelen korlátozási parancs&8:
+  &7/bank <név> limit
+   &8- &7list
+   &8- &7set <időköz> <mennyiség> <számításTípus> <pénznem>
+   &8- &7remove <időköz> <mennyiség> <számításTípus> <pénznem>'
+  dkcoins.command.bank.limit.set: '${dkcoins.prefix} &7Beállítottál &e{limitation.amount}{limitation.comparativeCurrency.name} &e{limitation.interval} &7intervallumú és &e{limitation.calculationType} &7típusu korlátot'
+  dkcoins.command.bank.limit.remove: '${dkcoins.prefix} &cTöröltél &e{limitation.amount}{limitation.comparativeCurrency.name} &e{limitation.interval} &cintervallumú és &e{limitation.calculationType} &7típusu korlátot'
+  dkcoins.command.bank.limit.remove.failure: '${dkcoins.prefix} &cHiba lépet fel a korlátozás törlése közben'
+  dkcoins.command.bank.member.role.help: '${dkcoins.prefix} &cÉrvénytelen rang parancs&8:
+  &8» &7/bank <név> member <játékos> role <rang>'
+  dkcoins.command.bank.role.limit.help: '${dkcoins.prefix} &cÉrvénytelen korlátozási parancs&8:
+  &7/bank <név> role <rang> limit
+   &8- &7list
+   &8- &7set <intervallum> <mennyiség> <számításTípus> <pénznem>
+   &8- &7remove <intervallum> <mennyiség> <számításTípus> <pénznem>'
+  dkcoins.command.bank.admin.add: '${dkcoins.prefix} &7Hozzáadtál &e{transaction.amount}{transaction.currency.symbol}-t &e{transaction.receiver.account.name} &7fiókjához'
+  dkcoins.command.bank.admin.remove: '${dkcoins.prefix} &7Töröltél &e{transaction.amount}{transaction.currency.symbol}-t &e{transaction.receiver.account.name} &7fiókjáról'
+  dkcoins.command.bank.admin.set: '${dkcoins.prefix} &7Beállítottad &e{transaction.amount}{transaction.currency.symbol}-ra/re &e{transaction.receiver.account.name} &7fiókja egyenlegét'
+  dkcoins.command.bank.admin.reset: '${dkcoins.prefix} &7Visszaállítottad a(z) &e{transaction.currency.symbol} &7pénznem egyenlegét &e{transaction.receiver.account.name} &7fiókján'
+  dkcoins.command.bank.bankStatement.filterOption.wrong: '${dkcoins.prefix} &cA(z) &e{filterOption} &cegy érvénytelen szűrő beállítás &8» &cBeállítás=érték'
+  dkcoins.command.bank.bankStatement.filterOption.notFound: '${dkcoins.prefix} &cA(z) &e{filterOption} &cnem egy szűrő beállítás'
+  dkcoins.command.bank.bankStatement: '${dkcoins.prefix} &7Bank kivonatok&8: @for("transaction" in {transactions}, ${dkcoins.command.bank.bankStatement.loop},"\n","\n")'
+  dkcoins.command.bank.bankStatement.loop: ' &8- &e{transaction.sender.name} &8> &e{transaction.receiver.account.name}&8| &6{transaction.formattedAmount}{transaction.currency.symbol} &8- &e{transaction.formattedTime}'
+  dkcoins.command.currency.help: '${dkcoins.prefix} &cÉrvénytelen pénznem parancs&8:
+  &7/currency [list]
+  &7/currency <name> [info]
+  &7/currency <name> create <szimbólum>
+  &7/currency <name> delete
+  &7/currency <name> edit name <név>
+  &7/currency <name> edit symbol <szimbólum>
+  &7/currency <name> edit exchangeRate <target> <mennyiség>
+  &7/currency <name> edit exchangeRate <target> disable'
+  dkcoins.command.currency.create.help: '${dkcoins.prefix} &cÉrvénytelen pénznem létrehozási parancs&8:
+  &8» &7/currency <név> create <szimbólum>'
+  dkcoins.command.currency.create.done: '${dkcoins.prefix} &7Létrehoztad a(z) &e{currency.name} &7pénznemet'
+  dkcoins.command.currency.delete.done: '${dkcoins.prefix} &cTörölted a(z) &e{currency.name} &cpénznemet'
+  dkcoins.command.currency.list: '${dkcoins.prefix} &7Pénznemek&8:
+  @for("currency" in {currencies}, ${dkcoins.command.currency.list.loop},"\n")'
+  dkcoins.command.currency.list.loop: ' &8- &e{currency.name} &7Szimbólum&8: &e{currency.symbol}'
+  dkcoins.command.currency.info: '${dkcoins.prefix} &7Pénznem&8: &e{currency.name}
+  &8» &7Szimbólum&8: &e{currency.symbol}
+  &8» &7Exchange rates&8: @for("exchangeRate" in {exchangeRates}, ${dkcoins.command.currency.info.exchangeRate.loop},"\n", "\n")'
+  dkcoins.command.currency.info.exchangeRate.loop: ' &8- &7Cél&8: &e{exchangeRate.targetCurrency.name} &7Átváltási mennyiség&8: &e{exchangeRate.formattedExchangeAmount}'
+  dkcoins.command.currency.edit.help: '${dkcoins.prefix} &cÉrvénytelen pénznem szerkesztési parancs&8:
+  &7/currency <name> edit name <név>
+  &7/currency <name> edit symbol <szimbólum>
+  &7/currency <name> edit exchangeRate <kijelöltPénznem> <mennyiség>
+  &7/currency <name> edit exchangeRate <kijelöltPénznem> disable'
+  dkcoins.command.currency.edit.done.name: '${dkcoins.prefix} &7Megváltoztattad a(z) &e{oldName} &7nevű pénznemet erre: &e{currency.name}'
+  dkcoins.command.currency.edit.done.symbol: '${dkcoins.prefix} &7Megváltoztattad a(z) &e{oldSymbol} &7szimbólumot erre: &e{currency.symbol}'
+  dkcoins.command.currency.edit.done.exchangeRate: '${dkcoins.prefix} &7Beállítottad a(z) &e{exchangeRate.targetCurrency.name} &7árfolyamát &e{exchangeRate.formattedExchangeAmount}-ra/re'
+  dkcoins.command.currency.edit.disable.exchangeRate: '${dkcoins.prefix} &cLetiltottad az átváltást &e{currency.name} &cpénznemről &e{targetCurrency.name}-ra/re'
+  dkcoins.command.currency.edit.exchangeRate.amountNotValid: '${dkcoins.prefix} &e{value} &cas a exchange rate is not valid'
+  dkcoins.command.userBank.amount: '${dkcoins.prefix} &7Egyenleged: &e{credit.formattedAmount}&8{credit.currency.symbol}'
+  dkcoins.command.userBank.amount.other: '${dkcoins.prefix} &e{other.name} &7egyenlege: &e{credit.formattedAmount}{credit.currency.symbol}'
+  dkcoins.command.userBank.help: '${dkcoins.prefix} &cÉrvénytelen {currency.name} parancs&8:
+  &7/{currency.name}
+  &7/{currency.name} transfer <vevő> <mennyiség>
+  &7/{currency.name} top <korlát>'
+  dkcoins.command.userBank.world.disabled: '${dkcoins.prefix} &cA(z) &e{world} &cvilágban ez a pénznem le van tiltva'
+  dkcoins.command.userBank.transfer.help: '${dkcoins.prefix} &cÉrvénytelen átvitel parancs&8:
+  &8» &7/transfer <vevő> <mennyiség> [pénznem]'
+  dkcoins.top: '${dkcoins.prefix} &7Legjobb {start}-{end}&8:
+  @for("rank" in {ranks}, ${dkcoins.top.loop},"\n")'
+  dkcoins.top.loop: '&8#{rank.position} &7{rank.credit.name} &e{rank.credit.formattedAmount}{rank.credit.currency.symbol}'
+  dkcoins.top.pageNoEntries: '${dkcoins.prefix} &cEz az oldal nem létezik'
+  dkcoins.bank.settings.help: '${dkcoins.prefix} &cÉrvénytelen banki beálltás parancs&8:
+  &8» &7/bank <név> settings <beállítás> <érték>
+  
+  &7Beállítások&8:
+   &8- &ereceiveNotifications &elogikai értékkel'
+  dkcoins.bank.settings.receiveNotifications.on: '${dkcoins.prefix} &aBekapcsoltad &7az értesítéseket'
+  dkcoins.bank.settings.receiveNotifications.off: '${dkcoins.prefix} &cKikapcsoltad &7az értesítéseket'
+  dkcoins.bank.settings.notValid: '${dkcoins.prefix} &cA(z) &e{value} &cnem egy valódi beállítás'
+  dkcoins.command.dkcoins.help: '${dkcoins.prefix} &cÉrvénytelen dkérme parancs&8:
+  &7/dkcoins info
+  &7/dkcoins migrate <name> [pénznem]
+  &7/dkcoins admin <bank> set <mennyiség> [pénznem] [ok] [indok]
+  &7/dkcoins admin <bank> add <mennyiség> [pénznem] [ok] [indok]
+  &7/dkcoins admin <bank> remove <mennyiség> [pénznem] [ok] [indok]
+  &7/dkcoins admin <bank> reset [pénznem] [ok] [indok]'
+  dkcoins.error.account.limitation.interval.notValid: '${dkcoins.prefix} &cAn interval with the name &e{value} &cdoes not exist
+  &7
+  &8» &7Intervallumok&8:
+   &8- &eDAILY
+   &8- &eWEEKLY
+   &8- &eMONTHLY'
+  dkcoins.error.account.limitation.calculationType.notValid: '${dkcoins.prefix} &cA(z) &e{value} &cszámítási típus nem létezik
+  &7
+  &8» &7Típusok&8:
+   &8- &eGLOBAL
+   &8- &eUSER_BASED'
+  dkcoins.command.bank.role.help: '${dkcoins.prefix} &cÉrvénytelen rang parancs&8:
+  &7/bank <név> role <rang>
+   &8- &7info
+   &8- &7limit [list]
+   &8- &7limit set <intervallum> <mennyiség> <számításTípus> <pénznem>
+   &8- &7limit remove <intervallum> <mennyiség> <számításTípus> <pénznem>'
+  dkcoins.command.bank.role.list: '${dkcoins.prefix} &7Rangok&8:
+  @for("role" in {roles}, ${dkcoins.command.bank.role.list.loop},"\n")'
+  dkcoins.command.bank.role.list.loop: ' &8- &e{role.name}'
+  dkcoins.command.bank.role.info: '${dkcoins.prefix} &7Rang&8: &e{role.name}
+  &8» &7Jelenlegi rang&8: &e{role.parentRoleName}
+  &8» &7Gyerek rangok&8: @for("role" in {role.childRoles}, ${dkcoins.command.bank.role.info.childRoles}, ",")
+  &8» &7Hozzáférési jogok&8:@for("accessRight" in {role.accessRights}, ${dkcoins.command.bank.role.info.accessRight}, ",")'
+  dkcoins.command.bank.role.info.accessRight: ' &7{accessRight.name}&8'
+  dkcoins.command.bank.role.info.childRoles: ' &7{role.name}&8'
+  dkcoins.command.bank.role.limitation: '${dkcoins.prefix} &7Korlátozások&8: @for("limitation" in {limitations}, ${dkcoins.command.bank.role.info.limitation.loop},"\n", "\n")'
+  dkcoins.command.bank.role.info.limitation.loop: ' &8- &e{limitation.formattedAmount}{limitation.comparativeCurrency.name} &e{limitation.interval} &7intervallumba &7Típus&8: &e{limitation.calculationType}'
+  dkcoins.command.bank.role.info.noLimitation: '&7Nincsen korlátozás'
