@@ -1,0 +1,247 @@
+meta:
+  name: 'DKPerms Nederlands'
+  module: 'DKPerms'
+  language:
+    name: 'Nederlands'
+    localizedName: 'Nederlands'
+    code: 'nl'
+messages:
+  dkperms.prefix: '&8» &9DKPerms &8|&f'
+
+  dkperms.command.perms.help: '${dkperms.prefix} &7Commandos&8:
+  &7/perms info &8- &7Krijg informatie over DKPerms
+  &7/perms sync &8- &7Herlaad alle Rechten, Groepen en Spelers
+  &7/perms migrate &8- &7Importeer Rechten van een ander Systeem
+  &7/perms groups &8- &7Laat alle Rechten Groepen Zien
+  &7/perms group &8- &7Voor Meer Groep Informatie
+  &7/perms user &8- &7Voor Meer Gebruiker Informatie
+  &7/perms track &8- &7Voor Meer Volg Informatie'
+
+  dkperms.command.invalid.syntax: '${dkperms.prefix} &cOngeldig gebruik van &e{command} &ccommando
+  &7{usage}'
+  dkperms.sender.only.console: '${dkperms.prefix} &cDit commando kan aleen uitgevoerd worden door De Console'
+  dkperms.scope.invalid: '${dkperms.prefix} &cHet Bereik &e{scope} &cis niet Geldig'
+  dkperms.scope.notfound: '${dkperms.prefix} &cHet Bereik &e{scope} &cis niet Gevonden'
+
+  dkperms.object.meta.help: '${dkperms.prefix} &7Meta commandos&8:
+  &7/perms {type} <naam>
+   &8- &7meta set <key> <value> [scope]
+   &8- &7meta unset <key> [scope]
+   &8- &7meta show <key> [scope]
+   &8- &7meta clear [scope]
+   &8- &7meta list [scope]
+   &8- &7meta tree
+  &8» &7Gebruik &8__ &7voor spaties in de waarden'
+  dkperms.object.meta.set: '${dkperms.prefix} &7De meta Invoer van {object.type} &e{object.displayName} &7is verandert&8: ${dkperms.object.meta.info}'
+  dkperms.object.meta.unset: '${dkperms.object.meta.set}'
+  dkperms.object.meta.show: '${dkperms.prefix} &7De meta invoer van {object.type} &e{object.displayName}: ${dkperms.object.meta.info}'
+  dkperms.object.meta.info: '&8
+  &8» &7Key&8: &e{key}
+  &8» &7Value&8: &e{value}
+  &8» &7Scope&8: &e{scope}'
+  dkperms.object.meta.list: '${dkperms.prefix} &7Meta inzendingen van {object.type} &e{object.displayName}
+  &8» &7Scope&8: &e{scope} @for("entry" in {entries},${dkperms.object.meta.list.loop},"\n","\n")'
+  dkperms.object.meta.list.loop: ' &8- &7{entry.key}&8: &e{entry.value}'
+  dkperms.object.meta.tree.header: '${dkperms.prefix} &7Meta Boom van {object.type} &e{object.displayName}'
+  dkperms.object.meta.tree.scope: '{spaces}&8» &9{scope.key}&8=&9{scope.name} &8(&7{scope.level}&8)'
+  dkperms.object.meta.tree.entry: '{spaces}  &8- &7{entry.key}&8: &e{entry.value}'
+  dkperms.object.meta.clear: '${dkperms.prefix} &7De meta van {object.type} &e{object.displayName} &7is opgeschoont.
+  &8» &7Scope&8: &e{scope}'
+  dkperms.object.meta.check: '${dkperms.prefix} &7Gecontroleerde meta &e{key} &7voor &e{object.displayName}  @for("entry" in {entries},${dkperms.object.meta.check.loop},"\n","\n")
+  &8» &7Result&8: &e{finalEntry.vale}'
+  dkperms.object.meta.check.loop: ' &8- &e{entry.value}'
+
+  dkperms.object.permission.help: '${dkperms.prefix} &7Rechten commandos&8:
+  &7/perms {type} <name>
+   &8- &7permission set <(action)perm> [duration] [modifier] [scope]
+   &8- &7permission unset <key> [scope]
+   &8- &7permission show <key> [scope]
+   &8- &7permission clear [scope]
+   &8- &7permission list [scope]
+   &8- &7permission tree'
+  dkperms.object.permission.set: '${dkperms.prefix} &7Het Recht van {type} &e{object.displayName} &7is verandert&8: ${dkperms.object.permission.info}'
+  dkperms.object.permission.unset: '${dkperms.prefix} &7Het Recht van {object.type} &e{object.displayName} &7is Verandert&8: ${dkperms.object.permission.info}'
+  dkperms.object.permission.show: '${dkperms.prefix} &7Het Recht van {type} &e{object.displayName}&8: ${dkperms.object.permission.info}'
+  dkperms.object.permission.notSet: '${dkperms.object.permission.show}'
+  dkperms.object.permission.info: '&8
+  &8» &7Permission&8: &e{permission}
+  &8» &7Action&8: &e{action}
+  &8» &7Timeout&8: &e{timeout}
+  &8» &7Remaining&8: &e{remaining}
+  &8» &7Scope&8: &e{scope}'
+  dkperms.object.permission.list: '${dkperms.prefix} &7Permissions of {object.type} &e{object.displayName}
+  &8» &7Scope&8: &e{scope} @for("entry" in {entries},${dkperms.object.permission.list.loop},"\n","\n")'
+  dkperms.object.permission.list.loop: ' &8- &7{entry.permission} &8(&e{entry.action}&8)'
+  dkperms.object.permission.tree.header: '${dkperms.prefix} &7Permission tree of {object.type} &e{object.displayName}'
+  dkperms.object.permission.tree.scope: '{spaces}&8» &9{scope.key}&8=&9{scope.name} &8(&7{scope.level}&8)'
+  dkperms.object.permission.tree.entry: '{spaces}  &8- &7{entry.permission} &8(&e{entry.action}&8)'
+  dkperms.object.permission.clear: '${dkperms.prefix} &7The permissions of {object.type} &e{object.displayName} &7 were cleared.
+  &8» &7Scope&8: &e{scope}'
+  dkperms.object.permission.check: '${dkperms.prefix} &7Checked permission &e{permission} &7for &e{object.displayName}  @for("entity" in {result.entries},${dkperms.object.permission.check.loop},"\n","\n")
+  &8» &7Result&8: &e{result.finalAction}'
+  dkperms.object.permission.check.loop: ' &8- &7{entity.permission} &e{entity.action}'
+
+  dkperms.object.group.help: '${dkperms.prefix} &7Group commands&8:
+  &7/perms {type} <name>
+   &8- &7group set <group> [duration] [scope]
+   &8- &7group add <group> [scope]
+   &8- &7group remove <group> [scope]
+   &8- &7group show <group> [scope]
+   &8- &7group clear [scope]
+   &8- &7group list [scope]
+   &8- &7group tree'
+  dkperms.object.group.set: '${dkperms.prefix} &7The group of {object.type} &e{object.displayName} &7was set to&8: ${dkperms.object.group.info}'
+  dkperms.object.group.add: '${dkperms.prefix} &7A group was added to {object.type} &e{object.displayName}&8: ${dkperms.object.group.info}'
+  dkperms.object.group.info: '&8
+  &8» &7Group&8: &e{group.displayName}
+  &8» &7Action&8: &e{action}
+  &8» &7Timeout&8: &e{timeout}
+  &8» &7Remaining&8: &e{remaining}
+  &8» &7Scope&8: &e{scope}'
+  dkperms.object.group.remove: '${dkperms.prefix} &7A group was removed from {object.type} &e{object.displayName}&8: ${dkperms.object.group.info}'
+  dkperms.object.group.show: '${dkperms.prefix} &7The group of {type} &e{object.displayName}&8: ${dkperms.object.group.info}'
+  dkperms.object.group.notSet: '${dkperms.object.group.show}'
+  dkperms.object.group.clear: '${dkperms.prefix} &7The meta of {object.type} &e{object.displayName} &7was cleared.
+  &8» &7Scope&8: &e{scope}'
+  dkperms.object.group.list: '${dkperms.prefix} &7Groups of {object.type} &e{object.displayName}
+  &8» &7Scope&8: &e{scope} @for("entry" in {entries},${dkperms.object.group.list.loop},"\n","\n")'
+  dkperms.object.group.list.loop: ' &8- &7{entry.displayName} &8(&e{entry.action}&8)'
+  dkperms.object.group.tree.header: '${dkperms.prefix} &7Group tree of {object.type} &e{object.displayName}'
+  dkperms.object.group.tree.scope: '{spaces}&8» &9{scope.key}&8=&9{scope.name} &8(&7{scope.level}&8)'
+  dkperms.object.group.tree.entry: '{spaces}  &8- {entry.group.property.color}&7{entry.group.displayName &8(&e{entry.action}&8)'
+  dkperms.object.group.check: '${dkperms.prefix} &7Checked group &e{group.displayName} &7for &e{object.displayName}  @for("entity" in {result.entries},${dkperms.object.group.check.loop},"\n","\n")
+  &8» &7Result&8: &e{result.finalAction}'
+  dkperms.object.group.check.loop: ' &8- &7{entity.group.displayName} &e{entity.action}'
+  dkperms.object.group.priority.set: '${dkperms.prefix} &7The priority of group &e{group.displayName} &7was set to &e${priority}'
+
+  dkperms.user.help: '${dkperms.prefix} &7User commands&8:
+  &7/perms user <name>
+   &8- &7permission &8- &7Manage group permissions
+   &8- &7meta &8- &7Manage group metas
+   &8- &7group &8- &7Manage inheritance groups'
+  dkperms.user.notfound: '${dkperms.prefix} &cThe user &c{user} &cwas not found'
+  dkperms.user.info: '${dkperms.prefix} &7Player information
+  &8» &7Id&8: &e{user.id}
+  &8» &7Name&8: &e{snapshot.property.color}{user.name}
+  &8» &7UniqueId&8: &e{user.uniqueId}
+  &8» &7Scope&8: &e{user.scope}
+  &8
+  &8» &7Team&8: &e{snapshot.boolProperty.team}
+  &8» &7Color&8: &e{snapshot.property.color}█
+  &8» &7Chat&8: &e{snapshot.property.chat} {user.name}
+  &8» &7Tablist&8: &e{snapshot.property.prefix}{user.name}{snapshot.property.suffix}
+  &8
+  &8» &7Groups&8:
+  @for("group" in {snapshot.groups},${dkperms.user.info.groups.loop},"\n")'
+  dkperms.user.info.groups.loop: '  &8- {group.displayName}'
+
+  dkperms.group.help: '${dkperms.prefix} &7Group commands&8:
+  &7/perms group <name>
+   &8- &7create &8- &7Create a new group
+   &8- &7delete &8- &7Delete a existing group
+   &8- &7rename &8- &7Rename a existing group
+   &8- &7permission &8- &7Manage group permissions
+   &8- &7meta &8- &7Manage group metas
+   &8- &7group &8- &7Manage inheritance groups
+   &8- &7priority <priority>&8- &7Set the priority of the group'
+  dkperms.group.notfound: '${dkperms.prefix} &cThe group &e{group} &cwas not found'
+  dkperms.group.info: '${dkperms.prefix} &7Group information
+  &8» &7Id&8: &e{group.id}
+  &8» &7Name&8: &e{group.property.color}{group.name}
+  &8» &7Scope&8: &e{group.scope}
+  &8
+  &8» &7Description&8: &e{group.property.description}
+  &8» &7Default&8: &e{group.boolProperty.default}
+  &8» &7Priority&8: &e{group.intProperty.priority}
+  &8
+  &8» &7Team&8: &e{group.boolProperty.team}
+  &8» &7Color&8: &e{group.property.color}█
+  &8» &7Chat&8: &e{group.property.chat}Player
+  &8» &7Tablist&8: &e{group.property.prefix}Player{group.property.suffix}
+  &8
+  &8» &7Inheritance Groups&8:
+  @for("subGroup" in {group.globalGroups},${dkperms.group.info.groups.loop},"\n")'
+  dkperms.group.info.groups.loop: '  &8- {subGroup.property.color}{subGroup.displayName}'
+  dkperms.group.alreadyExists: '${dkperms.prefix} &7The group &e{name} &7does already exist'
+  dkperms.group.created: '${dkperms.prefix} &7The group &e{group.displayName} &7was created'
+  dkperms.group.delete.confirm: '${dkperms.prefix} &7Are you sure to delete the group &e{group.displayName}&7? !["&8[&eConfirm&8]"]("run://perms group delete confirm")'
+  dkperms.group.deleted: '${dkperms.prefix} &7The group &e{group.displayName} &7was deleted'
+  dkperms.group.renamed: '${dkperms.prefix} &7The group &e{oldName} &7was renamed to &e{newName}&7'
+  dkperms.group.copy: '${dkperms.prefix} &7The group &e{object.name} &7was copied to &e{newObject.name}&7'
+  dkperms.group.list: '${dkperms.prefix} &7Available permission groups&8:
+  &8» &7Scope&8: &e{scope} @for("group" in {groups},${dkperms.group.list.loop},"\n","\n")'
+  dkperms.group.list.loop: '&8- &7{group.displayName}'
+
+  dkperms.group.listMembers: '${dkperms.prefix} &7Members of group {group.property.color}{group.name} &8| &7Page&8: &7{page}
+  @for("member" in {dkperms.group.listMembers.loop},"\n")'
+  dkperms.group.listMembers.loop: ' &8- &7{member.displayName}'
+
+  dkperms.track.help: '${dkperms.prefix} &7Available commands
+  &7/perms track <name>
+   &7create
+   &7delete
+   &7rename <name>
+   &7add <group>
+   &7insert <group> <id>
+   &7remove <group>
+   &7clear'
+  dkperms.track.alreadyExists: '${dkperms.prefix} &7A track with the &e{name} &7does already exist'
+  dkperms.track.alreadyContains: '${dkperms.prefix} &7A track with the &e{name} &7does already exist'
+  dkperms.track.notFound: '${dkperms.prefix} &7The track &e{name} &7was not found'
+  dkperms.track.list: '${dkperms.prefix} &7Available tracks&8: @for("track" in {tracks},${dkperms.track.list.loop},"\n","\n")'
+  dkperms.track.list.loop: ' &8- &7{track.name}'
+  dkperms.track.info: '${dkperms.prefix} &7Track information
+  &8» &7Id&8: &e{track.id}
+  &8» &7Name&8: &e{track.name}
+  &8» &7Scope&8: &e{track.scope}
+  &8
+  &8» &7Groups&8: @for("group" in {track.groups},${dkperms.track.info.loop},"\n","\n")'
+  dkperms.track.info.loop: '  &8- {position} &8| &e{group.displayName}'
+  dkperms.track.created: '${dkperms.prefix} &7The track &e{track.name} &7was created'
+  dkperms.track.deleted: '${dkperms.prefix} &7The track &e{track.name} &7was deleted'
+  dkperms.track.renamed: '${dkperms.prefix} &7The track &e{oldName} &7was renamed to &e{newName}'
+  dkperms.track.add: '${dkperms.prefix} &7The group &e{group.displayName} &7was added to the track &e{track.name}'
+  dkperms.track.insert: '${dkperms.prefix} &7The group &e{group.displayName} &7was added to the track &e{track.name} &7at position &e{position}'
+  dkperms.track.remove: '${dkperms.prefix} &7The group &e{group.displayName} &7was removed from the track &e{track.name}'
+  dkperms.track.clear: '${dkperms.prefix} &7The track &7{track.name} &7was cleared'
+
+  dkperms.rank.help: '${dkperms.prefix} &7Available commands
+   &7/rank <name>
+   &7/rank <name> set <group> [duration] [scope] [modifier]
+   &7/rank <name> add <group> [duration] [scope] [modifier]
+   &7/rank <name> remove <group>
+   &7/rank <name> promote [track] [scope]
+   &7/rank <name> demote [track] [scope]'
+  dkperms.rank.list: '${dkperms.prefix} &7Ranks of &e{object.displayName} @for("group" in {groups},${dkperms.rank.list.loop},"\n","\n")'
+  dkperms.rank.list.loop: ' &8- &7{group.property.color}{group.name}'
+  dkperms.rank.promoted: '${dkperms.prefix} &e{user.name} &7was promoted to &7{newGroup.displayName}'
+  dkperms.rank.demoted: '${dkperms.prefix} &e{user.name} &7was demoted to &7{newGroup.displayName}'
+  dkperms.rank.noPermissionForRank: '${dkperms.prefix} &cYou are not allowed to use the rank &e{group.displayName}'
+  dkperms.rank.noPermissionForPlayer: '${dkperms.prefix} &cYou are not allowed to modify the rank of &{user.name}'
+  dkperms.team: '${dkperms.prefix} &7Team members&8:
+  @for("team" in {teamTree},${dkperms.team.loop},"\n")'
+  dkperms.team.loop: '&8» {team.group.displayName} &8| &7{team.group.property.description} @for("member" in {team.members},${dkperms.team.loop.member},"\n","\n")\n'
+  dkperms.team.loop.member: ' &8- {member.displayName}'
+  dkperms.synchronized: '${dkperms.prefix} &7Synchronized DKPerms on the local server'
+
+  dkperms.analyse.enabled: '${dkperms.prefix} &7Enabled permission analyser'
+  dkperms.analyse.disabled: '${dkperms.prefix} &7Disabled permission analyser'
+  dkperms.analyse.joined: '${dkperms.prefix} &7Joined permission analyser listener'
+  dkperms.analyse.leaved: '${dkperms.prefix} &7Leaved permission analyser listener'
+  dkperms.server.notPermitted: '&e&lexample.net
+  &e
+  &cYou are not allowed to join this server.
+  &e'
+  dkperms.server.join.full: '&e&lexample.net
+  &e
+  &cThis server is full &8(&e{playerCount}&8/&e{playerCount}&8).
+  &e'
+  dkperms.server.join.full.kick: '&e&lexample.net
+  &e
+  &cYou were kicked from this network because a player with higher priority joined.
+  &e'
+  dkperms.server.join.full.noKick: '&e&lexample.net
+  &e
+  &cNo player with lower priority found to kick.
+  &e'
+
