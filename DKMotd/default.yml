@@ -58,7 +58,7 @@ messages:
   &7/motd <name> supportedVersions modify <index> <version>
   &7/motd <name> supportedVersions clear'
 
-  dkmotd.command.motd.supportedVersions.list: '${dkmotd.prefix} &7Motd templates&8: @for("version" in {template.supportedVersions}, ${dkmotd.command.motd.supportedVersions.list.loop},"\n", "\n")'
+  dkmotd.command.motd.supportedVersions.list: '${dkmotd.prefix} &7Supported versions&8: @for("version" in {template.supportedVersions}, ${dkmotd.command.motd.supportedVersions.list.loop},"\n", "\n")'
   dkmotd.command.motd.supportedVersions.list.loop: ' &8- &e{version}'
 
   dkmotd.command.motd.create: '${dkmotd.prefix} &7You have created the motd template &e{template.name}'
