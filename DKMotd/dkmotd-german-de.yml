@@ -1,0 +1,191 @@
+meta:
+  name: 'DKMotd German'
+  module: 'DKMotd'
+  language:
+    name: 'German'
+    localizedName: 'Deutsch'
+    code: 'de'
+messages:
+  dkmotd.prefix: '&8» &bDKMotd &8|&f'
+
+  dkmotd.error.index.notValid: '${dkmotd.prefix} &e{value} &cist kein gültiger Index'
+  dkmotd.error.number.notValid: '${dkmotd.prefix} &e{value} &cist keine gültige Zahl'
+  dkmotd.error.duration.notValid: '${dkmotd.prefix} &e{value} &cist keine gültige Dauer'
+  dkmotd.error.version.notValid: '${dkmotd.prefix} &e{value} &cist keine gültige Version'
+  dkmotd.error.dateFormat.notValid: '${dkmotd.prefix} &e{value} &cist kein gültiges Datumsformat'
+
+  dkmotd.error.motdTemplate.notExists: '${dkmotd.prefix} &cDie Motd-Vorlage &e{name} &cexistiert nicht'
+  dkmotd.error.motdTemplate.alreadyExists: '${dkmotd.prefix} &cDie Motd-Vorlage &e{template.name} &cexistiert bereits'
+  dkmotd.error.motdTemplate.deleteNotPossible: '${dkmotd.prefix} &cEs ist nicht möglich, die Motd-Vorlage &e{template.name} &czu löschen'
+
+  dkmotd.error.joinMessageTemplate.notExists: '${dkmotd.prefix} &cDie Vorlage für die Join-Nachricht &e{name} &cexistiert nicht'
+  dkmotd.error.joinMessageTemplate.alreadyExists: '${dkmotd.prefix} &cDie Vorlage für die Join-Nachricht &e{template.name} &cexistiert bereits'
+
+
+  dkmotd.command.motd.help: '${dkmotd.prefix} &cFalsche Verwendung des Motd-Befehls&8:
+  &7/motd list
+  &7/motd <name> [info]
+  &7/motd <name> active
+  &7/motd <name> create
+  &7/motd <name> delete
+  &7/motd <name> name <name>
+  &7/motd <name> baseLine <text>
+  &7/motd <name> secondLines
+  &7/motd <name> versionText <text>
+  &7/motd <name> wrongVersionText <text>
+  &7/motd <name> supportedVersions
+  &7/motd <name> favicon <favicon>
+  &7/motd <name> playerInfo'
+
+  dkmotd.command.motd.secondLines.help: '${dkmotd.prefix} &cFalsche Verwendung des Befehls motd secondLines&8:
+  &7/motd <name> secondlines add <line>
+  &7/motd <name> secondlines remove <index>
+  &7/motd <name> secondlines set <line>
+  &7/motd <name> secondlines modify <index> <line>
+  &7/motd <name> secondlines clear'
+
+  dkmotd.command.motd.playerInfo.help: '${dkmotd.prefix} &cFalsche Verwendung des Befehls mots playerInfo&8:
+  &7/motd <name> playerInfo add <line>
+  &7/motd <name> playerInfo remove <index>
+  &7/motd <name> playerInfo set <line>
+  &7/motd <name> playerInfo modify <index> <line>
+  &7/motd <name> playerInfo clear'
+
+  dkmotd.command.motd.supportedVersions.help: '${dkmotd.prefix} &cFalsche Verwendung des Befehls motd supportedVersions&8:
+  &7/motd <name> supportedVersions add <version>
+  &7/motd <name> supportedVersions remove <version>
+  &7/motd <name> supportedVersions set <version>
+  &7/motd <name> supportedVersions modify <index> <version>
+  &7/motd <name> supportedVersions clear'
+
+  dkmotd.command.motd.supportedVersions.list: '${dkmotd.prefix} &7Unterstütze Versionen&8: @for("version" in {template.supportedVersions}, ${dkmotd.command.motd.supportedVersions.list.loop},"\n", "\n")'
+  dkmotd.command.motd.supportedVersions.list.loop: ' &8- &e{version}'
+
+  dkmotd.command.motd.create: '${dkmotd.prefix} &7Die Motd-Vorlage &e{template.name} &7wurde erstellt'
+
+  dkmotd.command.motd.delete: '${dkmotd.prefix} &7Die Motd-Vorlage &e{template.name} &7wurde gelöscht'
+
+  dkmotd.command.motd.info: '${dkmotd.prefix} &7Informationen über die Motd-Vorlage &e{template.name}
+  &8» &7Basiszeile&8: &e{template.baseLine} !["&8[&bÄndere&8]"]("suggest:///motd {template.name} baseLine {template.baseLine}")
+  &8» &7Versionstext&8: &e{template.versionText} !["&8[&bÄndere&8]"]("suggest:///motd {template.name} versionText {template.versionText}")
+  &8» &7Falscher Versionstext&8: &e{template.wrongVersionText} !["&8[&bÄndere&8]"]("suggest:///motd {template.name} wrongVersionText {template.wrongVersionText}")
+  &8» &7Unterstütze Versionen&8: @for("version" in {template.supportedVersions}, ${dkmotd.command.motd.info.supportedVersions},",", ",")
+  &8» &7Favicon&8: &e{template.favicon} !["&8[&bÄndere&8]"]("suggest:///motd {template.name} favicon")
+  &8» &7Sekundäre Zeilen&8: @for("line" in {template.secondLines}, ${dkmotd.command.motd.info.secondLines},"\n", "\n")
+  &8» &7Spieler Informationen&8: @for("line" in {template.playerInfo}, ${dkmotd.command.motd.info.playerInfo},"\n", "\n")'
+  dkmotd.command.motd.info.secondLines: ' &8{position} &e{line} !["&8[&cLösche&8]"]("run:///motd {template.name} secondLines remove {position}") !["&8[&bÄndere&8]"]("suggest:///motd {template.name} secondLines modify {position} {line}")'
+  dkmotd.command.motd.info.supportedVersions: ' &8{position} &e{version} !["&8[&cLösche&8]"]("run:///motd {template.name} supportedVersions remove {position}")'
+  dkmotd.command.motd.info.playerInfo: ' &8{position} &e{line} !["&8[&cLösche&8]"]("run:///motd {template.name} playerInfo remove {position}") !["&8[&bÄndere&8]"]("suggest:///motd {template.name} playerInfo modify {position} {line}")'
+
+  dkmotd.command.motd.list: '${dkmotd.prefix} &7Motd-Vorlagen&8: @for("template" in {templates}, ${dkmotd.command.motd.list.loop},"\n", "\n")'
+  dkmotd.command.motd.list.loop: ' &8- &e{template.name}'
+
+  dkmotd.command.motd.name: '${dkmotd.prefix} &7Du hast den Namen zu &e{template.name} &7geändert.'
+  dkmotd.command.motd.baseLine: '${dkmotd.prefix} &7Du hast die Basiszeile zu &e{template.baseLine} &7geändert'
+  dkmotd.command.motd.versionText: '${dkmotd.prefix} &7Du hast den Versionstext zu &e{template.versionText} &7geändert'
+  dkmotd.command.motd.wrongVersionText: '${dkmotd.prefix} &7Du hast den falschen Versionstext zu &e{template.wrongVersionText} &7geändert'
+  dkmotd.command.motd.active: '${dkmotd.prefix} &7Du hast die aktive Motd-Vorlage auf &e{template.name} &7gesetzt.'
+
+  dkmotd.command.motd.secondLines.add: '${dkmotd.prefix} &7Du hast eine sekundäre Zeile hinzugefügt'
+  dkmotd.command.motd.secondLines.set: '${dkmotd.prefix} &7Du hast die sekundären Zeilen gesetzt'
+  dkmotd.command.motd.secondLines.modify: '${dkmotd.prefix} &7Du hast die sekundären zeilen geändert'
+  dkmotd.command.motd.secondLines.remove: '${dkmotd.prefix} &7Du hast eine sekundäre Zeile entfernt'
+  dkmotd.command.motd.secondLines.clear: '${dkmotd.prefix} &7Du hast die sekundären Zeilen entfernt'
+
+  dkmotd.command.motd.playerInfo.add: '${dkmotd.prefix} &7Du hast eine Spieler-Information hinzugefügt'
+  dkmotd.command.motd.playerInfo.set: '${dkmotd.prefix} &7Du hast die Spieler-Informationen gesetzt'
+  dkmotd.command.motd.playerInfo.modify: '${dkmotd.prefix} &7Du hast die Spieler-Informationen geändert'
+  dkmotd.command.motd.playerInfo.remove: '${dkmotd.prefix} &7Du hast eine Spieler-Information entfernt'
+  dkmotd.command.motd.playerInfo.clear: '${dkmotd.prefix} &7Du hast die Spieler-Informationen entfernt'
+
+  dkmotd.command.motd.supportedVersions.add: '${dkmotd.prefix} &7Du hast eine unterstützte Version hinzugefügt'
+  dkmotd.command.motd.supportedVersions.set: '${dkmotd.prefix} &7Du hast die unterstützten Versionen gesetzt'
+  dkmotd.command.motd.supportedVersions.remove: '${dkmotd.prefix} &7Du hast eine unterstützte Version entfernt'
+  dkmotd.command.motd.supportedVersions.clear: '${dkmotd.prefix} &7Du hast die unterstützten Versionen entfernt.'
+
+
+  dkmotd.command.maintenance.help: '${dkmotd.prefix} &cFehlerhafte Verwendung des Befehls maintenance&8:
+  &7/maintenance active
+  &7/maintenance info
+  &7/maintenance timeout <timeout>
+  &7/maintenance reason <reason>
+  &7/maintenance duration <duration>'
+  dkmotd.command.maintenance.active.on: '${dkmotd.prefix} &7Du hast die Wartung &aeingeschaltet'
+  dkmotd.command.maintenance.active.off: '${dkmotd.prefix} &7Du hast die Wartung &causgeschaltet'
+  dkmotd.command.maintenance.timeout: '${dkmotd.prefix} &7Du hast den zeitraum für die Wartung auf &e{maintenance.formattedTimeout} &7gesetzt'
+  dkmotd.command.maintenance.info: '${dkmotd.prefix} &cInformationen zur Wartung
+  &8» &7Aktiviert&8: &e{maintenance.active}
+  &8» &7Zeitraum&8: &e{maintenance.formattedTimeout}'
+
+  dkmotd.command.maintenance.whitelist.help: '${dkmotd.prefix} &cFehlerhafte Verwendung des Befehls maintenance whitelist&8:
+  &7/maintenance whitelist add <player>
+  &7/maintenance whitelist remove <player>
+  &7/maintenance whitelist info
+  &7/maintenance whitelist clear'
+  dkmotd.command.maintenance.whitelist.info: '${dkmotd.prefix} &7Spieler auf der Wartungs-Whitelist
+  @for("name" in {maintenance.whitelistedNames}, ${dkmotd.command.maintenance.whitelist.info.loop},"\n", "\n")'
+  dkmotd.command.maintenance.whitelist.info.loop: ' &8- &e{name} !["&8[&cEntferne&8]"]("run:///maintenance whitelist {name}")'
+  dkmotd.command.maintenance.whitelist.add: '${dkmotd.prefix} &7Du hast den Spieler &e{player.displayName} &7auf die Wartungs-Whitelist gesetzt.'
+  dkmotd.command.maintenance.whitelist.remove: '${dkmotd.prefix} &cDu hast den Spieler &e{player.displayName} &cvon der Wartungs-Whitelist entfernt.'
+  dkmotd.command.maintenance.whitelist.clear: '${dkmotd.prefix} &7Du hast aller Spieler von der Wartungs-Whitelist gelöscht'
+
+  dkmotd.command.joinMessage.help: '${dkmotd.prefix} &cFehlerhafte Verwendung des Befehls joinmessage&8:
+  &7/joinmessage list
+  &7/joinmessage <name> [info]
+  &7/joinmessage <name> active
+  &7/joinmessage <name> create
+  &7/joinmessage <name> delete
+  &7/joinmessage <name> name <name>
+  &7/joinmessage <name> baseMessage <text>
+  &7/joinmessage <name> secondMessages'
+  dkmotd.command.joinMessage.create: '${dkmotd.prefix} &7Du hast die Vorlage für die Join-Nachricht &e{template.name} &7erstellt'
+
+  dkmotd.command.joinMessage.delete: '${dkmotd.prefix} &7Du hast die Vorlage für die Beitrittsmeldung &e{template.name} &7gelöscht'
+
+  dkmotd.command.joinMessage.info: '${dkmotd.prefix} &7Informationen über die Join-Nachrichten-Vorage &e{template.name}
+  &8» &7Primäre Nachricht&8: &e{template.baseMessage}
+  &8» &7Sekundäre Nachrichten&8: @for("line" in {template.secondMessages}, ${dkmotd.command.joinMessage.info.secondMessages},"\n", "\n")'
+  dkmotd.command.joinMessage.info.secondMessages: ' &8- &e{line} !["&8[&cEntferne&8]"]("run:///joinmessage {template.name} secondMessages remove {position}")'
+
+  dkmotd.command.joinMessage.list: '${dkmotd.prefix} &7Join-Nachrichten-Voragen&8: @for("template" in {templates}, ${dkmotd.command.joinMessage.list.loop},"\n", "\n")'
+  dkmotd.command.joinMessage.list.loop: ' &8- &e{template.name}'
+
+  dkmotd.command.joinMessage.active: '${dkmotd.prefix} &7Du hast die Vorlage für die aktive Join-Nachricht zu &e{template.name} &7geändert'
+
+  dkmotd.command.joinMessage.name: '${dkmotd.prefix} &7Du hast den Namen zu &e{template.name} &7geändert'
+  dkmotd.command.joinMessage.baseMessage: '${dkmotd.prefix} &7Du hast die primätr Nachricht zu &e{template.baseMessage} &7geändert'
+
+  dkmotd.command.joinMessage.secondMessages.help: '${dkmotd.prefix} &cFehlerhafte Verwendung des Befehls secondMessages&8:
+  &7/joinmessage <name> secondMessages add <line>
+  &7/joinmessage <name> secondMessages remove <index>
+  &7/joinmessage <name> secondMessages set <line>
+  &7/joinmessage <name> secondMessages clear'
+
+  dkmotd.command.joinMessage.secondMessages.add: '${dkmotd.prefix} &7Du hast eine sekundäre Nachricht hinzugefügt'
+  dkmotd.command.joinMessage.secondMessages.set: '${dkmotd.prefix} &7Du hast die sekundären Nachrichten gesetzt'
+  dkmotd.command.joinMessage.secondMessages.remove: '${dkmotd.prefix} &7Du hast eine sekundäre Nachricht entfernt'
+  dkmotd.command.joinMessage.secondMessages.clear: '${dkmotd.prefix} &7Du hast die sekundären Nachrichten entfernt'
+
+  dkmotd.maintenance.message.timeout: '&e&lexample.net&r
+  &e
+  &cDer Server ist derzeit in Wartung
+  &3Reason&8: &4&l{maintenance.reason}
+  &e
+  &3Remaining time&8: &e{maintenance.formattedRemaining}
+  &e
+  &aBesuche &eforum.example.net &afür weitere Informationen'
+  dkmotd.maintenance.message.permanent: '&e&lexample.net&r
+  &e
+  &cDer Server ist derzeit in Wartung
+  &3Reason&8: &4&l{maintenance.reason}
+  &e
+  &aBesuche &eforum.example.net &afür weitere Informationen'
+
+  dkmotd.command.tablist.help: '${dkmotd.prefix} &cFehlerhafte Verwendung des Befehls tablist&8:
+  &7/tablist info
+  &7/tablist header <header>
+  &7/tablist footer <footer>
+  &7/tablist labyModServerBanner <imageUrl>'
+  dkmotd.command.tablist.header: '${dkmotd.prefix} &7Du hast den Header der tablist zu &e{tablist.header} &7geändert'
+  dkmotd.command.tablist.footer: '${dkmotd.prefix} &7Du hast den Header der tablist zu &e{tablist.footer} &7geändert'
+  dkmotd.command.tablist.labyModServerBanner: '${dkmotd.prefix} &7Du hast den LabyMod Server-Banner zu &e{tablist.labyModServerBanner} &7geändert'
