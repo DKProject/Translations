@@ -59,7 +59,7 @@ messages:
   &7/motd <name> supportedVersions clear'
 
   dkmotd.command.motd.supportedVersions.list: '${dkmotd.prefix} &7Supported versions&8: @for("version" in {template.supportedVersions}, ${dkmotd.command.motd.supportedVersions.list.loop},"\n", "\n")'
-  dkmotd.command.motd.supportedVersions.list.loop: ' &8- &e{version}'
+  dkmotd.command.motd.supportedVersions.list.loop: ' &8- &e{version} !["&8[&cRemove&8]"]("run:///motd {template.name} supportedVersions remove {position}")'
 
   dkmotd.command.motd.create: '${dkmotd.prefix} &7You have created the motd template &e{template.name}'
 
@@ -78,7 +78,7 @@ messages:
   dkmotd.command.motd.info.playerInfo: ' &8{position} &e{line} !["&8[&cRemove&8]"]("run:///motd {template.name} playerInfo remove {position}") !["&8[&bModify&8]"]("suggest:///motd {template.name} playerInfo modify {position} {line}")'
 
   dkmotd.command.motd.list: '${dkmotd.prefix} &7Motd templates&8: @for("template" in {templates}, ${dkmotd.command.motd.list.loop},"\n", "\n")'
-  dkmotd.command.motd.list.loop: ' &8- &e{template.name}'
+  dkmotd.command.motd.list.loop: ' &8- &e{template.name} '
 
   dkmotd.command.motd.name: '${dkmotd.prefix} &7You have changed the name to &e{template.name}'
   dkmotd.command.motd.baseLine: '${dkmotd.prefix} &7You have changed the baseLine to &e{template.baseLine}'
