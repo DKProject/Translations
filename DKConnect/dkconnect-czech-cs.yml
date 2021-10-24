@@ -2,7 +2,7 @@ meta:
   name: 'DKConnect - čeština'
   module: 'DKConnect'
   language:
-    name: 'Čeština'
+    name: 'Czech'
     localizedName: 'Čeština'
     code: 'cs'
 messages:
