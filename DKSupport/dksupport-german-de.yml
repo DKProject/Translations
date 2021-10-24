@@ -1,0 +1,86 @@
+meta:
+  name: 'DKSupport Deutsch'
+  module: 'DKSupport'
+  language:
+    name: 'German'
+    localizedName: 'Deutsch'
+    code: 'de'
+messages:
+  dksupport.prefix: '&8» &eDKSupport &8|&f'
+
+  dksupport.error.ticket.notFound: '${dksupport.prefix} &cTicket &e{id} &cwurde nicht gefunden'
+  dksupport.error.ticket.topic.notFound: '${dksupport.prefix} &cTicket-Thema &e{Name} &cnicht gefunden'
+  dksupport.error.uuid.notValid: '${dksupport.prefix} &e{value} ist keine gültige UUID'
+  dksupport.error.alreadyOpenTicket: '${dksupport.prefix} &cDu hast bereits ein offenes Ticket'
+  dksupport.error.ticket.notOpen: '${dksupport.prefix} &cDieses Ticket ist nicht länger offen'
+  dksupport.error.ticket.notProcessing: '${dksupport.prefix} &cDieses Ticket ist nicht mehr in Bearbeitung'
+  dksupport.error.participant.not: '${dksupport.prefix} {player.displayName} &7ist kein Teilnehmer dieses Tickets'
+  dksupport.error.ticket.notSelected: '${dksupport.prefix} &cDu hast kein Ticket ausgewählt'
+  dksupport.error.player.notFound: '${dksupport.prefix} &cSpieler &e{Name} &cwurde nicht gefunden'
+  dksupport.error.participant.already: '${dksupport.prefix} &e{participant.player.displayName} &cist bereits ein Teilnehmer dieses Tickets'
+  dksupport.error.notStaff: '${dksupport.prefix} &cDu bist nicht berechtigt, diese Aktion durchzuführen'
+  dksupport.error.ticket.noOpen: '${dksupport.prefix} &cSie haben keine offenen Tickets'
+
+  dksupport.player.staff.status.now: '${dksupport.prefix} &7Du bist {statusFormatted}'
+  dksupport.player.staff.status.already: '${dksupport.prefix} &7Du bisb bereits {statusFormatted}'
+  dksupport.player.staff.status.change: '${dksupport.prefix} &7Du hast dich {statusFormatted}'
+  dksupport.player.staff.status.not: '${dksupport.prefix} &7Du bist nicht {statusFormatted}'
+  dksupport.player.staff.status.login: '&aeingeloggt'
+  dksupport.player.staff.status.logout: '&causgeloggt'
+
+  dksupport.ticket.create.staff: '${dksupport.prefix} {ticket.creator.displayName} &8&l>> &e{ticket.topic} !["&8[&7Übernehmen&8]"]("run:///ticket take {ticket.id}")'
+  dksupport.ticket.message.received: '&8» &bTicket &8| &e{message.sender.displayName}&8: !["&8[&aAntworten&8]"]("suggest:///ticket reply {message.ticket.id} ") &7{message.text}'
+
+  dksupport.command.ticket.help.user: '${dksupport.prefix} &cFehlerhafte Benutzung des Befehls ticket&8:
+  &7/ticket <Thema> [Nachricht]
+  &7Topics&8: @for("topic" in {topics}, ${dksupport.command.ticket.help.topic.list},"\n", "\n")'
+  dksupport.command.ticket.help.staff: '${dksupport.prefix} &cFehlerhafte Benutzung des Befehls ticket&8:
+  &7/ticket list
+  &7/ticket login
+  &7/ticket logout
+  &7/ticket logout
+  &7/ticket <Thema> [Nachricht]
+  &7Topics&8: @for("topic" in {topics}, ${dksupport.command.ticket.help.topic.list},"\n", "\n")'
+  dksupport.command.ticket.help.topic.list: ' &8- &e{topic.name} &8| &e{topic.displayName}'
+
+  dksupport.command.ticket.create: '${dksupport.prefix} &7Du hast ein Ticket zum Thema &e{ticket.topic} &7erstellt'
+
+  dksupport.command.ticket.list: '${dksupport.prefix} &7Offene Tickets @for("ticket" in {tickets}, ${dksupport.command.ticket.list.loop},"\n", "\n")'
+  dksupport.command.ticket.list.loop: ' &8- &e{ticket.creator.player.displayName} &8[&e&e{ticket.topic}&8] !["&8[&aÜbernehmen&8]"]("run:///ticket take {ticket.id}") '
+
+  dksupport.command.ticket.take: '${dksupport.prefix} &7Du hast das Ticket von &e{ticket.creator.player.displayName} &7übernommen
+  ${dksupport.command.ticket.info.details}
+  &7Nutze den Chat, um auf das Ticket zu antworten
+  &7Gebe #leave ein, um das Ticket zu verlassen
+  &7Gebe #close ein, um das Ticket zu schließen
+  &7Gebe #history ein, um den Nachrichtenverlauf anzuzeigen'
+
+  dksupport.command.ticket.select: '${dksupport.prefix} &7Du hast das Ticket von &e{ticket.creator.player.displayName} &7ausgewählt
+  ${dksupport.command.ticket.info.details}
+  &7Nutze den Chat, um auf das Ticket zu antworten
+  &7Gebe #leave ein, um das Ticket zu verlassen
+  &7Gebe #close ein, um das Ticket zu schließen
+  &7Gebe #history ein, um den Nachrichtenverlauf anzuzeigen'
+
+  dksupport.command.ticket.my: '${dksupport.prefix} &7Meine Tickets @for("ticket" in {player.myTickets}, ${dksupport.command.ticket.my.loop},"\n", "\n")'
+  dksupport.command.ticket.my.loop: ' &8- &e{ticket.creator.player.displayName} &8[&e&e{ticket.topic}&8] !["&8[&aAuswählen&8]"]("run:///ticket select {ticket.id}") '
+
+  dksupport.command.ticket.close: '${dksupport.prefix} &7Du hast dieses Ticket geschlossen'
+  dksupport.command.ticket.leave: '${dksupport.prefix} &7Du hast dieses Ticket verlassen'
+  dksupport.command.ticket.add: '${dksupport.prefix} &7Du hast &e{participant.player.displayName} &7zu diesem Ticket hinzugefügt'
+  dksupport.command.ticket.remove: '${dksupport.prefix} &7Du hast &e{participant.player.displayName} &7von diesem Ticket entfernt'
+  dksupport.command.ticket.info: '${dksupport.prefix} &7Ticket-Informationen
+  ${dksupport.command.ticket.info.details}'
+  dksupport.command.ticket.info.details: '&8» &7Ersteller&8: {ticket.creator.player.displayName}
+  &8» &7Thema&8: &e{ticket.topic}
+  &8» &7Status&8: &e{ticket.state}
+  &8» &7Teilnehmer&8: @for("participant" in {ticket.participants}, ${dksupport.command.ticket.info.loop},"\n", "\n")'
+  dksupport.command.ticket.info.loop: '&8- {participant.player.displayName}'
+
+  dksupport.ticket.take.creator: '${dksupport.prefix} &7Dein Ticket wurde von {staff.displayName} &7übernommen'
+  dksupport.ticket.take.staff: '${dksupport.prefix} &7Du hast das Ticket von {ticket.creator.displayName} &7Übernommen&8. &7Gebe &e/ticket leave &7ein, um das Ticket zu verlassen&8.'
+
+  dksupport.command.ticket.unselect: '${dksupport.prefix} &7Du hast dein Ticket abgewählt'
+
+  dksupport.player.staff.joinInfo: '${dksupport.prefix} &7Aktuell sind &e{openTicketCount} &7Tickets offen&8. !["&8[&eAuflisten&8]"]("run:///ticket list")'
+  dksupport.player.user.openTicketJoinInfo: '${dksupport.prefix} &7Du hast keine offenen Tickets&8. !["&8[&aAuswählen&8]"]("run:///ticket select")'
