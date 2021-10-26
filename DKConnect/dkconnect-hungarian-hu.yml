@@ -1,0 +1,45 @@
+meta:
+  name: 'DKConnect Magyar'
+  module: 'DKConnect'
+  language:
+    name: 'Hungarian'
+    localizedName: 'Magyar'
+    code: 'hu'
+messages:
+  dkconnect.prefix: '&8» &eDKConnect &8|&f'
+
+  dkconnect.error.onlyPlayer: '${dkconnect.prefix} &cEzt a parancsot csak játékos használhatja'
+  dkconnect.error.player.alreadyVerified: '${dkconnect.prefix} &cMár hitelesítetted a(z) &{verification.username} &ckarakteredet'
+  dkconnect.error.player.openPendingVerification: '${dkconnect.prefix} &7Már van egy folyamatban lévő hitelesítésed. &7Személyes hitelesítő kódod &e{pendingVerification.code}. &7Használd a &e!verify {pendingVerification.code} parancsot a &ePretronicBot-nál'
+  dkconnect.error.player.notVerified: '${dkconnect.prefix} &cA karaktered nincs hitelesítve'
+  dkconnect.error.player.notFound: '${dkconnect.prefix} &e{name} &cnem található'
+
+  dkconnect.command.verify: '${dkconnect.prefix} &7Személyes hitelesítő kódod &e{pendingVerification.code}. &7Használd a &e!verify {pendingVerification.code} parancsot a &ePretronicBot-nál'
+  dkconnect.command.unverify: '${dkconnect.prefix} &7Most már a karaktered nincs hitelesítve'
+  dkconnect.command.verifyInfo: '${dkconnect.prefix} &e{player.displayName} &7hitelesítései
+  @for("verification" in {player.verifications},${dkconnect.command.verifyInfo.loop},"\n")'
+  dkconnect.command.verifyInfo.loop: ' &8- &e{verification.username} &8(&e{verification.userId}&8)'
+
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.name: 'Helytelen használat'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.url: 'https://www.paypal.com/pools/c/8aWrUZXUi6'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.iconUrl: 'https://i.imgur.com/yqKqqTX.png'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.color: 'RANDOM_BRIGHT'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.description: 'Teszt leírás'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.thumbnail: 'https://i.imgur.com/mvuOqlq.png'
+
+  dkconnect.voiceadapter.discord.command.unverify.completed: 'Törölted a hitelesítésedet a(z) {verification.player.name} karakteredről'
+  dkconnect.voiceadapter.discord.command.unverify.notVerified: 'A karaktered nincs hitelesítve'
+  dkconnect.voiceadapter.discord.command.verify.completed: 'Hitelesítetted a(z) {verification.player.name} karakteredet'
+  dkconnect.voiceadapter.discord.command.verify.noPendingVerification: 'A(z) {code} kódhoz nincs függőben lévő hitelesítés'
+  dkconnect.voiceadapter.discord.command.verify.usage: 'Használat: {commandPrefix}verify <code>'
+
+  dkconnect.voiceadapter.discord.notification.ban.title: 'Új {event.snapshot.punishmentType.name}'
+  dkconnect.voiceadapter.discord.notification.ban.fields.banId.name: '{event.snapshot.punishmentType.name} ID'
+  dkconnect.voiceadapter.discord.notification.ban.fields.staff.name: 'Staff'
+  dkconnect.voiceadapter.discord.notification.ban.fields.reason.name: 'Indok'
+  dkconnect.voiceadapter.discord.notification.ban.fields.duration.name: 'Időtartam'
+
+  dkconnect.voiceadapter.discord.notification.join.body: '{event.player.name} csatlakozott a szerverre'
+  dkconnect.voiceadapter.discord.notification.leave.body: '{event.player.name} elhagyta a szervert'
+
+  dkconnect.chatSync.message: '<{player.name}> {message}'
