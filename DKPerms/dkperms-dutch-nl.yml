@@ -64,11 +64,11 @@ messages:
   dkperms.object.permission.show: '${dkperms.prefix} &7Het Recht van {type} &e{object.displayName}&8: ${dkperms.object.permission.info}'
   dkperms.object.permission.notSet: '${dkperms.object.permission.show}'
   dkperms.object.permission.info: '&8
-  &8» &7Permission&8: &e{permission}
-  &8» &7Action&8: &e{action}
+  &8» &7Recht&8: &e{permission}
+  &8» &7Actie&8: &e{action}
   &8» &7Timeout&8: &e{timeout}
-  &8» &7Remaining&8: &e{remaining}
-  &8» &7Scope&8: &e{scope}'
+  &8» &7Overig&8: &e{remaining}
+  &8» &7draagwijdte&8: &e{scope}'
   dkperms.object.permission.list: '${dkperms.prefix} &7Permissions of {object.type} &e{object.displayName}
   &8» &7Scope&8: &e{scope} @for("entry" in {entries},${dkperms.object.permission.list.loop},"\n","\n")'
   dkperms.object.permission.list.loop: ' &8- &7{entry.permission} &8(&e{entry.action}&8)'
