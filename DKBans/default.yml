@@ -312,7 +312,7 @@ messages:
   dkbans.command.filter.operation.notFound: '${dkbans.prefix.chat} &cThe filter operation &c{operation} &cwas not found'
   dkbans.command.filter.notFound: '${dkbans.prefix.chat} &cThe filter &c{id} &cwas not found'
   dkbans.command.filter.list: '${dkbans.prefix.chat} &7Available filters&8: @for("filter" in {filters},${dkbans.command.filter.list.loop},"\n","\n")'
-  dkbans.command.filter.list.loop: ' &8- &7{filter.affiliationArea} &8| &7{filter.id} &8- &7{filter.value} &8(&7{filter.operationName}&8)'
+  dkbans.command.filter.list.loop: ' &8- &7{filter.affiliationArea} &8| &7{filter.id} &8- &7{filter.value} &8(&7{filter.operationName}&8) &8| &7Page&8: &e{page}'
   dkbans.command.filter.created: '${dkbans.prefix.chat} &7The filter &e{filter.id} &8- &e{filter.value} &7for &e{filter.affiliationArea} &7was created'
   dkbans.command.filter.deleted: '${dkbans.prefix.chat} &7The filter &e{filter.id} &8- &e{filter.value} &7for &e{filter.affiliationArea} &7was deleted'
 
