@@ -168,11 +168,11 @@ messages:
   dkbans.unpunish.success.ban: '${dkbans.prefix} &e{player.displayName} &7is unbanned'
   dkbans.unpunish.success.mute: '${dkbans.prefix} &e{player.displayName} &7is unmuted'
 
-  dkbans.command.unpunish.help: '${dkbans.prefix} &cUsage&8: &7/{command} <player> [Reason]'
+  dkbans.command.unpunish.help: '${dkbans.prefix} &cUsage&8: &7/{command} <speler> [Reason]'
 
-  dkbans.command.punish.help.temporary: '${dkbans.prefix} &7/{command} <player> <duration> <reason>'
-  dkbans.command.punish.help.permanently: '${dkbans.prefix} &7/{command} <player> <reason>'
-  dkbans.command.punish.help.oneTime: '${dkbans.prefix} &7/{command} <player> <reason>'
+  dkbans.command.punish.help.temporary: '${dkbans.prefix} &7/{command} <speler> <duratie> <Reden>'
+  dkbans.command.punish.help.permanently: '${dkbans.prefix} &7/{command} <speler> <Reden>'
+  dkbans.command.punish.help.oneTime: '${dkbans.prefix} &7/{command} <speler> <Reden>'
 
   dkbans.command.punishinfo.help: '${dkbans.prefix} &cUsage&8: &7/punishinfo <player/id>'
   dkbans.command.punishinfo.multiple: '${dkbans.prefix} &e{player.displayName} &7heeft meerdere actieve straffen: @for("entry" in {entries}",${dkbans.command.punishinfo.multiple.loop},"\n","\n")'
@@ -181,10 +181,10 @@ messages:
   dkbans.command.punishedit.help: '${dkbans.prefix.chat} &cOngeldig gebruik van chatLog commando&8:
   &7/punishedit <player/id> setType <ban/mute>
   &7/punishedit <player/id> setHistory <type>
-  &7/punishedit <player/id> setReason <reason>
-  &7/punishedit <player/id> setDuration <duration>
-  &7/punishedit <player/id> addDuration <duration>
-  &7/punishedit <player/id> removeDuration <duration>
+  &7/punishedit <player/id> setReason <Reden>
+  &7/punishedit <player/id> setDuration <duratie>
+  &7/punishedit <player/id> addDuration <duratie>
+  &7/punishedit <player/id> removeDuration <duratie>
   &7/punishedit <player/id> setStuff <stuff>'
 
   dkbans.command.punishedit.multiple: '${dkbans.prefix} &e{player.displayName} &7heeft meerdere actieve straffen: @for("entry" in {entries}",${dkbans.command.punishinfo.multiple.loop},"\n","\n")'
@@ -201,8 +201,8 @@ messages:
   &8» &7Timeout&8: &e{snapshot.timeoutFormatted}'
 
   dkbans.command.punishNotes.help: '${dkbans.prefix} &cOngeldig gebruik van notes commando&8:
-  &7/punishnotes <player> [list]
-  &7/punishnotes <player> add <message>'
+  &7/punishnotes <speler> [list]
+  &7/punishnotes <speler> add <bericht>'
   dkbans.command.punishNotes.list: '${dkbans.prefix} &7Notes van &e{player.displayName} &8- &e{entry.id} &8| &7Page&8: &7{page} @for("note" in {notes},${dkbans.command.punishNotes.list.loop},"\n","\n")'
   dkbans.command.punishNotes.list.loop: '&8» &e{note.timeFormatted} &8- {note.creator.displayName}
   &7{note.message}'
@@ -210,7 +210,7 @@ messages:
   &8> &7{note.message}'
   dkbans.command.punishNotes.cleared: '${dkbans.prefix} &7Notes van &e{player.displayName} &8 - &e{entry.id} &7is opgeschoond'
 
-  dkbans.command.history.help: '${dkbans.prefix} &cUsage&8: &7/history <player>'
+  dkbans.command.history.help: '${dkbans.prefix} &cUsage&8: &7/history <speler>'
   dkbans.command.history.list: '${dkbans.prefix} &7History of &8{player.displayName} @for("entry" in {entries}",${dkbans.command.history.list.loop},"\n","\n")'
   dkbans.command.history.list.loop: '![" &8- &a{entry.punishmentType.color}{entry.punishmentType.name} &8| &7{entry.createdFormatted} - &7{entry.reason} @if({entry.revoked},"&8(&aUnbanned&8)")"]("run:///history {player.name} {entry.id}")'
   dkbans.command.history.info: '${dkbans.prefix} &7History Entry of &e{player.displayName}
@@ -241,25 +241,25 @@ messages:
   &8» &7Timeout&8: &e{snapshot.timeoutFormatted}
   &8» &7Modified Time&8: &e{snapshot.modifiedTimeFormatted}
   &8» &7Modified By&8: &e{snapshot.modifiedBy.displayName}'
-  dkbans.command.history.notFound: '${dkbans.prefix} &cThe history entry does not exist'
+  dkbans.command.history.notFound: '${dkbans.prefix} &cDe Geschiedenis entry bestaad niet'
 
-  dkbans.command.resetHistory.help: '${dkbans.prefix} &7Reset history help
-  &7/resethistory <player>
-  &7/resethistory <player> <id>
-  &7/resethistory last <amount>
-  &7/resethistory last <duration>
+  dkbans.command.resetHistory.help: '${dkbans.prefix} &7Reset Geschiedenis help
+  &7/resethistory <speler>
+  &7/resethistory <speler> <id>
+  &7/resethistory last <hoeveelheid>
+  &7/resethistory last <duratie>
   &7/resethistory by <staff>'
-  dkbans.command.resetHistory.many: '${dkbans.prefix} &7The history from &8{player.displayName} &7was reset'
-  dkbans.command.resetHistory.one: '${dkbans.prefix} &7The history entry &c{id} from {player.displayName} &7was reset'
+  dkbans.command.resetHistory.many: '${dkbans.prefix} &7De Geschiedenis van &8{player.displayName} &7is reset'
+  dkbans.command.resetHistory.one: '${dkbans.prefix} &7De Geschiedenis entry &c{id} van {player.displayName} &7is reset'
 
-  dkbans.command.myHistoryPoints: '${dkbans.prefix} &7Your history points&8: @for("entry" in {points}, ${dkbans.command.myHistoryPoints.loop},"\n","\n") '
+  dkbans.command.myHistoryPoints: '${dkbans.prefix} &7Joun Geschiedenis points&8: @for("entry" in {points}, ${dkbans.command.myHistoryPoints.loop},"\n","\n") '
   dkbans.command.myHistoryPoints.loop: ' &8- &e{entry.type.name}&8: &7{entry.points}'
 
   dkbans.teamchat.messageFormat: '${dkbans.prefix.teamchat} &e{sender.displayName} &8» &7{message}'
   dkbans.teamchat.list: '${dkbans.prefix.teamchat} &7Logged in team members&8: @for("player" in {players}, ${dkbans.teamchat.list.loop},"\n","\n")'
   dkbans.teamchat.list.loop: ' &8- &e{player.displayName} &8(&e{player.server.name}&8)'
 
-  dkbans.command.report.help: '${dkbans.prefix} &cUsage&8: &7/report <player> <Reason>'
+  dkbans.command.report.help: '${dkbans.prefix} &cUsage&8: &7/report <speler> <Reden>'
   dkbans.command.report.template.notExist: '${dkbans.prefix.report} &cThe report template &e{name} &cdoes not exist'
   dkbans.command.report.already.reported: '${dkbans.prefix.report} &cYou have &e{player.displayName} &calready reported'
   dkbans.command.report.reported: '${dkbans.prefix.report} &7You have reported &e{player.displayName} &7for &e{reason}'
@@ -267,7 +267,7 @@ messages:
   @for("template" in {templates}, ${dkbans.command.report.listTemplates.loop},"\n")'
   dkbans.command.report.listTemplates.loop: '![" &8- &c{template.inGroupId} &8| &c{template.displayName}"]("run:///{command} {selectedPlayer} {template.inGroupId}")'
 
-  dkbans.command.report.take.usage: '${dkbans.prefix.report} &cUsage&8: &7/report take <name>'
+  dkbans.command.report.take.usage: '${dkbans.prefix.report} &cUsage&8: &7/report take <naam>'
   dkbans.command.report.take: '${dkbans.prefix.report} &7You have taken the report of &e{target.displayName}
   ${dkbans.prefix.report} &7Action&8: !["&8[&aACCEPT&8]"]("run:///ban {target.name}") !["&8[&cDECLINE&8]"]("run:///report decline")'
   dkbans.command.report.take.notReported: '${dkbans.prefix.report} &cThe player &e{target.displayName} &cis not reported'
@@ -314,8 +314,8 @@ messages:
 
   dkbans.command.teamChat.help: '${dkbans.prefix.teamchat} &cUsage&8: &7/teamchat <login/logout/toggle/message>'
   dkbans.command.notify.help: '${dkbans.prefix.network} &cUsage&8: &7/notify <login/logout/toggle>'
-  dkbans.command.jumpto.help: '${dkbans.prefix.network} &cUsage&8: &7/jumpto <player>'
-  dkbans.command.alert.help: '${dkbans.prefix.network} &cUsage&8: &7/alert <message>'
+  dkbans.command.jumpto.help: '${dkbans.prefix.network} &cUsage&8: &7/jumpto <speler>'
+  dkbans.command.alert.help: '${dkbans.prefix.network} &cUsage&8: &7/alert <bericht>'
 
   dkbans.command.help: '${dkbans.prefix.network} &7Information
   &8» &e/hub &8| &7Connect to the Hub-Server
@@ -327,7 +327,7 @@ messages:
   &8» &eForum&8: &bforum.example.net
   &8» &eShop&8: &bshop.example.net'
 
-  dkbans.command.playerInfo.help: '${dkbans.prefix} &cUsage&8: &7/playerinfo <player>'
+  dkbans.command.playerInfo.help: '${dkbans.prefix} &cUsage&8: &7/playerinfo <speler>'
   dkbans.command.playerInfo.online: '${dkbans.prefix} &7Player Info
   &8» &7Name&8: &e{player.displayName} &8(&aOnline&8)
   &8» &7UniqueId&8: &e{player.uniqueId}
@@ -350,13 +350,13 @@ messages:
   &8» &7Region&8: &e{player.lastSession.region}
   &8» !["&8[&bHistory&8]"]("run:///history {player.name}") !["&8[&eNotes&8]"]("run:///playernotes {player.name}") !["&8[&aSessions&8]"]("run:///playersessions {player.name}") !["&8[&eIps&8]"]("run:///ipinfo {player.name}")'
 
-  dkbans.command.playerSessions.help: '${dkbans.prefix} &cUsage&8: &7/psessions <player>'
+  dkbans.command.playerSessions.help: '${dkbans.prefix} &cUsage&8: &7/psessions <speler>'
   dkbans.command.playerSessions.info: '${dkbans.prefix} &7Sessions of &e{player.displayName} &8| &7Page&8: {page} @for("session" in {sessions},${dkbans.command.playerSessions.info.loop},"\n","\n")'
   dkbans.command.playerSessions.info.loop: ' &8- &e{session.connectedFormatted} &8- &e{session.disconnectedFormatted} &8| &c{session.durationFormatted}'
 
   dkbans.command.playerNotes.help: '${dkbans.prefix} &cInvalid usage of dkbans command&8:
-  &7/pnotes <player> [list]
-  &7/pnotes <player> add <message>'
+  &7/pnotes <speler> [list]
+  &7/pnotes <speler> add <bericht>'
   dkbans.command.playerNotes.list: '${dkbans.prefix} &7Notes of &e{player.displayName} &8| &7Page&8: &7{page} @for("note" in {notes},${dkbans.command.playerNotes.list.loop},"\n","\n")'
   dkbans.command.playerNotes.list.loop: '&8» &e{note.timeFormatted} &8- {note.creator.displayName}
   &7{note.message}'
@@ -364,7 +364,7 @@ messages:
   &8> &7{note.message}'
   dkbans.command.playerNotes.cleared: '${dkbans.prefix} &7Notes of &e{player.displayName} &7have been cleared'
   dkbans.command.chatlog.usage: '${dkbans.prefix.chat} &cInvalid usage of chatLog command&8:
-  &7/chatlog player <name> [page]
+  &7/chatlog player <naam> [page]
   &7/chatlog server <name, id> [page]'
 
   dkbans.command.chatlog.player.list: '${dkbans.prefix.chat} &7Chatlog of player {player.displayName} &8| &7Page&8: {page}
@@ -427,93 +427,93 @@ messages:
   dkbans.command.ip.info.notBlocked: '${dkbans.prefix} &7Ip &e{address} &7is not blocked'
 
   dkbans.command.ip.block.help: '${dkbans.prefix} &cInvalid usage of ipblock command&8:
-  &8»&7/ipblock <address> <reason> <duration>
+  &8»&7/ipblock <address> <Reden> <duratie>
    &8- &7template <template>
-   &8- &7temporary <duration> <reason>
-   &8- &7permanently <reason>'
+   &8- &7temporary <duratie> <Reden>
+   &8- &7permanently <Reden>'
 
-  dkbans.command.ip.block.invalid.type: '${dkbans.prefix} &e{type} &cis an invalid block type'
-  dkbans.command.ip.block: '${dkbans.prefix} &7You have blocked the ip address 6{block.address}'
+  dkbans.command.ip.block.invalid.type: '${dkbans.prefix} &e{type} &cis geen geldig block type'
+  dkbans.command.ip.block: '${dkbans.prefix} &7Je hebt een ip address geblockeerd 6{block.address}'
   dkbans.command.ip.unblock.help: '${dkbans.prefix} &cUsage&8: &7/ipunblock <address>'
-  dkbans.command.ip.unblock: '${dkbans.prefix} &7You have unblocked the address &e{block.address}'
+  dkbans.command.ip.unblock: '${dkbans.prefix} &7Je hebt een ip address ge unblockeerd &e{block.address}'
 
   dkbans.command.chatClear.help: '${dkbans.prefix.network} &cUsage&8: &7/chatclear [local/global]'
-  dkbans.command.chatClear.my: '${dkbans.prefix.network} &7Your chat has been cleared'
-  dkbans.command.chatClear.all: '${dkbans.prefix.network} &7The chat has been cleared'
+  dkbans.command.chatClear.my: '${dkbans.prefix.network} &7Joun chat is geleegt'
+  dkbans.command.chatClear.all: '${dkbans.prefix.network} &7De chat is ge leegt'
 
   dkbans.command.broadcast.notFound: '${dkbans.prefix} &cNo broadcast found for &e{broadcast}'
-  dkbans.command.broadcast.group.notFound: '${dkbans.prefix} &cNo broadcast group found for &e{group}'
+  dkbans.command.broadcast.group.notFound: '${dkbans.prefix} &cGeen broadcast groep Gevonden voor &e{group}'
 
-  dkbans.command.broadcast.group.help: '${dkbans.prefix} &cInvalid usage of &ebroadcast group &ccommand&8:
+  dkbans.command.broadcast.group.help: '${dkbans.prefix} &cOngeldig gebruik van &ebroadcast groep &ccommandos&8:
   &7/broadcastgroup list
-  &7/broadcastgroup <name> create <interval>
-  &7/broadcastgroup <name> assignment <name> add
-  &7/broadcastgroup <name> assignment <name> remove
-  &7/broadcastgroup <name> assignment list
-  &7/broadcastgroup <name> assignment <name> [info]
-  &7/broadcastgroup <name> edit <setting> <value>'
-  dkbans.command.broadcast.group.create.help: '${dkbans.prefix} &cUsage&8: &7/broadcastgroup <name> create <interval>'
-  dkbans.command.broadcast.group.created: '${dkbans.prefix} &7You have successfully created the broadcast group &e{group.name}'
+  &7/broadcastgroup <naam> create <interval>
+  &7/broadcastgroup <naam> assignment <naam> add
+  &7/broadcastgroup <naam> assignment <naam> remove
+  &7/broadcastgroup <naam> assignment list
+  &7/broadcastgroup <naam> assignment <naam> [info]
+  &7/broadcastgroup <naam> edit <setting> <value>'
+  dkbans.command.broadcast.group.create.help: '${dkbans.prefix} &cUsage&8: &7/broadcastgroup <naam> create <interval>'
+  dkbans.command.broadcast.group.created: '${dkbans.prefix} &7Je hebt succesvol een broadcast groep aangemaakt &e{group.name}'
 
-  dkbans.command.broadcast.group.alreadyExists: '${dkbans.prefix} &cA broadcast group with the name &e{name} already exists'
-  dkbans.command.broadcast.alreadyExists: '${dkbans.prefix} &cA broadcast with the name &e{name} already exists'
+  dkbans.command.broadcast.group.alreadyExists: '${dkbans.prefix} &ceen broadcast groep met de naam &e{name} bestaad al'
+  dkbans.command.broadcast.alreadyExists: '${dkbans.prefix} &ceen broadcast met de naam &e{name} bestaad al'
 
-  dkbans.command.broadcast.group.list: '${dkbans.prefix} &7Broadcast groups&8: @for("group" in {groups},${dkbans.command.broadcast.group.list.loop},"\n","\n")'
-  dkbans.command.broadcast.group.list.loop: '&8» &7Id&8: &e{group.id} &7Name&8: &e{group.name}'
+  dkbans.command.broadcast.group.list: '${dkbans.prefix} &7Broadcast groepen&8: @for("group" in {groups},${dkbans.command.broadcast.group.list.loop},"\n","\n")'
+  dkbans.command.broadcast.group.list.loop: '&8» &7Id&8: &e{group.id} &7Naam&8: &e{group.name}'
 
-  dkbans.command.broadcast.group.info: '${dkbans.prefix} &7Group info
+  dkbans.command.broadcast.group.info: '${dkbans.prefix} &7Groep info
   &8» &7Id&8: &e{group.id}
-  &8» &7Name&8: &e{group.name}
+  &8» &7Naam&8: &e{group.name}
   &8» &7Enabled&8: &e{group.enabled}
   &8» &7Permission&8: &e{group.permission}
   &8» &7Order&8: &e{group.order}
   &8» &7Interval&8: &e{group.intervalFormatted}
   &8» &7Scope&8: &e{group.scope.name}'
 
-  dkbans.command.broadcast.group.assignment.help: '${dkbans.prefix} &cInvalid usage of &eassignment &ccommand&8:
-  &7/broadcastgroup <name> assignment <name>
+  dkbans.command.broadcast.group.assignment.help: '${dkbans.prefix} &cOngeldig gebruik van  &eassignment &ccommand&8:
+  &7/broadcastgroup <naam> assignment <naam>
      &8- &7list
      &8- &7add
      &8- &7remove
      &8- &7[info]'
   dkbans.command.broadcast.group.assignment.list: '${dkbans.prefix} &7Assignments&8:
   @for("assignment" in {assignments},${dkbans.command.broadcast.group.assignment.list.loop},"\n","\n")'
-  dkbans.command.broadcast.group.assignment.list.loop: '&8» &7Id&8: &e{assignment.id} &7Name&8: &e{assignment.broadcast.name} &7Position&8: &e {assignment.position}'
+  dkbans.command.broadcast.group.assignment.list.loop: '&8» &7Id&8: &e{assignment.id} &7Naam&8: &e{assignment.broadcast.name} &7Positie&8: &e {assignment.position}'
 
-  dkbans.command.broadcast.group.assignment.notFound: '${dkbans.prefix} &cNo assignment found for &e{assignment}'
+  dkbans.command.broadcast.group.assignment.notFound: '${dkbans.prefix} &cGeen assignment Gevonden voor &e{assignment}'
   dkbans.command.broadcast.group.assignment.info: '${dkbans.prefix} &7Assignment info
   &8» &7Id&8: &e{assignment.id}
-  &8» &7Name&8: &e{assignment.broadcast.name}
-  &8» &7Position&8: &e{assignment.position}'
+  &8» &7Naam&8: &e{assignment.broadcast.name}
+  &8» &7Positie&8: &e{assignment.position}'
 
-  dkbans.command.broadcast.group.assignment.remove: '${dkbans.prefix} &7You have removed the assignment with id &e{assignment.id} &7from the group'
-  dkbans.command.broadcast.group.assignment.add: '${dkbans.prefix} &7You have added the broadcast with id &e{assignment.id} &eto the group'
+  dkbans.command.broadcast.group.assignment.remove: '${dkbans.prefix} &7Je hebt de assignment met id &e{assignment.id} &7Verwijdert van De Groep'
+  dkbans.command.broadcast.group.assignment.add: '${dkbans.prefix} &7je hebt de broadcast met id &e{assignment.id} &eaan De Groep toegevoegt'
 
-  dkbans.command.broadcast.create.help: '${dkbans.prefix} &cUsage&8: &7/broadcast <name> create <visibility> <text>'
+  dkbans.command.broadcast.create.help: '${dkbans.prefix} &cUsage&8: &7/broadcast <naam> create <visibility> <text>'
   dkbans.command.broadcast.visibility.notExists: '${dkbans.prefix} &cThe broadcast visibility &e{name} &cdoes not exists'
-  dkbans.command.broadcast.created: '${dkbans.prefix} &7You have successfully created the broadcast &e{broadcast.name}'
-  dkbans.command.broadcast.deleted: '${dkbans.prefix} &7You have successfully deleted the broadcast &e{broadcast.name}'
+  dkbans.command.broadcast.created: '${dkbans.prefix} &7Je hebt de broadcast met succes gemaakt &e{broadcast.name}'
+  dkbans.command.broadcast.deleted: '${dkbans.prefix} &7Je hebt de broadcast met succes verwijdert &e{broadcast.name}'
 
-  dkbans.command.broadcast.group.edit.help: '${dkbans.prefix} &cInvalid usage of &eedit &ccommand&8:
-  &7/broadcastgroup <name> edit
-    &8- &7name <name>
+  dkbans.command.broadcast.group.edit.help: '${dkbans.prefix} &congeldig gebruik van &eedit &ccommand&8:
+  &7/broadcastgroup <naam> edit
+    &8- &7name <naam>
     &8- &7enabled <true, false>
     &8- &7permission <permission>
     &8- &7order <order>
     &8- &7interval <interval>
-    &8- &7scope <type> <name>'
+    &8- &7scope <type> <naam>'
   dkbans.command.broadcast.group.edit.edited: '${dkbans.prefix} &7You have edited the property &e{property} &7to &e{value}'
   dkbans.command.broadcast.edit.edited: '${dkbans.prefix} &7You have edited the property &e{property} &7to &e{value}'
 
   dkbans.command.broadcast.list: '${dkbans.prefix} &7Broadcasts&8: @for("broadcast" in {broadcasts}, ${dkbans.command.broadcast.list.loop},"\n","\n")'
   dkbans.command.broadcast.list.loop: '  &8- &e{broadcast.id} &8| &e{broadcast.visibility} &8| &e{broadcast.name}'
 
-  dkbans.command.broadcast.direct: '${dkbans.prefix} &7You have successfully broadcast the message'
+  dkbans.command.broadcast.direct: '${dkbans.prefix} &7Je hebt successvoll broadcast het berichtje'
   dkbans.command.broadcast.help: '${dkbans.prefix} &cInvalid usage of &ebroadcast &ccommand&8:
-  &7/broadcast <name> create <visibility> <text>
-  &7/broadcast <name> delete
-  &7/broadcast <name> edit
-  &7/broadcast <name> direct'
+  &7/broadcast <naam> create <visibility> <text>
+  &7/broadcast <naam> delete
+  &7/broadcast <naam> edit
+  &7/broadcast <naam> direct'
 
   dkbans.broadcast.chat: '&9
   ${dkbans.prefix.broadcast} {message}
@@ -523,14 +523,14 @@ messages:
   dkbans.broadcast.title: '{title}'
   dkbans.broadcast.title.sub: '{subTitle}'
 
-  dkbans.command.broadcast.edit.help: '${dkbans.prefix} &cInvalid usage of &eedit &ccommand&8:
-  &7/broadcast <name> edit
-    &8- &7name <name>
+  dkbans.command.broadcast.edit.help: '${dkbans.prefix} &congeldig gebruik van  &eedit &ccommand&8:
+  &7/broadcast <naam> edit
+    &8- &7name <naam>
     &8- &7visibility <visibility>
     &8- &7property'
 
-  dkbans.command.broadcast.edit.property.help: '${dkbans.prefix} &cInvalid usage of &eproperty &ccommand&8:
-  &7/broadcast <name> edit property
+  dkbans.command.broadcast.edit.property.help: '${dkbans.prefix} &congeldig gebruik van &eproperty &ccommand&8:
+  &7/broadcast <naam> edit property
     &8- &7[list]
     &8- &7add <key> <value>
     &8- &7remove <key>
@@ -545,9 +545,9 @@ messages:
   dkbans.command.broadcast.edit.property.list: '${dkbans.prefix} &7Properties&8: @for("property" in {properties}, ${dkbans.command.broadcast.edit.property.list.loop},"\n","\n")'
   dkbans.command.broadcast.edit.property.list.loop: '&8» &e{property.key}&8:&e{property.value}'
 
-  dkbans.command.broadcast.edit.property.add: '${dkbans.prefix} &7You have added the property &e{key} &7with the value &e{value}'
-  dkbans.command.broadcast.edit.property.remove: '${dkbans.prefix} &7You have removed the property &e{key}'
-  dkbans.command.broadcast.edit.property.notExists: '${dkbans.prefix} &cThe property &e{key} &7does not exists'
+  dkbans.command.broadcast.edit.property.add: '${dkbans.prefix} &7Je hebt een property &e{key} &7met de waarde &e{value} toegevoegt'
+  dkbans.command.broadcast.edit.property.remove: '${dkbans.prefix} &7Je hebt property  &e{key} verwijdert'
+  dkbans.command.broadcast.edit.property.notExists: '${dkbans.prefix} &cHet property &e{key} &7bestaad niet'
 
   dkbans.command.broadcast.info: '${dkbans.prefix} &7Broadcast info
   &8» &7Id&8: &e{broadcast.id}
