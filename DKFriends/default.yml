@@ -66,7 +66,7 @@ messages:
   &7/party invite <player> &8- &7Invite a player
   &7/party join <player> &8- &7Join a public party
   &7/party accept <player> &8- &7Accept a party invitation
-  &7/party deny <player> &8- &7Deny a party invitation
+  &7/party deny <player> &8- &7Accept a party invitation
   &7/party leave &8- &7Leave the party
   &7/party kick <player> &8- &7Kick a player from the party
   &7/party promote <player> &8- &7Promote a player to the next rank
@@ -151,6 +151,7 @@ messages:
   dkfriends.error.clan.tag.alreadyExists: '${dkfriends.prefix.clan} &cA clan with the tag &e{tag} &calready exists'
 
   dkfriends.error.clan.notInClan: '${dkfriends.prefix.clan} &cYou are not in a clan'
+  dkfriends.error.clan.notInClan.other: '${dkfriends.prefix.clan} &e{target.name} &cis not in a clan'
   dkfriends.error.clan.alreadyInClan.self: '${dkfriends.prefix.clan} &cYou are already in a clan'
   dkfriends.error.clan.alreadyInClan.target: '${dkfriends.prefix.clan} &e{target.name} is already in a clan'
   dkfriends.error.clan.member.notAllowed: '${dkfriends.prefix.clan} &cYou are not allowed to perform this action'
