@@ -103,6 +103,7 @@ messages:
   dkfriends.friend.loginInfo.two: '${dkfriends.prefix.friend} &7Currently are &e{player.displayName} and &e{player2.displayName} &7online'
   dkfriends.friend.loginInfo.three: '${dkfriends.prefix.friend} &7Currently are &e{player.displayName}, &e{player2.displayName} and &e{player3.displayName} &7online'
   dkfriends.friend.loginInfo.more: '${dkfriends.prefix.friend} &7Currently are &e{player.displayName}, &e{player2.displayName} and &e{otherAmount} &7online'
+  dkfriends.command.friend.clear: '${dkfriends.prefix.friend} &7You friends were removed'
 
   dkfriends.party.invite: '${dkfriends.prefix.party} &e{invitation.inviter.displayName} &7invited you to a party
   ${dkfriends.prefix.party} &7Click&8: !["&8[&aACCEPT&8]"]("run:///party accept {invitation.partyId}") !["&8[&cDENY&8]"]("run:///party deny {invitation.partyId}")"'
@@ -151,7 +152,7 @@ messages:
   dkfriends.error.clan.tag.alreadyExists: '${dkfriends.prefix.clan} &cA clan with the tag &e{tag} &calready exists'
 
   dkfriends.error.clan.notInClan: '${dkfriends.prefix.clan} &cYou are not in a clan'
-  dkfriends.error.clan.notInClan.other: '${dkfriends.prefix.clan} &e{target.name} &cis not in a clan'
+  dkfriends.error.clan.notInClan.other: '${dkfriends.prefix.clan} &e{target.displayName} &cis not in a clan'
   dkfriends.error.clan.alreadyInClan.self: '${dkfriends.prefix.clan} &cYou are already in a clan'
   dkfriends.error.clan.alreadyInClan.target: '${dkfriends.prefix.clan} &e{target.name} is already in a clan'
   dkfriends.error.clan.member.notAllowed: '${dkfriends.prefix.clan} &cYou are not allowed to perform this action'
