@@ -382,12 +382,12 @@ messages:
   dkbans.command.chatlog.player.list: '${dkbans.prefix.chat} &7Chatlog &7{message.text} of player {player.displayName} &8| &7Page&8: {page}
   @for("entry" in {entries}, ${dkbans.command.chatLog.player.list.loop},"\n")'
   dkbans.command.chatlog.player.list.loop: '&8» {entry.serverName} &7on &e{entry.timeFormatted}&8:
-  &7{entry.message} &8(&7{entry.id&8)'
+  &7{entry.message} &8(&7{entry.id}&8)'
 
   dkbans.command.chatlog.server.list: '${dkbans.prefix.chat} &7Chatlog of server {serverName} &8| &7Page&8: {page}
   @for("entry" in {entries}, ${dkbans.command.chatLog.server.list.loop},"\n")'
   dkbans.command.chatlog.server.list.loop: '&8» {entry.player.displayName} &7on &e{entry.timeFormatted}&8:
-  &7{entry.message} &8(&7{entry.id&8)'
+  &7{entry.message} &8(&7{entry.id}&8)'
 
   dkbans.command.chatlog.entry: '${dkbans.prefix.chat} &7Chat log entry of player {entry.player.displayName}
   &8» &7Id&8: &e{entry.id}
