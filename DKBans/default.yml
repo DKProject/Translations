@@ -17,6 +17,7 @@ messages:
   dkbans.error.invalid.DurationFormat: '{prefix} &e{input} &cis not a valid duration. Use for example 10m'
   dkbans.error.invalid.number: '{prefix} &e{number} &cis not a valid number'
   dkbans.error.invalid.boolean: '{prefix} &e{value} &cis not a valid boolean'
+  dkbans.error.invalid.id: '{prefix} &e{value} &cis not a valid id'
   dkbans.error.onlyPlayer: '{prefix} &cThis command can only be executed as a player'
   dkbans.error.onlyConsole: '{prefix} &cThis command can only be executed from console'
   dkbans.error.noPermissions: '{prefix} &cYou are not allowed to execute this command'
@@ -376,16 +377,24 @@ messages:
   dkbans.command.chatlog.usage: '${dkbans.prefix.chat} &cInvalid usage of chatLog command&8:
   &7/chatlog player <name> [page]
   &7/chatlog server <name, id> [page]'
+  dkbans.command.chatlogEntry.notFound: '${dkbans.prefix.chat} &cChat log entry with id &e{id} &cnot found'
 
-  dkbans.command.chatlog.player.list: '${dkbans.prefix.chat} &7Chatlog of player {player.displayName} &8| &7Page&8: {page}
+  dkbans.command.chatlog.player.list: '${dkbans.prefix.chat} &7Chatlog &7{message.text} of player {player.displayName} &8| &7Page&8: {page}
   @for("entry" in {entries}, ${dkbans.command.chatLog.player.list.loop},"\n")'
   dkbans.command.chatlog.player.list.loop: '&8» {entry.serverName} &7on &e{entry.timeFormatted}&8:
-  &7{entry.message}'
+  &7{entry.message} &8(&7{entry.id&8)'
 
   dkbans.command.chatlog.server.list: '${dkbans.prefix.chat} &7Chatlog of server {serverName} &8| &7Page&8: {page}
   @for("entry" in {entries}, ${dkbans.command.chatLog.server.list.loop},"\n")'
   dkbans.command.chatlog.server.list.loop: '&8» {entry.player.displayName} &7on &e{entry.timeFormatted}&8:
-  &7{entry.message}'
+  &7{entry.message} &8(&7{entry.id&8)'
+
+  dkbans.command.chatlog.entry: '${dkbans.prefix.chat} &7Chat log entry of player {entry.player.displayName}
+  &8» &7Id&8: &e{entry.id}
+  &8» &7Message&8: &e{entry.message}
+  &8» &7Time&8: &e{entry.timeFormatted}
+  &8» &7Server&8: &e{entry.serverName}&8(&7{entry.serverId}&8)
+  &8» &7Player chat blocked&8: &e{entry.blocked}'
 
   dkbans.command.dkbans.help: '${dkbans.prefix} &cInvalid usage of dkbans command&8:
   &7/dkbans info
