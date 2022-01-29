@@ -197,10 +197,3 @@ messages:
   dkfriends.lobby.hider.none.displayName: '&cNo players visible'
 
   dkfriends.profileHead.displayName: '&aProfile'
-
-
-  dkfriends.gui.clan.create.displayName: "&bCreate a clan"
-
-  dkfriends.gui.clan.list.info.displayName: '&7{clan.name} &8[&e{clan.tag}&8]'
-  dkfriends.gui.clan.list.player.online.displayName: '{clanMember.displayName} &8(&e{clanMember.role}&8)'
-  dkfriends.gui.clan.list.player.offline.displayName: '&7{clanMember.name} &8(&e{clanMember.role}&8)'
