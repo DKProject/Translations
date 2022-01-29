@@ -40,6 +40,7 @@ messages:
   &7/ticket logout
   &7/ticket logout
   &7/ticket <topic> [message]
+
   &7Topics&8: @for("topic" in {topics}, ${dksupport.command.ticket.help.topic.list},"\n", "\n")'
   dksupport.command.ticket.help.topic.list: ' &8- &e{topic.name} &8| &e{topic.displayName}'
 
@@ -50,6 +51,7 @@ messages:
 
   dksupport.command.ticket.take: '${dksupport.prefix} &7You have taken the ticket of &e{ticket.creator.player.displayName}
   ${dksupport.command.ticket.info.details}
+
   &7Use the chat to replay to this ticket
   &7Enter #leave to leave this ticket
   &7Enter #close to close this ticket
@@ -57,6 +59,7 @@ messages:
 
   dksupport.command.ticket.select: '${dksupport.prefix} &7You have selected the ticket of &e{ticket.creator.player.displayName}
   ${dksupport.command.ticket.info.details}
+
   &7Use the chat to replay to this ticket
   &7Enter #leave to leave this ticket
   &7Enter #close to close this ticket
@@ -82,5 +85,7 @@ messages:
 
   dksupport.command.ticket.unselect: '${dksupport.prefix} &7You have unselected your ticket'
 
-  dksupport.player.staff.joinInfo: '${dksupport.prefix} &7At the moment are &e{openTicketCount} &7tickets open&8. !["&8[&eList&8]"]("run:///ticket list")'
+  dksupport.player.staff.joinInfo: '${dksupport.prefix} &7At the moment are &e{openTicketCount} &7tickets open&8. !["&8[&eList&8]"]("run:///ticket list")
+  
+  &7Your processing staff tickets: @for("ticket" in {processingTickets}, ${dksupport.command.ticket.my.loop},"\n", "\n")'
   dksupport.player.user.openTicketJoinInfo: '${dksupport.prefix} &7You have one open ticket&8. !["&8[&aSelect&8]"]("run:///ticket select")'
