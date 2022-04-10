@@ -1,11 +1,9 @@
-# 翻译贡献者:MODcraft
-# Translated by MODcraft
 meta:
-  name: 'DKCoins 中文'
+  name: 'DKCoins 简体中文'
   module: 'DKCoins'
   enabled: true
   language:
-    name: 'Chinese'
+    name: 'Chinese Simplified'
     localizedName: '简体中文'
     code: 'zh_CN'
 messages:

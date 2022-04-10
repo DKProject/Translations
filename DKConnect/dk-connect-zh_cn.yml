@@ -1,0 +1,45 @@
+meta:
+  name: 'DKConnect 简体中文'
+  module: 'DKConnect'
+  language:
+    name: 'Chinese Simplified'
+    localizedName: '简体中文'
+    code: 'zh_CN'
+messages:
+  dkconnect.prefix: '&8» &eDKConnect &8|&f'
+
+  dkconnect.error.onlyPlayer: '${dkconnect.prefix} &c这个命令只能由玩家执行'
+  dkconnect.error.player.alreadyVerified: '${dkconnect.prefix} &c你已经验证为 &{verification.username}'
+  dkconnect.error.player.openPendingVerification: '${dkconnect.prefix} &7你目前已经有一个等待中的验证. &7你的个人验证码为 &e{pendingVerification.code}. &7在 Discord 中对&ePretronicBot&7执行指令 &e!verify {pendingVerification.code}'
+  dkconnect.error.player.notVerified: '${dkconnect.prefix} &c您当前未验证'
+  dkconnect.error.player.notFound: '${dkconnect.prefix} &c玩家 &e{name} &c未找到'
+
+  dkconnect.command.verify: '${dkconnect.prefix} &7你的个人验证码是 &e{pendingVerification.code}. &7在 Discord 中对&ePretronicBot&7执行指令 &e!verify {pendingVerification.code}'
+  dkconnect.command.unverify: '${dkconnect.prefix} &7已取消验证'
+  dkconnect.command.verifyInfo: '${dkconnect.prefix} &e{player.displayName} &7的验证
+  @for("verification" in {player.verifications},${dkconnect.command.verifyInfo.loop},"\n")'
+  dkconnect.command.verifyInfo.loop: ' &8- &e{verification.username} &8(&e{verification.userId}&8)'
+
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.name: '错误的用法'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.url: 'https://www.paypal.com/pools/c/8aWrUZXUi6'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.iconUrl: 'https://i.imgur.com/yqKqqTX.png'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.color: 'RANDOM_BRIGHT'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.description: '测试描述'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.thumbnail: 'https://i.imgur.com/mvuOqlq.png'
+
+  dkconnect.voiceadapter.discord.command.unverify.completed: '您已经取消了您的名为 {verification.player.name} 的我的世界账户验证 '
+  dkconnect.voiceadapter.discord.command.unverify.notVerified: '您未被验证'
+  dkconnect.voiceadapter.discord.command.verify.completed: '您已经完成了对我的世界账户 {verification.player.name} 的验证'
+  dkconnect.voiceadapter.discord.command.verify.noPendingVerification: '验证码 {code} 无效'
+  dkconnect.voiceadapter.discord.command.verify.usage: '用法: {commandPrefix}verify <验证码>'
+
+  dkconnect.voiceadapter.discord.notification.ban.title: '新增{event.snapshot.punishmentType.name}'
+  dkconnect.voiceadapter.discord.notification.ban.fields.banId.name: '{event.snapshot.punishmentType.name} ID'
+  dkconnect.voiceadapter.discord.notification.ban.fields.staff.name: '员工'
+  dkconnect.voiceadapter.discord.notification.ban.fields.reason.name: '原因'
+  dkconnect.voiceadapter.discord.notification.ban.fields.duration.name: '期限'
+
+  dkconnect.voiceadapter.discord.notification.join.body: '{event.player.name} 加入了服务器'
+  dkconnect.voiceadapter.discord.notification.leave.body: '{event.player.name} 离开了服务器'
+
+  dkconnect.chatSync.message: '<{player.name}> {message}'
