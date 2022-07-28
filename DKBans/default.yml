@@ -213,8 +213,11 @@ messages:
   dkbans.command.punishNotes.cleared: '${dkbans.prefix} &7Notes of &e{player.displayName} &8 - &e{entry.id} &7have been cleared'
 
   dkbans.command.history.help: '${dkbans.prefix} &cUsage&8: &7/history <player>'
-  dkbans.command.history.list: '${dkbans.prefix} &7History of &8{player.displayName} @for("entry" in {entries}",${dkbans.command.history.list.loop},"\n","\n")'
+  dkbans.command.history.list: '${dkbans.prefix} &7History of &8{player.displayName} @for("entry" in {entries}",${dkbans.command.history.list.loop},"\n","\n") \n @if(hasPages, ${dkbans.command.history.list.button})'
   dkbans.command.history.list.loop: '![" &8- &a{entry.punishmentType.color}{entry.punishmentType.name} &8| &7{entry.createdFormatted} - &7{entry.reason} @if({entry.revoked},"&8(&aUnbanned&8)")"]("run:///history {player.name} {entry.id}")'
+  dkbans.command.history.list.button: '${dkbans.prefix} @if({hasPrevious}, ${dkbans.command.history.list.button.previous} &8| )@if({hasNext}, ${dkbans.command.history.list.button.next})'
+  dkbans.command.history.list.button.next: '![" &8[&ePrevious Page&8]")"]("run:///history {player.name} --page:{previous}")'
+  dkbans.command.history.list.button.previous: '![" &8[&aNext Page&8]")"]("run:///history {player.name} --page:{next}")'
   dkbans.command.history.info: '${dkbans.prefix} &7History Entry of &e{player.displayName}
   &8» &7Id&8: &e{entry.id}
   &8» &7Type&8: &e{entry.punishmentType.color}{entry.punishmentType.name}
