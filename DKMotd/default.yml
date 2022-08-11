@@ -97,6 +97,8 @@ messages:
   dkmotd.command.motd.playerInfo.modify: '${dkmotd.prefix} &7You have modified the player info'
   dkmotd.command.motd.playerInfo.remove: '${dkmotd.prefix} &7You have removed a player info'
   dkmotd.command.motd.playerInfo.clear: '${dkmotd.prefix} &7You have cleared the player info'
+  dkmotd.command.motd.playerInfo.list: '${dkmotd.prefix} &7Player info&8: @for("line" in {template.playerInfo}, ${dkmotd.command.motd.playerInfo.list.loop},"\n", "\n")'
+  dkmotd.command.motd.playerInfo.list.loop: ' &8{position} &e{line} '
 
   dkmotd.command.motd.supportedVersions.add: '${dkmotd.prefix} &7You have added a supported version'
   dkmotd.command.motd.supportedVersions.set: '${dkmotd.prefix} &7You have set the supported version'
