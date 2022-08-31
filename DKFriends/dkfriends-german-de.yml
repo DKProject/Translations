@@ -1,0 +1,198 @@
+meta:
+  name: 'DKFriends German'
+  module: 'DKFriends'
+  language:
+    name: 'German'
+    localizedName: 'Deutsch'
+    code: 'de'
+messages:
+  dkfriends.prefix.friend: '&8» &aDKFriends &8|&f'
+  dkfriends.prefix.party: '&8» &5DKParty &8|&f'
+  dkfriends.prefix.clan: '&8» &3DKClans &8|&f'
+
+  dkfriends.error.onlyPlayer: '{prefix} &cDieser Command kann nur ein Spieler ausführen'
+  dkfriends.error.noPage: '{prefix} &7Die Seite &e{page} &7wurde nicht gefunden'
+  dkfriends.error.player.notFound: '{prefix} &cDer Spieler &e{name} &cwurde nicht gefunden'
+  dkfriends.error.player.notOnline: '{prefix} &cDer Spieler &e{player.displayName} &cist nicht online'
+  dkfriends.error.player.notSelf: '{prefix} &cDu kannst nicht mit dir selbst interagieren'
+
+  dkfriends.error.friend.already: '${dkfriends.prefix.friend} &e{player.displayName} &7ist bereits mit dir befreundet'
+  dkfriends.error.friend.not: '${dkfriends.prefix.friend} &e{player.displayName} &cist nicht mit dir befreundet'
+  dkfriends.error.friend.empty: '${dkfriends.prefix.friend} &cDu hast noch keine Freunde :('
+  dkfriends.error.friend.request.notAllowed: '${dkfriends.prefix.friend} &cDu bist nicht erlaubt diesem Spieler eine Freundschaftsanfrage zu schicken.'
+  dkfriends.error.friend.request.already: '${dkfriends.prefix.friend} &cDu hast bereits eine Freundschaftsanfrage an &a{player.displayName} &cversendet.'
+  dkfriends.error.friend.request.not: '${dkfriends.prefix.friend} &cDu hast keine Freundschaftsanfrage von &a{player.displayName} &cerhalten.'
+  dkfriends.error.friend.request.empty: '${dkfriends.prefix.friend} &cDu hast keine offenen Freundschaftsanfragen.'
+
+  dkfriends.error.party.not: '${dkfriends.prefix.party} &cDu bist in keiner Party'
+  dkfriends.error.party.already: '${dkfriends.prefix.party} &cDu bist bereits in einer Party'
+  dkfriends.error.party.notAllowed: '${dkfriends.prefix.party} &cDu bist nicht erlaubt dies zu tun'
+  dkfriends.error.party.notMember: '${dkfriends.prefix.party} &c{player.displayName} &cist nicht in deiner Party'
+  dkfriends.error.party.invitation.not: '${dkfriends.prefix.party} &cDu wurdest nicht in diese Party eingeladen'
+
+  dkfriends.command.friend.help: '${dkfriends.prefix.friend} &7Befehle:
+  &7/friend add <name> &8- &7Sende eine Freundschaftsanfrage an einen Spieler
+  &7/friend accept <name> &8- &7Akzeptiere eine offene Freundschaftsanfrage
+  &7/friend deny <name> &8- &7Lehne eine offene Freundschaftsanfrage ab
+  &7/friend remove <name> &8- &7Entferne einen Spieler aus deiner Freundes Liste
+  &7/friend list &8- &7Listet deine Freunde auf
+  &7/friend requests &8- &7Listet deine offenen Freundschaftsanfragen auf
+  &7/friend clear &8- &7Entferne alle Spieler aus deiner Freundes Liste
+  &7/friend favorite <name> &8- &7Markiere einen Freund als Favorit
+  &7/friend jump <name> &8- &7Springe zu einem Freund
+  &7/friend message <name> <message> &8- &7Sende eine Private Nachricht
+  &7/friend setting <setting> <value> [group] &8- &7Ändere eine bestimmte Einstellung'
+  dkfriends.command.friend.add.success: '${dkfriends.prefix.friend} &7Du hast eine Freundschaftsanfrage an &e{player.displayName} &7versendet'
+  dkfriends.command.friend.jump.already: '${dkfriends.prefix.friend} &cDu bist bereits mit diesem Server verbunden'
+  dkfriends.command.friend.jump.notAllowed: '${dkfriends.prefix.friend} &cDu kannst nicht zu diesem Spieler springen'
+  dkfriends.command.friend.jump.success: '${dkfriends.prefix.friend} &7Verbinde mit Server...'
+  dkfriends.command.friend.message: '${dkfriends.prefix.friend} &e{sender.displayName}&8: &7{message}'
+  dkfriends.command.friend.message.notAllowed: '${dkfriends.prefix.friend} &cDu kannst diesem Spieler keine Nachricht senden'
+  dkfriends.command.friend.list: '${dkfriends.prefix.friend} &7Deine Freunde &8| &7Seite&8: &e{page} @for("friend" in {friends},${dkfriends.command.friend.list.loop},"\n","\n")'
+  dkfriends.command.friend.list.loop: '@if({friend.isOnline},${dkfriends.command.friend.list.loop.online},${dkfriends.command.friend.list.loop.offline})'
+  dkfriends.command.friend.list.loop.online: ' @if({friend.isFavorite},"&6✦","&8-") &e{friend.displayName}&8: &aOnline &8(&e{friend.server}&8)'
+  dkfriends.command.friend.list.loop.offline: ' @if({friend.isFavorite},"&6✦","&8-") &e{friend.displayName}&8: &cOffline &8(&7Zuletzt gesehen &e{friend.lastLogin} &8)'
+  dkfriends.command.friend.requests: '${dkfriends.prefix.friend} &7Freundschaftsanfragen &8| &7Seite&8: &e{page} @for("request" in {requests},${dkfriends.command.friend.requests.loop},"\n","\n")'
+  dkfriends.command.friend.requests.loop: ' &8- &e{request.requester.displayName}&8: !["&8[&aAKZEPTIEREN&8]"]("run:///friend accept {request.requester.name}") !["&8[&cABLEHNEN&8]"]("run:///friend deny {request.requester.name})"'
+  dkfriends.command.friend.favorite.mark: '${dkfriends.prefix.friend} &7Du hast {player.displayName} &7zu deiner Favoriten Liste hinzugefügt'
+  dkfriends.command.friend.favorite.unmark: '${dkfriends.prefix.friend} &7Du hast {player.displayName} &7von deiner Favoriten Liste entfernt'
+  dkfriends.command.friend.setting.changed: '${dkfriends.prefix.friend} &7Du hast die Einstellung &e{setting}&8[&a{group}&8] &7geändert in &e{value}'
+  dkfriends.command.friend.party.noOnline: '${dkfriends.prefix.friend} &cEs sind derzeit keine Freunde online um sie in deine Party einzuladen'
+
+  dkfriends.command.party.help: '${dkfriends.prefix.party} &7Befehle:
+  &7/party list &8- &7Listet alle öffentlichen Partys auf
+  &7/party create &8- &7Erstelle eine Party
+  &7/party delete &8- &7Lösche deine Party
+  &7/party invite <name> &8- &7Lade Spieler in deine Party ein
+  &7/party join <name> &8- &7Trete einer öffentlichen Party bei
+  &7/party accept <name> &8- &7Akzeptiere eine Party Einladung
+  &7/party deny <name> &8- &7Lehne eine Party Einladung ab
+  &7/party leave &8- &7Verlasse deine derzeitige Party
+  &7/party kick <name> &8- &7Werfe einen Spieler aus deiner Party
+  &7/party promote <name> &8- &7Promote einen Spieler in deiner Party
+  &7/party demote <name> &8- &7Demote einen Spieler in deiner Party
+  &7/party public &8- &7Stelle deine Party auf öffentlich
+  &7/party jump &8- &7Springe zum Party Leader
+  &7/party message <message> &8- &7Sende eine Nachricht in den Party Chat'
+  dkfriends.command.party.created: '${dkfriends.prefix.party} &7Eine neue Party wurde erstellt.
+  ${dkfriends.prefix.party} !["&8[&aFreunde Einladen&8]"]("run:///friend party") !["&8[&cÖffentlich machen&8]"]("run:///party public")'
+  dkfriends.command.party.invite.notAllowed: '${dkfriends.prefix.party} &cDu kannst diesen Spieler nicht in deine Party Einladen'
+  dkfriends.command.party.invite.success: '${dkfriends.prefix.party} &e{player.displayName} &7wurde in deine Party Eingeladen'
+  dkfriends.command.party.info: '${dkfriends.prefix.party}
+  &8» &7Public: &e{party.public}
+  &8» &7Kategorie: &e{party.category}
+  &8» &7Topic: &e{party.topic}
+  &8» &7Mitglieder: &e{party.size} @for("member" in {party.members},${dkfriends.command.party.info.loop},"\n","\n")'
+  dkfriends.command.party.info.loop: '  &8- &e{member.displayName} &8(&7{member.role}&8)'
+  dkfriends.command.party.public: '${dkfriends.prefix.party} &7Die Party ist nun Public'
+  dkfriends.command.party.private: '${dkfriends.prefix.party} &7Die Party ist nun Privat'
+  dkfriends.command.party.public.empty: '${dkfriends.prefix.party} &7Derzeit sind keine Partys öffentlich'
+  dkfriends.command.party.public.list: '${dkfriends.prefix.party} &7Public Partys&8: @for("party" in {parties},${dkfriends.command.party.public.list.loop},"\n","\n")'
+  dkfriends.command.party.public.list.loop: '![" &8- &e{party.leader.displayName}&8: &e{party.topic} &8[&7JOIN&8]"]("run:///party join {party.leader.name}")'
+  dkfriends.command.party.setting.changed: '${dkfriends.prefix.party} &7Du hast die Einstellung &e{setting}&8[&a{group}&8] &7geändert in &e{value}'
+
+  dkfriends.friend.request: '${dkfriends.prefix.friend} &e{player.displayName} &7möchte mit dir Befreundet sein
+  ${dkfriends.prefix.friend} &7Click&8: !["&8[&aAKZEPTIEREN&8]"]("run:///friend accept {player.name}") !["&8[&cABLEHNEN&8]"]("run:///friend deny {player.name})"'
+  dkfriends.friend.deny: '${dkfriends.prefix.friend} &e{player.displayName} &chat deine Freundschaftsanfrage abgelehnt'
+  dkfriends.friend.add: '${dkfriends.prefix.friend} &7Du bist jetzt mit &e{player.displayName} &7befreundet'
+  dkfriends.friend.remove: '${dkfriends.prefix.friend} &7Die Freundschaft mit &e{player.displayName} &7wurde aufgelöst'
+  dkfriends.friend.login: '${dkfriends.prefix.friend} &e{player.displayName} &7ist nun &aonline'
+  dkfriends.friend.logout: '${dkfriends.prefix.friend} &e{player.displayName} &7is nun &coffline'
+  dkfriends.friend.loginInfo.requests: '${dkfriends.prefix.friend} &7Du hast &e{amount} &7offene Freundschaftsanfragen'
+  dkfriends.friend.loginInfo.one: '${dkfriends.prefix.friend} &e{player.displayName} &7ist derzeit online'
+  dkfriends.friend.loginInfo.two: '${dkfriends.prefix.friend} &e{player.displayName} und &e{player2.displayName} &7sind derzeit online'
+  dkfriends.friend.loginInfo.three: '${dkfriends.prefix.friend} &e{player.displayName}&7, &e{player2.displayName} &7und &e{player3.displayName} &7sind derzeit online'
+  dkfriends.friend.loginInfo.more: '${dkfriends.prefix.friend} &e{player.displayName}&7, &e{player2.displayName} &7und &e{otherAmount} &7weitere sind derzeit online'
+  dkfriends.command.friend.clear: '${dkfriends.prefix.friend} &7Deine Freundes Liste wurde gecleart.'
+
+  dkfriends.party.invite: '${dkfriends.prefix.party} &e{invitation.inviter.displayName} &7hat dich in eine Party eingeladen.
+  ${dkfriends.prefix.party} &7Click&8: !["&8[&aAKZEPTIEREN&8]"]("run:///party accept {invitation.partyId}") !["&8[&cABLEHNEN&8]"]("run:///party deny {invitation.partyId}")"'
+  dkfriends.party.denied: '${dkfriends.prefix.party} &e{player.displayName} &chat die Einladung abgelehnt'
+  dkfriends.party.join: '${dkfriends.prefix.party} &e{player.displayName} &7ist der Party beigetreten'
+  dkfriends.party.leave: '${dkfriends.prefix.party} &e{player.displayName} &7hat die Party verlassen'
+  dkfriends.party.kick: '${dkfriends.prefix.party} &e{player.displayName} &7wurde von &e{executor.displayName} &7aus der Party geworfen'
+  dkfriends.party.delete: '${dkfriends.prefix.party} &7Die Party wurde gelöscht'
+  dkfriends.party.message: '${dkfriends.prefix.party} &e{player.displayName}&8: &7{message}'
+  dkfriends.party.teleport: '${dkfriends.prefix.party} &7Springe zu &e{target.name}'
+  dkfriends.party.promote.leader: '${dkfriends.prefix.party} &e{player.name} &7ist nun Leader der Party'
+  dkfriends.party.promote.moderator: '${dkfriends.prefix.party} &e{player.name} &7ist nun Moderator der Party'
+  dkfriends.party.demote.guest: '${dkfriends.prefix.party} &e{player.name} &7ist nun nicht länger Moderator der Party'
+
+  dkfriends.command.clan.create.help: '${dkfriends.prefix.clan}'
+  dkfriends.command.clan.create.alreadyExists: '${dkfriends.prefix.clan} &cEin Clan mit dem Namen &e{name} &cund/oder Clan Tag &e{tag} &cexistiert bereits!'
+  dkfriends.command.clan.create: '${dkfriends.prefix.clan} &7Du hast den Clan &e{clan.name} &7mit dem Clan Tag &e{clan.tag} &7erstellt'
+
+  dkfriends.command.clan.invite: '${dkfriends.prefix.clan} &7Du hast &e{target.name} &7erfolgreich in deinen Clan eingeladen'
+
+  dkfriends.clan.invite: '${dkfriends.prefix.clan} &e{invitation.inviter.displayName} &7hat dich in seinen Clan eingeladen &e{invitation.clan.name}
+  ${dkfriends.prefix.clan} &7Click&8: !["&8[&aAKZEPTIEREN&8]"]("run:///clan accept {invitation.clan.name}") !["&8[&cABLEHNEN&8]"]("run:///clan deny {invitation.clan.name}")'
+
+  dkfriends.command.clan.leave: '${dkfriends.prefix.clan} &7Du hast den Clan verlassen'
+
+  dkfriends.command.clan.party: '${dkfriends.prefix.clan} &7Du hast allen Clan Mitgliedern eine Party Einladung versendet!'
+
+  dkfriends.command.clan.info: '${dkfriends.prefix.clan} &7Clan Information
+  &8» &7Name&8: &e{clan.name}
+  &8» &7Tag&8: &e{clan.tag}
+  &8» &7Status&8: &e{clan.status}
+  &8» &7Mitglieder&8(&7{clan.size}&8): @for("member" in {clan.members},${dkfriends.command.clan.info.loop},"\n","\n")'
+  dkfriends.command.clan.info.loop: '&8- &7{member.displayName} &8(&7{member.role}&8)'
+  dkfriends.command.clan.delete: '${dkfriends.prefix.clan} &7Der Clan wurde gelöscht'
+  dkfriends.command.clan.promote: '${dkfriends.prefix.clan} &7Du hast &e{member.displayName} &7promotet zur Rolle &e{member.role}'
+  dkfriends.command.clan.demote: '${dkfriends.prefix.clan} &7Du hast &e{member.displayName} &7demotet zur Rolle &e{member.role}'
+  dkfriends.command.clan.kick: '${dkfriends.prefix.clan} &7Du hast &e{member.displayName} &7aus dem Clan gekickt'
+  dkfriends.command.clan.rename: '${dkfriends.prefix.clan} &7Du hast den Clan Namen zu &e{clan.name} &7geändert'
+  dkfriends.command.clan.retag: '${dkfriends.prefix.clan} &7Du hast den Clan Tag zu &e{clan.tag} &7geändert'
+  dkfriends.command.clan.accept: '${dkfriends.prefix.clan} &7Du hast die Clan Einladung vom Clan &e{clan.name} &7angenommen'
+  dkfriends.command.clan.deny: '${dkfriends.prefix.clan} &7Du hast die Clan Einladung vom Clan &e{clan.name} &7abgelehnt'
+  dkfriends.command.clan.setting.changed: '${dkfriends.prefix.clan} &7Du hast die Einstellung &e{setting}&8[&a{group}&8] &7geändert in &e{value}'
+  dkfriends.command.clan.party.noOnline: '${dkfriends.prefix.clan} &cEs sind derzeit keine Clan Mitglieder online für eine Party Einladung'
+  dkfriends.error.clan.name.alreadyExists: '${dkfriends.prefix.clan} &cEin Clan mit dem Namen &e{name} &cexistiert bereits'
+  dkfriends.error.clan.tag.alreadyExists: '${dkfriends.prefix.clan} &cEin Clan mit dem Tag &e{tag} &cexistiert bereits'
+
+  dkfriends.error.clan.notInClan: '${dkfriends.prefix.clan} &cDu bist in keinem Clan'
+  dkfriends.error.clan.notInClan.other: '${dkfriends.prefix.clan} &e{target.displayName} &cist nicht im Clan'
+  dkfriends.error.clan.alreadyInClan.self: '${dkfriends.prefix.clan} &cDu bist bereits in einem Clan'
+  dkfriends.error.clan.alreadyInClan.target: '${dkfriends.prefix.clan} &e{target.name} ist bereits in einem Clan'
+  dkfriends.error.clan.member.notAllowed: '${dkfriends.prefix.clan} &cDafür hast du keine Berechtigung'
+  dkfriends.error.clan.notExists: '${dkfriends.prefix.clan} &cEin Clan mit dem Namen oder Tag &e{value} &cexistiert nicht'
+  dkfriends.error.clan.notSameClan: '${dkfriends.prefix.clan} &e{target.name} &7ist nicht in deinem Clan'
+  dkfriends.error.clan.member.noInvitationSpecific: '${dkfriends.prefix.clan} &cDu hast keine Einladung von dem Clan &e{name} &cerhalten'
+  dkfriends.error.clan.member.alreadyInvited: '${dkfriends.prefix.clan} &e{target.displayName} &7hat bereits eine Clan Einladung erhalten'
+
+  dkfriends.clan.kick: '${dkfriends.prefix.clan} &cDu wurdest aus dem Clan geworfen.'
+  dkfriends.clan.kick.other: '${dkfriends.prefix.clan} &e{member.displayName} &7wurde aus dem Clan geworfen'
+  dkfriends.clan.promote: '${dkfriends.prefix.clan} &7Du wurdest promotet in deinem Clan.'
+  dkfriends.clan.promote.other: '${dkfriends.prefix.clan} &e{member.displayName} &7wurde promotet im Clan'
+  dkfriends.clan.demote: '${dkfriends.prefix.clan} &7Du wurdest demotet in deinem Clan.'
+  dkfriends.clan.demote.other: '${dkfriends.prefix.clan} &e{member.displayName} &7wurde demotet im Clan'
+  dkfriends.clan.join: '${dkfriends.prefix.clan} &e{member.displayName} &7ist dem Clan beigetreten'
+  dkfriends.clan.leave: '${dkfriends.prefix.clan} &e{member.displayName} &7hat den Clan verlassen'
+  dkfriends.clan.login: '${dkfriends.prefix.clan} &e{player.displayName} &7ist nun &aonline'
+  dkfriends.clan.logout: '${dkfriends.prefix.clan} &e{player.displayName} &7ist nun &coffline'
+  dkfriends.clan.message: '${dkfriends.prefix.clan} &e{player.displayName}&8: &7{message}'
+
+  dkfriends.command.clan.help: '${dkfriends.prefix.clan} &7Befehle:
+  &7/clan accept <clan> &8- &7Akzeptiere eine Clan Einladung
+  &7/clan deny <clan> &8- &7Lehne eine Clan Einladung ab
+  &7/clan create <name> <tag> &8- &7Erstelle einen Clan
+  &7/clan delete &8- &7Lösche deinen Clan
+  &7/clan info [name/tag] &8- &7Zeige dir Informationen von einem Clan an
+  &7/clan invite <name> &8- &7Lade einen Spieler in deinen Clan ein
+  &7/clan jump <name> &8- &7Springe zu einem Spieler
+  &7/clan kick <name> &8- &7Werfe einen Spieler aus deinem Clan
+  &7/clan leave &8- &7Verlasse deinen Clan
+  &7/clan message <text> &8- &7Sende eine Clan Nachricht
+  &7/clan party &8- &7Lade alle Mitglieder in eine Party ein
+  &7/clan promote <name> &8- &7Promote einen Spieler aus deinem Clan
+  &7/clan demote <name> &8- &7Demote einen Spieler aus deinem Clan
+  &7/clan rename <newName> &8- &7Benne den Namen im Clan um
+  &7/clan retag <newTag> &8- &7Benne den Tag im Clan um
+  &7/clan userinfo <name> &8- &7Zeige dir Informationen über einen Spieler
+  &7/clan settings <key> <value> &8- &7Ändere eine Einstellung im Clan'
+
+  dkfriends.lobby.hider.all.displayName: '&aAlle Spieler anzeigen'
+  dkfriends.lobby.hider.vip.displayName: '&5Nur VIPs anzeigen'
+  dkfriends.lobby.hider.none.displayName: '&cKeine Spieler anzeigen'
+
+  dkfriends.profileHead.displayName: '&aProfil'

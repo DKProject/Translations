@@ -1,0 +1,191 @@
+meta:
+  name: 'DKMotd Slovak'
+  module: 'DKMotd'
+  language:
+    name: 'Slovak'
+    localizedName: 'Slovensky'
+    code: 'sk'
+messages:
+  dkmotd.prefix: '&8» &bDKMotd &8|&f'
+
+  dkmotd.error.index.notValid: '${dkmotd.prefix} &e{value} &cnie je platný index'
+  dkmotd.error.number.notValid: '${dkmotd.prefix} &e{value} &cnie je platné číslo'
+  dkmotd.error.duration.notValid: '${dkmotd.prefix} &e{value} &cnie je platné trvanie'
+  dkmotd.error.version.notValid: '${dkmotd.prefix} &e{value} &cnie je platná verzia'
+  dkmotd.error.dateFormat.notValid: '${dkmotd.prefix} &e{value} &cnie je platný formát dňa'
+
+  dkmotd.error.motdTemplate.notExists: '${dkmotd.prefix} &cMotd šablóna &e{name} &cneexistuje'
+  dkmotd.error.motdTemplate.alreadyExists: '${dkmotd.prefix} &cMotd šablóna &e{template.name} &cuž existuje'
+  dkmotd.error.motdTemplate.deleteNotPossible: '${dkmotd.prefix} &cNie je možné vymazať motd šablónu &e{template.name}'
+
+  dkmotd.error.joinMessageTemplate.notExists: '${dkmotd.prefix} &cŠablóna pripojenia &e{name} &cneexistuje'
+  dkmotd.error.joinMessageTemplate.alreadyExists: '${dkmotd.prefix} &cŠablóna pripojenia &e{template.name} &cuž existuje'
+
+
+  dkmotd.command.motd.help: '${dkmotd.prefix} &cZlé použitie motd príkazu&8:
+  &7/motd list
+  &7/motd <názov> [info]
+  &7/motd <názov> active
+  &7/motd <názov> create
+  &7/motd <názov> delete
+  &7/motd <názov> name <názov>
+  &7/motd <názov> baseLine <text>
+  &7/motd <názov> secondLines
+  &7/motd <názov> versionText <text>
+  &7/motd <názov> wrongVersionText <text>
+  &7/motd <názov> supportedVersions
+  &7/motd <názov> favicon <ikona>
+  &7/motd <názov> playerInfo'
+
+  dkmotd.command.motd.secondLines.help: '${dkmotd.prefix} &cZlé použitie príkazu motd secondLines&8:
+  &7/motd <názov> secondlines add <riadok>
+  &7/motd <názov> secondlines remove <index>
+  &7/motd <názov> secondlines set <riadok>
+  &7/motd <názov> secondlines modify <index> <riadok>
+  &7/motd <názov> secondlines clear'
+
+  dkmotd.command.motd.playerInfo.help: '${dkmotd.prefix} &cZlé použitie príkazu motd playerInfo&8:
+  &7/motd <názov> playerInfo add <riadok>
+  &7/motd <názov> playerInfo remove <index>
+  &7/motd <názov> playerInfo set <riadok>
+  &7/motd <názov> playerInfo modify <index> <riadok>
+  &7/motd <názov> playerInfo clear'
+
+  dkmotd.command.motd.supportedVersions.help: '${dkmotd.prefix} &cZlé použitie príkazu motd supportedVersions&8:
+  &7/motd <názov> supportedVersions add <verzia>
+  &7/motd <názov> supportedVersions remove <verzia>
+  &7/motd <názov> supportedVersions set <verzia>
+  &7/motd <názov> supportedVersions modify <index> <verzia>
+  &7/motd <názov> supportedVersions clear'
+
+  dkmotd.command.motd.supportedVersions.list: '${dkmotd.prefix} &7Podporované verzie&8: @for("version" in {template.supportedVersions}, ${dkmotd.command.motd.supportedVersions.list.loop},"\n", "\n")'
+  dkmotd.command.motd.supportedVersions.list.loop: ' &8- &e{version} !["&8[&cVymaž&8]"]("run:///motd {template.name} supportedVersions remove {position}")'
+
+  dkmotd.command.motd.create: '${dkmotd.prefix} &7Vytvoril si motd šablónu &e{template.name}'
+
+  dkmotd.command.motd.delete: '${dkmotd.prefix} &7Vymazal si motd šablónu &e{template.name}'
+
+  dkmotd.command.motd.info: '${dkmotd.prefix} &7Motd šablóna &e{template.name} &7- info
+  &8» &7Základný riadok&8: &e{template.baseLine} !["&8[&bUpraviť&8]"]("suggest:///motd {template.name} baseLine {template.baseLine}")
+  &8» &7Text verzie&8: &e{template.versionText} !["&8[&bUpraviť&8]"]("suggest:///motd {template.name} versionText {template.versionText}")
+  &8» &7Text zlej verzie&8: &e{template.wrongVersionText} !["&8[&bUpraviť&8]"]("suggest:///motd {template.name} wrongVersionText {template.wrongVersionText}")
+  &8» &7Podporované verzie&8: @for("version" in {template.supportedVersions}, ${dkmotd.command.motd.info.supportedVersions},",", ",")
+  &8» &7Ikona&8: &e{template.favicon} !["&8[&bUpraviť&8]"]("suggest:///motd {template.name} favicon")
+  &8» &7Druhé riadky&8: @for("line" in {template.secondLines}, ${dkmotd.command.motd.info.secondLines},"\n", "\n")
+  &8» &7Info o hráčovi&8: @for("line" in {template.playerInfo}, ${dkmotd.command.motd.info.playerInfo},"\n", "\n")'
+  dkmotd.command.motd.info.secondLines: ' &8{position} &e{line} !["&8[&cVymaž&8]"]("run:///motd {template.name} secondLines remove {position}") !["&8[&bUpraviť&8]"]("suggest:///motd {template.name} secondLines modify {position} {line}")'
+  dkmotd.command.motd.info.supportedVersions: ' &8{position} &e{version} !["&8[&cRemove&8]"]("run:///motd {template.name} supportedVersions remove {position}")'
+  dkmotd.command.motd.info.playerInfo: ' &8{position} &e{line} !["&8[&cVymaž&8]"]("run:///motd {template.name} playerInfo remove {position}") !["&8[&bUpraviť&8]"]("suggest:///motd {template.name} playerInfo modify {position} {line}")'
+
+  dkmotd.command.motd.list: '${dkmotd.prefix} &7Motd šablóny&8: @for("template" in {templates}, ${dkmotd.command.motd.list.loop},"\n", "\n")'
+  dkmotd.command.motd.list.loop: ' &8- &e{template.name} '
+
+  dkmotd.command.motd.name: '${dkmotd.prefix} &7Zmenil si názov na &e{template.name}'
+  dkmotd.command.motd.baseLine: '${dkmotd.prefix} &7Zmenil si baseLine na &e{template.baseLine}'
+  dkmotd.command.motd.versionText: '${dkmotd.prefix} &7Zmenil si text verzie na &e{template.versionText}'
+  dkmotd.command.motd.wrongVersionText: '${dkmotd.prefix} &7Zmenil si text zlej verzie na &e{template.wrongVersionText}'
+  dkmotd.command.motd.active: '${dkmotd.prefix} &7Zmenil si aktívnu motd šablónu na &e{template.name}'
+
+  dkmotd.command.motd.secondLines.add: '${dkmotd.prefix} &7Pridal si druhý riadok'
+  dkmotd.command.motd.secondLines.set: '${dkmotd.prefix} &7Nastavil si druhé riadky'
+  dkmotd.command.motd.secondLines.modify: '${dkmotd.prefix} &7Upravil si druhé riadky'
+  dkmotd.command.motd.secondLines.remove: '${dkmotd.prefix} &7Odstránil si druhé riadky'
+  dkmotd.command.motd.secondLines.clear: '${dkmotd.prefix} &7Vymazal si druhé riadky'
+
+  dkmotd.command.motd.playerInfo.add: '${dkmotd.prefix} &7Pridal si info o hráčovi'
+  dkmotd.command.motd.playerInfo.set: '${dkmotd.prefix} &7Nastavil si info o hráčovi'
+  dkmotd.command.motd.playerInfo.modify: '${dkmotd.prefix} &7Upravil si info o hráčovi'
+  dkmotd.command.motd.playerInfo.remove: '${dkmotd.prefix} &7Odstránil si info o hráčovi'
+  dkmotd.command.motd.playerInfo.clear: '${dkmotd.prefix} &7Vymazal si info o hráčovi'
+
+  dkmotd.command.motd.supportedVersions.add: '${dkmotd.prefix} &7Pridal si podporovanú verziu'
+  dkmotd.command.motd.supportedVersions.set: '${dkmotd.prefix} &7Nastavil si podporovanú verziu'
+  dkmotd.command.motd.supportedVersions.remove: '${dkmotd.prefix} &7Odstránil si podporovanú verziu'
+  dkmotd.command.motd.supportedVersions.clear: '${dkmotd.prefix} &7Vymazal si podporovanú verziu'
+
+
+  dkmotd.command.maintenance.help: '${dkmotd.prefix} &cZlé použitie maintenance príkazu&8:
+  &7/maintenance active
+  &7/maintenance info
+  &7/maintenance timeout <timeout>
+  &7/maintenance reason <dôvod>
+  &7/maintenance duration <trvanie>'
+  dkmotd.command.maintenance.active.on: '${dkmotd.prefix} &7Práve si &azapol &7údržbu'
+  dkmotd.command.maintenance.active.off: '${dkmotd.prefix} &7Práve si &cvypol &7údržbu'
+  dkmotd.command.maintenance.timeout: '${dkmotd.prefix} &7Zmenil si timeout údržby na &e{maintenance.formattedTimeout}'
+  dkmotd.command.maintenance.info: '${dkmotd.prefix} &cInfo o údržbe
+  &8» &7Aktívne&8: &e{maintenance.active}
+  &8» &7Timeout&8: &e{maintenance.formattedTimeout}'
+
+  dkmotd.command.maintenance.whitelist.help: '${dkmotd.prefix} &cZlé použitie príkazu maintenance whitelist&8:
+  &7/maintenance whitelist add <hráč>
+  &7/maintenance whitelist remove <hráč>
+  &7/maintenance whitelist info
+  &7/maintenance whitelist clear'
+  dkmotd.command.maintenance.whitelist.info: '${dkmotd.prefix} &7Biela listina údržby
+  @for("name" in {maintenance.whitelistedNames}, ${dkmotd.command.maintenance.whitelist.info.loop},"\n", "\n")'
+  dkmotd.command.maintenance.whitelist.info.loop: ' &8- &e{name} !["&8[&cVymaž&8]"]("run:///maintenance whitelist {name}")'
+  dkmotd.command.maintenance.whitelist.add: '${dkmotd.prefix} &7Pridal si hráča &e{player.displayName} &7bielu listinu údržby'
+  dkmotd.command.maintenance.whitelist.remove: '${dkmotd.prefix} &cVymazal si hráča &e{player.displayName} &7bielu listinu údržby'
+  dkmotd.command.maintenance.whitelist.clear: '${dkmotd.prefix} &7Vymazal si bielu listinu údržby'
+
+  dkmotd.command.joinMessage.help: '${dkmotd.prefix} &cZlé použitie joinmessage príkazu&8:
+  &7/joinmessage list
+  &7/joinmessage <názov> [info]
+  &7/joinmessage <názov> active
+  &7/joinmessage <názov> create
+  &7/joinmessage <názov> delete
+  &7/joinmessage <názov> name <názov>
+  &7/joinmessage <názov> baseMessage <text>
+  &7/joinmessage <názov> secondMessages'
+  dkmotd.command.joinMessage.create: '${dkmotd.prefix} &7Vytvoril si šablónu pripojenia &e{template.name}'
+
+  dkmotd.command.joinMessage.delete: '${dkmotd.prefix} &7Odstránil si šablónu pripojenia &e{template.name}'
+
+  dkmotd.command.joinMessage.info: '${dkmotd.prefix} &7Info o &e{template.name} &7šablóne pripojenia
+  &8» &7Základná správa&8: &e{template.baseMessage}
+  &8» &7Druhé správy&8: @for("line" in {template.secondMessages}, ${dkmotd.command.joinMessage.info.secondMessages},"\n", "\n")'
+  dkmotd.command.joinMessage.info.secondMessages: ' &8- &e{line} !["&8[&cVymaž&8]"]("run:///joinmessage {template.name} secondMessages remove {position}")'
+
+  dkmotd.command.joinMessage.list: '${dkmotd.prefix} &7Šablóny pripojenia&8: @for("template" in {templates}, ${dkmotd.command.joinMessage.list.loop},"\n", "\n")'
+  dkmotd.command.joinMessage.list.loop: ' &8- &e{template.name}'
+
+  dkmotd.command.joinMessage.active: '${dkmotd.prefix} &7Zmenil si aktívnu šablónu pripojenia na &e{template.name}'
+
+  dkmotd.command.joinMessage.name: '${dkmotd.prefix} &7Zmenil si názov na &e{template.name}'
+  dkmotd.command.joinMessage.baseMessage: '${dkmotd.prefix} &7Zmenil si baseMessage na &e{template.baseMessage}'
+
+  dkmotd.command.joinMessage.secondMessages.help: '${dkmotd.prefix} &cZlé použitie príkazu motd secondMessages&8:
+  &7/joinmessage <názov> secondMessages add <riadok>
+  &7/joinmessage <názov> secondMessages remove <index>
+  &7/joinmessage <názov> secondMessages set <riadok>
+  &7/joinmessage <názov> secondMessages clear'
+
+  dkmotd.command.joinMessage.secondMessages.add: '${dkmotd.prefix} &7Pridal si druhú správu'
+  dkmotd.command.joinMessage.secondMessages.set: '${dkmotd.prefix} &7Pridal si druhé správy'
+  dkmotd.command.joinMessage.secondMessages.remove: '${dkmotd.prefix} &7Odstránil si druhú správu'
+  dkmotd.command.joinMessage.secondMessages.clear: '${dkmotd.prefix} &7Vymazal si druhé správy'
+
+  dkmotd.maintenance.message.timeout: '&e&lpriklad.net&r
+  &e
+  &cServer je momentálne v údržbe
+  &3Dôvod&8: &4&l{maintenance.reason}
+  &e
+  &3Ostávajúci čas&8: &e{maintenance.formattedRemaining}
+  &e
+  &aPre viac informácií sa pozri na &eforum.priklad.net'
+  dkmotd.maintenance.message.permanent: '&e&lpriklad.net&r
+  &e
+  &cServer je momentálne v údržbe
+  &3Dôvod&8: &4&l{maintenance.reason}
+  &e
+  &aPre viac informácií sa pozri na &eforum.priklad.net'
+
+  dkmotd.command.tablist.help: '${dkmotd.prefix} &cZlé použitie tablist príkazu&8:
+  &7/tablist info
+  &7/tablist header <hlavička>
+  &7/tablist footer <pätička>
+  &7/tablist labyModServerBanner <urlObrázku>'
+  dkmotd.command.tablist.header: '${dkmotd.prefix} &7Zmenil si hlavičku tabistu na &e{tablist.header}'
+  dkmotd.command.tablist.footer: '${dkmotd.prefix} &7Zmenil si pätičku tablistu na &e{tablist.footer}'
+  dkmotd.command.tablist.labyModServerBanner: '${dkmotd.prefix} &7Zmenil si LabyMod banner servera na &e{tablist.labyModServerBanner}'

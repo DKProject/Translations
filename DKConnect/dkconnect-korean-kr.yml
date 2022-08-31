@@ -1,0 +1,45 @@
+meta:
+  name: 'DKConnect Korean'
+  module: 'DKConnect'
+  language:
+    name: 'Korean'
+    localizedName: '한국어'
+    code: 'kr'
+messages:
+  dkconnect.prefix: '&8» &eDKConnect &8|&f'
+
+  dkconnect.error.onlyPlayer: '${dkconnect.prefix} &c이 커맨드는 플레이어만 실행할 수 있습니다!'
+  dkconnect.error.player.alreadyVerified: '${dkconnect.prefix} &c당신은 &{verification.username} &c로 이미 인증되었습니다'
+  dkconnect.error.player.openPendingVerification: '${dkconnect.prefix} &7이미 대기중인 인증절차가 남아있습니다. &7당신의 인증 코드는 &e{pendingVerification.code} &7입니다. &7커맨드 &e!verify {pendingVerification.code} &7를 &ePretronicBot &7에게 입력해주세요.'
+  dkconnect.error.player.notVerified: '${dkconnect.prefix} &c당신은 인증되지 않았습니다'
+  dkconnect.error.player.notFound: '${dkconnect.prefix} &c플레이어 &e{name} &c를 찾지 못하였습니다.'
+
+  dkconnect.command.verify: '${dkconnect.prefix} &7당신의 인증 코드는 &e{pendingVerification.code} &7입니다. &7커맨드 &e!verify {pendingVerification.code} &7를 &ePretronicBot &7에게 입력해주세요.'
+  dkconnect.command.unverify: '${dkconnect.prefix} &7당신의 인증은 철회되었습니다'
+  dkconnect.command.verifyInfo: '${dkconnect.prefix} &e{player.displayName} &7의 인증 정보
+  @for("verification" in {player.verifications},${dkconnect.command.verifyInfo.loop},"\n")'
+  dkconnect.command.verifyInfo.loop: ' &8- &e{verification.username} &8(&e{verification.userId}&8)'
+
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.name: 'Wrong usage'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.url: 'https://www.paypal.com/pools/c/8aWrUZXUi6'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.iconUrl: 'https://i.imgur.com/yqKqqTX.png'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.color: 'RANDOM_BRIGHT'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.description: 'Test description'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.thumbnail: 'https://i.imgur.com/mvuOqlq.png'
+
+  dkconnect.voiceadapter.discord.command.unverify.completed: '당신의 인증 정보 {verification.player.name} 로 부터의 인증이 철회되었습니다'
+  dkconnect.voiceadapter.discord.command.unverify.notVerified: '당신은 인증되지 않았습니다'
+  dkconnect.voiceadapter.discord.command.verify.completed: '당신은 {verification.player.name} 로 인증되었습니다'
+  dkconnect.voiceadapter.discord.command.verify.noPendingVerification: '해당 코드 {code} 에 대응하는 대기 중 코드가 존재하지 않습니다'
+  dkconnect.voiceadapter.discord.command.verify.usage: '사용법: {commandPrefix}verify <code>'
+
+  dkconnect.voiceadapter.discord.notification.ban.title: '새로운 {event.snapshot.punishmentType.name}'
+  dkconnect.voiceadapter.discord.notification.ban.fields.banId.name: '{event.snapshot.punishmentType.name} ID'
+  dkconnect.voiceadapter.discord.notification.ban.fields.staff.name: '관리자'
+  dkconnect.voiceadapter.discord.notification.ban.fields.reason.name: '사유'
+  dkconnect.voiceadapter.discord.notification.ban.fields.duration.name: '기간'
+
+  dkconnect.voiceadapter.discord.notification.join.body: '{event.player.name} 가 서버에 접속하였습니다'
+  dkconnect.voiceadapter.discord.notification.leave.body: '{event.player.name} 가 서버를 퇴장하였습니다'
+
+  dkconnect.chatSync.message: '<{player.name}> {message}'

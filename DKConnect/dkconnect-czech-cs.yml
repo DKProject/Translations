@@ -1,0 +1,45 @@
+meta:
+  name: 'DKConnect - čeština'
+  module: 'DKConnect'
+  language:
+    name: 'Czech'
+    localizedName: 'Čeština'
+    code: 'cs'
+messages:
+  dkconnect.prefix: '&8» &eDKConnect &8|&f'
+
+  dkconnect.error.onlyPlayer: '${dkconnect.prefix} &cTento příkaz může být proveden pouze hráčem.'
+  dkconnect.error.player.alreadyVerified: '${dkconnect.prefix} &cJiž jsi oveřen jako &{verification.username}.'
+  dkconnect.error.player.openPendingVerification: '${dkconnect.prefix} &7Již probíhá ověřování. &7Tvůj osobní ověřovací kód je &e{pendingVerification.code}. &7Napiš příkaz &e!verify {pendingVerification.code} botovi &ePretronicBot&7.'
+  dkconnect.error.player.notVerified: '${dkconnect.prefix} &cNejsi ověřen!'
+  dkconnect.error.player.notFound: '${dkconnect.prefix} &cHráč &e{name} &cnebyl nalezen.'
+
+  dkconnect.command.verify: '${dkconnect.prefix} &7Tvůj osobní ověřovací kód je &e{pendingVerification.code}. &7Napiš příkaz &e!verify {pendingVerification.code} botovi &ePretronicBot&7.'
+  dkconnect.command.unverify: '${dkconnect.prefix} &7Nyní už nejsi oveřen!'
+  dkconnect.command.verifyInfo: '${dkconnect.prefix} &7Oveřování hráče &e{player.displayName}
+  @for("verification" in {player.verifications},${dkconnect.command.verifyInfo.loop},"\n")'
+  dkconnect.command.verifyInfo.loop: ' &8- &e{verification.username} &8(&e{verification.userId}&8)'
+
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.name: 'Špatné použití'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.url: 'https://www.paypal.com/pools/c/8aWrUZXUi6'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.iconUrl: 'https://i.imgur.com/yqKqqTX.png'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.color: 'RANDOM_BRIGHT'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.description: 'Testovací popis'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.thumbnail: 'https://i.imgur.com/mvuOqlq.png'
+
+  dkconnect.voiceadapter.discord.command.unverify.completed: 'Zrušil jsi ověřování svého účtu se jménem {verification.player.name}.'
+  dkconnect.voiceadapter.discord.command.unverify.notVerified: 'Nejsi ověřen!'
+  dkconnect.voiceadapter.discord.command.verify.completed: 'Úspěšně jsi dokončil ověřování s minecraft účtem {verification.player.name}'
+  dkconnect.voiceadapter.discord.command.verify.noPendingVerification: 'Neexistuje žádné ověření s kódem {code}.'
+  dkconnect.voiceadapter.discord.command.verify.usage: 'Použití: {commandPrefix}verify <code>'
+
+  dkconnect.voiceadapter.discord.notification.ban.title: 'Nový {event.snapshot.punishmentType.name}'
+  dkconnect.voiceadapter.discord.notification.ban.fields.banId.name: '{event.snapshot.punishmentType.name} ID'
+  dkconnect.voiceadapter.discord.notification.ban.fields.staff.name: 'Administrátor'
+  dkconnect.voiceadapter.discord.notification.ban.fields.reason.name: 'Důvod'
+  dkconnect.voiceadapter.discord.notification.ban.fields.duration.name: 'Doba trvání'
+
+  dkconnect.voiceadapter.discord.notification.join.body: '{event.player.name} se připojil na server.'
+  dkconnect.voiceadapter.discord.notification.leave.body: '{event.player.name} se odpojil ze serveru.'
+
+  dkconnect.chatSync.message: '<{player.name}> {message}'

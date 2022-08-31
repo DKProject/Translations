@@ -1,0 +1,191 @@
+meta:
+  name: 'DKMotd Magyar'
+  module: 'DKMotd'
+  language:
+    name: 'Hungarian'
+    localizedName: 'Magyar'
+    code: 'hu'
+messages:
+  dkmotd.prefix: '&8» &bDKMotd &8|&f'
+
+  dkmotd.error.index.notValid: '${dkmotd.prefix} &e{value} &cnem egy valódi index'
+  dkmotd.error.number.notValid: '${dkmotd.prefix} &e{value} &cnem egy valódi szám'
+  dkmotd.error.duration.notValid: '${dkmotd.prefix} &e{value} &cnem egy érvényes időtartam'
+  dkmotd.error.version.notValid: '${dkmotd.prefix} &e{value} &cnem egy valódi verzió'
+  dkmotd.error.dateFormat.notValid: '${dkmotd.prefix} &e{value} &cnem egy valódi dátum'
+
+  dkmotd.error.motdTemplate.notExists: '${dkmotd.prefix} &cA(z) &e{name} &cmotd sablonnem létezik'
+  dkmotd.error.motdTemplate.alreadyExists: '${dkmotd.prefix} &cA(z) &e{template.name} &cmotd sablon már létezik'
+  dkmotd.error.motdTemplate.deleteNotPossible: '${dkmotd.prefix} &cNem törölheted a(z) &e{template.name} &cmotd sablont'
+
+  dkmotd.error.joinMessageTemplate.notExists: '${dkmotd.prefix} &cA(z) &e{name} &ccsatlakozási üzenetsablon nem létezik'
+  dkmotd.error.joinMessageTemplate.alreadyExists: '${dkmotd.prefix} &cA(z) &e{name} &ccsatlakozási üzenetsablon már létezik'
+
+
+  dkmotd.command.motd.help: '${dkmotd.prefix} &cÉrvénytelen motd parancs&8:
+  &7/motd list
+  &7/motd <név> [infó]
+  &7/motd <név> active
+  &7/motd <név> create
+  &7/motd <név> delete
+  &7/motd <név> name <név>
+  &7/motd <név> baseLine <szöveg>
+  &7/motd <név> secondLines
+  &7/motd <név> versionText <szöveg>
+  &7/motd <név> wrongVersionText <szöveg>
+  &7/motd <név> supportedVersions
+  &7/motd <név> favicon <favicon>
+  &7/motd <név> playerInfo'
+
+  dkmotd.command.motd.secondLines.help: '${dkmotd.prefix} &cÉrvéntelen motdsor parancs&8:
+  &7/motd <név> secondlines add <sor>
+  &7/motd <név> secondlines remove <index>
+  &7/motd <név> secondlines set <sor>
+  &7/motd <név> secondlines modify <index> <sor>
+  &7/motd <név> secondlines clear'
+
+  dkmotd.command.motd.playerInfo.help: '${dkmotd.prefix} &cÉrvénytelen játékos információ parancs&8:
+  &7/motd <név> playerInfo add <sor>
+  &7/motd <név> playerInfo remove <index>
+  &7/motd <név> playerInfo set <sor>
+  &7/motd <név> playerInfo modify <index> <sor>
+  &7/motd <név> playerInfo clear'
+
+  dkmotd.command.motd.supportedVersions.help: '${dkmotd.prefix} &cÉrvénytelen verzió parancs&8:
+  &7/motd <név> supportedVersions add <verzió>
+  &7/motd <név> supportedVersions remove <verzió>
+  &7/motd <név> supportedVersions set <verzió>
+  &7/motd <név> supportedVersions modify <index> <verzió>
+  &7/motd <név> supportedVersions clear'
+
+  dkmotd.command.motd.supportedVersions.list: '${dkmotd.prefix} &7Támogatott verziók&8: @for("version" in {template.supportedVersions}, ${dkmotd.command.motd.supportedVersions.list.loop},"\n", "\n")'
+  dkmotd.command.motd.supportedVersions.list.loop: ' &8- &e{version} !["&8[&cTörlés&8]"]("run:///motd {template.name} supportedVersions remove {position}")'
+
+  dkmotd.command.motd.create: '${dkmotd.prefix} &7Létrehoztál egy motd sablont a következő névvel: &e{template.name}'
+
+  dkmotd.command.motd.delete: '${dkmotd.prefix} &7Törölted a(z) &e{template.name} &7motd sablont'
+
+  dkmotd.command.motd.info: '${dkmotd.prefix} &e{template.name} Sablon &7Információ'
+  &8» &7Base line&8: &e{template.baseLine} !["&8[&bSzerkesztés&8]"]("suggest:///motd {template.name} baseLine {template.baseLine}")
+  &8» &7Version text&8: &e{template.versionText} !["&8[&bSzerkesztés&8]"]("suggest:///motd {template.name} versionText {template.versionText}")
+  &8» &7Wrong version text&8: &e{template.wrongVersionText} !["&8[&bSzerkesztés&8]"]("suggest:///motd {template.name} wrongVersionText {template.wrongVersionText}")
+  &8» &7Supported versions&8: @for("version" in {template.supportedVersions}, ${dkmotd.command.motd.info.supportedVersions},",", ",")
+  &8» &7Favicon&8: &e{template.favicon} !["&8[&bSzerkesztés&8]"]("suggest:///motd {template.name} favicon")
+  &8» &7Second lines&8: @for("line" in {template.secondLines}, ${dkmotd.command.motd.info.secondLines},"\n", "\n")
+  &8» &7Player info&8: @for("line" in {template.playerInfo}, ${dkmotd.command.motd.info.playerInfo},"\n", "\n")'
+  dkmotd.command.motd.info.secondLines: ' &8{position} &e{line} !["&8[&cTörlés&8]"]("run:///motd {template.name} secondLines remove {position}") !["&8[&bModify&8]"]("suggest:///motd {template.name} secondLines modify {position} {line}")'
+  dkmotd.command.motd.info.supportedVersions: ' &8{position} &e{version} !["&8[&cTörlés&8]"]("run:///motd {template.name} supportedVersions remove {position}")'
+  dkmotd.command.motd.info.playerInfo: ' &8{position} &e{line} !["&8[&cTörlés&8]"]("run:///motd {template.name} playerInfo remove {position}") !["&8[&bModify&8]"]("suggest:///motd {template.name} playerInfo modify {position} {line}")'
+
+  dkmotd.command.motd.list: '${dkmotd.prefix} &7Motd sablonok&8: @for("template" in {templates}, ${dkmotd.command.motd.list.loop},"\n", "\n")'
+  dkmotd.command.motd.list.loop: ' &8- &e{template.name} '
+
+  dkmotd.command.motd.name: '${dkmotd.prefix} &7Megváltoztattad a sablon nevét erre: &e{template.name}'
+  dkmotd.command.motd.baseLine: '${dkmotd.prefix} &7Megváltoztattad a fősor szövegét erre: &e{template.baseLine}'
+  dkmotd.command.motd.versionText: '${dkmotd.prefix} &7Megváltoztattad a verzió szövegét erre: &e{template.versionText}'
+  dkmotd.command.motd.wrongVersionText: '${dkmotd.prefix} &7Megváltoztattad a hibás verzió szövegét erre: &e{template.wrongVersionText}'
+  dkmotd.command.motd.active: '${dkmotd.prefix} &7Megváltoztattad az aktív motd sablon nevét erre: &e{template.name}'
+
+  dkmotd.command.motd.secondLines.add: '${dkmotd.prefix} &7Hozzáadtál a motdhez egy második sort'
+  dkmotd.command.motd.secondLines.set: '${dkmotd.prefix} &7Beállítottad a motd második sorát'
+  dkmotd.command.motd.secondLines.modify: '${dkmotd.prefix} &7Szerkesztetted a motd második sorát'
+  dkmotd.command.motd.secondLines.remove: '${dkmotd.prefix} &7Törölted a motd második sorát'
+  dkmotd.command.motd.secondLines.clear: '${dkmotd.prefix} &7Törölted a motd második sor szövegét'
+
+  dkmotd.command.motd.playerInfo.add: '${dkmotd.prefix} &7Hozzáadtad a játékos információt a motdhez'
+  dkmotd.command.motd.playerInfo.set: '${dkmotd.prefix} &7Beállítottad a játékos információt a motdhez'
+  dkmotd.command.motd.playerInfo.modify: '${dkmotd.prefix} &7Szerkesztetted a játékos információt'
+  dkmotd.command.motd.playerInfo.remove: '${dkmotd.prefix} &7Törölted a játékos információt'
+  dkmotd.command.motd.playerInfo.clear: '${dkmotd.prefix} &7Törölted a játékos információ szövegét'
+
+  dkmotd.command.motd.supportedVersions.add: '${dkmotd.prefix} &7Hozzáadtad a támogatott verziót a motdhez'
+  dkmotd.command.motd.supportedVersions.set: '${dkmotd.prefix} &7Beállítottad a támogatott verziót a motdhez'
+  dkmotd.command.motd.supportedVersions.remove: '${dkmotd.prefix} &7Törölted a támogatott verziót'
+  dkmotd.command.motd.supportedVersions.clear: '${dkmotd.prefix} &7Törölted a támogatott verzió szövegét'
+
+
+  dkmotd.command.maintenance.help: '${dkmotd.prefix} &cÉrvénytelen karbantartási motd parancs&8:
+  &7/maintenance active
+  &7/maintenance info
+  &7/maintenance timeout <idő>
+  &7/maintenance reason <indok>
+  &7/maintenance duration <időtartam>'
+  dkmotd.command.maintenance.active.on: '${dkmotd.prefix} &7Karbantartás &abekapcsolva.'
+  dkmotd.command.maintenance.active.off: '${dkmotd.prefix} &7Karbantartás &ckikapcsolva.'
+  dkmotd.command.maintenance.timeout: '${dkmotd.prefix} &7Megváltoztattad a karbantartás időtúllépését erre: &e{maintenance.formattedTimeout}'
+  dkmotd.command.maintenance.info: '${dkmotd.prefix} &cKarbantartás információ
+  &8» &7Active&8: &e{maintenance.active}
+  &8» &7Timeout&8: &e{maintenance.formattedTimeout}'
+
+  dkmotd.command.maintenance.whitelist.help: '${dkmotd.prefix} &cInvalid usage of maintenance whitelist command&8:
+  &7/maintenance whitelist add <játékosnév>
+  &7/maintenance whitelist remove <játékosnév>
+  &7/maintenance whitelist info
+  &7/maintenance whitelist clear'
+  dkmotd.command.maintenance.whitelist.info: '${dkmotd.prefix} &7Fehérlistás játékosok
+  @for("name" in {maintenance.whitelistedNames}, ${dkmotd.command.maintenance.whitelist.info.loop},"\n", "\n")'
+  dkmotd.command.maintenance.whitelist.info.loop: ' &8- &e{name} !["&8[&cTörlés&8]"]("run:///maintenance whitelist {name}")'
+  dkmotd.command.maintenance.whitelist.add: '${dkmotd.prefix} &7Hozzáadtad &e{player.displayName} &7játékost a fehérlistához'
+  dkmotd.command.maintenance.whitelist.remove: '${dkmotd.prefix} &cTörölted &e{player.displayName} &7játékost a fehérlistáról'
+  dkmotd.command.maintenance.whitelist.clear: '${dkmotd.prefix} &7Törölted az összes játékost a fehérlistáról'
+
+  dkmotd.command.joinMessage.help: '${dkmotd.prefix} &cÉrvénytelen csatlakozási üzenet parancs&8:
+  &7/joinmessage list
+  &7/joinmessage <név> [infó]
+  &7/joinmessage <név> active
+  &7/joinmessage <név> create
+  &7/joinmessage <név> delete
+  &7/joinmessage <név> name <név>
+  &7/joinmessage <név> baseMessage <szöveg>
+  &7/joinmessage <név> secondMessages'
+  dkmotd.command.joinMessage.create: '${dkmotd.prefix} &7Létrehoztad a(z) &e{template.name} &7csatlakozási üzenetsablont'
+
+  dkmotd.command.joinMessage.delete: '${dkmotd.prefix} &7Törölted a(z) &e{template.name} &7csatlakozási üzenetsablont'
+
+  dkmotd.command.joinMessage.info: '${dkmotd.prefix} &e{template.name} &7csatlakozási üzenetsablont Információ
+  &8» &7Base message&8: &e{template.baseMessage}
+  &8» &7Second messages&8: @for("line" in {template.secondMessages}, ${dkmotd.command.joinMessage.info.secondMessages},"\n", "\n")'
+  dkmotd.command.joinMessage.info.secondMessages: ' &8- &e{line} !["&8[&cTörlés&8]"]("run:///joinmessage {template.name} secondMessages remove {position}")'
+
+  dkmotd.command.joinMessage.list: '${dkmotd.prefix} &7Csatlakozási üzenetsablonok&8: @for("template" in {templates}, ${dkmotd.command.joinMessage.list.loop},"\n", "\n")'
+  dkmotd.command.joinMessage.list.loop: ' &8- &e{template.name}'
+
+  dkmotd.command.joinMessage.active: '${dkmotd.prefix} &7Megváltoztattad az aktív csatlakozási üzenetsablont erre: &e{template.name}'
+
+  dkmotd.command.joinMessage.name: '${dkmotd.prefix} &7Megváltoztattad a sablon nevét erre: &e{template.name}'
+  dkmotd.command.joinMessage.baseMessage: '${dkmotd.prefix} &7Megváltoztattad a főüzenetet erre: &e{template.baseMessage}'
+
+  dkmotd.command.joinMessage.secondMessages.help: '${dkmotd.prefix} &cÉrvénytelen második csatlakozási üzenet parancs&8:
+  &7/joinmessage <name> secondMessages add <sor>
+  &7/joinmessage <name> secondMessages remove <index>
+  &7/joinmessage <name> secondMessages set <sor>
+  &7/joinmessage <name> secondMessages clear'
+
+  dkmotd.command.joinMessage.secondMessages.add: '${dkmotd.prefix} &7Hozzáadtál egy második üzenetet'
+  dkmotd.command.joinMessage.secondMessages.set: '${dkmotd.prefix} &7Beállítottál egy második üzenetet'
+  dkmotd.command.joinMessage.secondMessages.remove: '${dkmotd.prefix} &7Törölted a második üzenetet'
+  dkmotd.command.joinMessage.secondMessages.clear: '${dkmotd.prefix} &7Törölted a második üzenet szövegét'
+
+  dkmotd.maintenance.message.timeout: '&e&lweboldal.net&r
+  &e
+  &cEzen a szerveren karbantartás van
+  &3Reason&8: &4&l{maintenance.reason}
+  &e
+  &3Remaining time&8: &e{maintenance.formattedRemaining}
+  &e
+  &aTovábbi információ &eforum.weboldal.net'
+  dkmotd.maintenance.message.permanent: '&e&lexample.net&r
+  &e
+  &cEzen a szerveren karbantartás van
+  &3Reason&8: &4&l{maintenance.reason}
+  &e
+  &aTovábbi információ &eforum.weboldal.net'
+
+  dkmotd.command.tablist.help: '${dkmotd.prefix} &cÉrvénytelen tablist parancs&8:
+  &7/tablist info
+  &7/tablist header <header>
+  &7/tablist footer <footer>
+  &7/tablist labyModServerBanner <imageUrl>'
+  dkmotd.command.tablist.header: '${dkmotd.prefix} &7Beállítottad a tablist fejlécét erre: &e{tablist.header}'
+  dkmotd.command.tablist.footer: '${dkmotd.prefix} &7Beállítottad a tablist lábjegyzetét erre: &e{tablist.footer}'
+  dkmotd.command.tablist.labyModServerBanner: '${dkmotd.prefix} &7Beállítottad a Labymode háttérképét erre: &e{tablist.labyModServerBanner}'

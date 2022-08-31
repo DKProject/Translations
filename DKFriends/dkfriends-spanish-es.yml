@@ -3,7 +3,7 @@ meta:
   module: 'DKFriends'
   language:
     name: 'Spanish'
-    localizedName: 'Spanish'
+    localizedName: 'Español'
     code: 'es'
 messages:
   dkfriends.prefix.friend: '&8» &aDKFriends &8|&f'

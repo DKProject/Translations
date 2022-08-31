@@ -1,0 +1,45 @@
+meta:
+  name: 'DKConnect Türkçe'
+  module: 'DKConnect'
+  language:
+    name: 'Turkish'
+    localizedName: 'Türkçe'
+    code: 'tr'
+messages:
+  dkconnect.prefix: '&8» &eDKConnect &8|&f'
+
+  dkconnect.error.onlyPlayer: '${dkconnect.prefix} &cBu komut sadece oyuncu olarak çalıştırılabilir'
+  dkconnect.error.player.alreadyVerified: '${dkconnect.prefix} &cKendini zaten &e{verification.username} &colarak doğruladın'
+  dkconnect.error.player.openPendingVerification: '${dkconnect.prefix} &7Zaten açık bekleyen bir doğrulamanız var. &7Kişisel doğrulama kodun &e{pendingVerification.code}. &7Doğrulama için sıradaki kodu &ePretronicBota &7 gönderiniz &e!verify {pendingVerification.code}'
+  dkconnect.error.player.notVerified: '${dkconnect.prefix} &cDoğrulanmış değilsin'
+  dkconnect.error.player.notFound: '${dkconnect.prefix} &e{name} &cisimli oyuncu bulunamadı'
+
+  dkconnect.command.verify: '${dkconnect.prefix} &7Kişisel doğrulama kodun &e{pendingVerification.code}. &7Doğrulama için sıradaki kodu &ePretronicBota &7 gönderiniz &e!verify {pendingVerification.code}'
+  dkconnect.command.unverify: '${dkconnect.prefix} &7Doğrulaman kaldırıldı'
+  dkconnect.command.verifyInfo: '${dkconnect.prefix} &e{player.displayName} &7için doğrulama&e
+  @for("verification" in {player.verifications},${dkconnect.command.verifyInfo.loop},"\n")'
+  dkconnect.command.verifyInfo.loop: ' &8- &e{verification.username} &8(&e{verification.userId}&8)'
+
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.name: 'Hatalı kullanım'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.url: 'https://www.paypal.com/pools/c/8aWrUZXUi6'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.author.iconUrl: 'https://i.imgur.com/yqKqqTX.png'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.color: 'RANDOM_BRIGHT'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.description: 'Test açıklaması'
+  dkconnect.voiceadapter.discord.command.verifiy.usage.thumbnail: 'https://i.imgur.com/mvuOqlq.png'
+
+  dkconnect.voiceadapter.discord.command.unverify.completed: 'Minecraft hesabının {verification.player.name} ile olan doğrulamasını kaldırdın'
+  dkconnect.voiceadapter.discord.command.unverify.notVerified: 'Doğrulanmadın'
+  dkconnect.voiceadapter.discord.command.verify.completed: 'Minecraft oyuncusu {verification.player.name} için doğrulamanı tamamladın'
+  dkconnect.voiceadapter.discord.command.verify.noPendingVerification: '{code} için mevcut bir beklenen doğrulama yok'
+  dkconnect.voiceadapter.discord.command.verify.usage: 'Usage: {commandPrefix}verify <kod>'
+
+  dkconnect.voiceadapter.discord.notification.ban.title: 'Yeni {event.snapshot.punishmentType.name}'
+  dkconnect.voiceadapter.discord.notification.ban.fields.banId.name: '{event.snapshot.punishmentType.name} ID'
+  dkconnect.voiceadapter.discord.notification.ban.fields.staff.name: 'Yetkili'
+  dkconnect.voiceadapter.discord.notification.ban.fields.reason.name: 'SEbep'
+  dkconnect.voiceadapter.discord.notification.ban.fields.duration.name: 'Süre'
+
+  dkconnect.voiceadapter.discord.notification.join.body: '{event.player.name} sunucuya katıldı'
+  dkconnect.voiceadapter.discord.notification.leave.body: '{event.player.name} sunucudan ayrıldı'
+
+  dkconnect.chatSync.message: '<{player.name}> {mesaj}'
